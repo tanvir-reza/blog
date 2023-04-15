@@ -1,0 +1,68 @@
+{% extends 'basic.html' %}
+
+{% block body %}
+
+<div class="container">
+    <h5 class="text-center">PEOPLE</h5>
+    <hr>
+     
+    <h1>Advisor</h1>
+
+    <div class="row d-flex">
+        {% for people in advisors %}
+            <div class="col-md-3">
+                <div class="card" style="width: 18rem;">
+                <img class="card-img-top " src="{{people.img.url}}" >
+                <div class="card-body text-center">
+                    <h5 class="card-title ">{{people.name}}</h5>
+                    <p class="card-text">{{people.designation}}</p>
+                    <p class="card-text text-wight-bold">{{people.university}}</p>
+                </div>
+                </div>
+            </div>
+            {% endfor %}
+    </div>
+
+    <h1>Research Assistant</h1>
+
+    <div class="row d-flex">
+        {% for people in research_assistants %}
+            <div class="col-md-3">
+                <div class="card" style="width: 18rem;">
+                <img class="card-img-top " src="{{people.img.url}}" >
+                <div class="card-body text-center">
+                    <h5 class="card-title ">{{people.name}}</h5>
+                    <p class="card-text">{{people.designation}}</p>
+                    <p class="card-text text-wight-bold">{{people.university}}</p>
+                </div>
+                </div>
+            </div>
+            {% endfor %}
+    </div>
+
+    <h1>Research Student</h1>
+
+    <div class="row d-flex">
+        {% for people in research_students %}
+            <div class="col-md-3">
+                <div class="card" style="width: 18rem;">
+                <img class="card-img-top " src="{{people.img.url}}" >
+                <div class="card-body text-center">
+                    <h5 class="card-title ">{{people.name}}</h5>
+                    <p class="card-text">{{people.designation}}</p>
+                    <p class="card-text text-wight-bold">{{people.university}}</p>
+                </div>
+                </div>
+            </div>
+            {% endfor %}
+    </div>
+    
+    
+
+</div>
+
+
+{% endblock body %}
+
+
+
