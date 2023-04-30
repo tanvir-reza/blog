@@ -1,66 +1,170 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-secondary pb-3">
-      <div class="container">
-        <a class="navbar-brand text-white" href="">AI@LAB</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav m-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'index' %}">HOME</a>
-      </li>
-     <li class="nav-item">
-        <a class="nav-link" href ="{% url 'people' %}">PEOPLE</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" >PUBLICATIONS</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link">PROJECTS</a>
-    </li>
+<html>
 
-    <li class="nav-item">
-        <a class="nav-link" >FOCUS AREAS</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" >OPEN POSITIONS</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" >TRAINING PROGRAMS</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link"  style="color: #b0e603">CONTACT</a>
-    </li>     
-      
-    </ul>
+<head>
+  <!-- Site made with Mobirise Website Builder v5.6.13, https://mobirise.com -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- <meta name="generator" content="Mobirise v5.6.13, mobirise.com"> -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image:src" content="">
+  <meta property="og:image" content="">
+  <meta name="twitter:title" content="@MIR Labs">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="images/fab.png" type="image/x-icon">
+  <meta name="description" content="">
+
+
+  <title>@MIR Labs</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Roboto:700,400&subset=cyrillic,latin,greek,vietnamese">
+  <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'mobirise-icons/mobirise-icons.css' %}">
+  <link rel="stylesheet" href="{% static 'mobirise-icons/mobirise-icons-bold.css' %}">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <!--   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+  <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+  <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/owl.css' %}">
+  <link rel="stylesheet" href="{% static 'css/dropdown-menu-style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/mobirise-slider-style.css' %}">
+  <link rel="preload" as="style" href="{% static 'css/mbr-additional.css' %}">
+  <link rel="stylesheet" href="{% static 'css/mbr-additional.css' %}" type="text/css">
+
+
+
+
+</head>
+
+<body>
+
+  <section id="dropdown-menu-2btn-93" data-rv-view="77">
+
+    <nav class="navbar navbar-dropdown navbar-fixed-top">
+
+      <div class="container">
+
+        <div class="navbar-brand">
+          <a href="index.html" class="navbar-logo"><img src="{% static 'images/mirlogo.png' %}" alt="Logo"></a>
         </div>
+
+        <button class="navbar-toggler pull-xs-right hidden-md-up" type="button" data-toggle="collapse"
+          data-target="#exCollapsingNavbar">
+          <div class="hamburger-icon"></div>
+        </button>
+
+        <ul class="nav-dropdown collapse pull-xs-right navbar-toggleable-sm nav navbar-nav" id="exCollapsingNavbar">
+          <li class="nav-item">
+            <a class="nav-link link text-primary" href="{% url 'index' %}">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link link text-primary" href="{% url 'people' %}" aria-expanded="false">PEOPLE</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link link text-primary" href="{% url 'publications' %}">PUBLICATIONS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link link text-primary" href="{% url 'projects' %}">PROJECTS</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link link text-primary" href="{% url 'FocusAreas' %}">FOCUS AREAS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link link text-primary" href="{% url 'OpenPositions' %}">OPEN POSITIONS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link link text-primary" href="{% url 'TrainingProgram' %}">TRAINING PROGRAMS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link link text-primary" href="{% url 'Contact' %}" style="color: #b0e603">CONTACT</a>
+          </li>
+        </ul>
+
       </div>
+
     </nav>
+
+  </section>
 
     {% block body %}
     {% endblock body %}
     
+    <section class="mbr-section mbr-section--relative mbr-section--fixed-size footer_top_sec" id="contacts2-98"
+    data-rv-view="108">
+    
+    <div class="mbr-section__container container">
+      <div class="mbr-contacts mbr-contacts--wysiwyg row" style="padding-top: 45px; padding-bottom: 45px;">
+        <div class="col-sm-6">
+          <figure class="mbr-figure mbr-figure--wysiwyg mbr-figure--full-width mbr-figure--no-bg">
+            <div class="mbr-figure__map mbr-figure__map--short">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3649.900859878803!2d90.42521761405052!3d23.822124184553996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c711d13bbec7%3A0xc47f7c3e8e2263f2!2sAmerican%20International%20University%20-%20Bangladesh%20(AIUB)!5e0!3m2!1sen!2sbd!4v1679504685518!5m2!1sen!2sbd"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </figure>
+        </div>
+        <div class="col-sm-6">
+          <div class="row">
+            <div class="col-sm-5 col-sm-offset-1">
+              <p class="mbr-contacts__text"><strong>VISIT US</strong><br><br>Centre for Advanced Machine
+                Learning and Applications (CAMLAs) <br><strong>Location:</strong><br> 408/1, Kuratoli,
+                Khilkhet <br>Dhaka-1229, Bangladesh <br><br>
+                <strong>CONTACT</strong>
+                <br>Phone: <a href="tel:+1 (514) 343-2124 " class="text-warning">+880 170 011 2233</a>
+                <br>Whatsapp: <a href="tel:+1 (514) 343-7586 " class="text-warning">+880 170 011
+                  2233</a>
+                <br>E-mail: <a href="mailto:joelle.pelletier@umontreal.ca"
+                  class="text-warning">your-mail@gmail.com</a><br><br>
+              </p>
+            </div>
+            <div class="col-sm-6" style="text-align: end;">
+              <p class="mbr-contacts__text"><strong>LINKS</strong></p>
+              <p class="mbr-contacts__text"><strong><br></strong></p>
+              <p class="mbr-contacts__text"><strong><a href="https://www.aiub.edu/" target="_blank"
+                    class="text-warning">AIUB</a></strong></p>
+              <p class="mbr-contacts__text"><strong><a href="https://www.bubt.edu.bd/" target="_blank"
+                    class="text-warning">BUBT</a></strong></p>
+              <p class="mbr-contacts__text"><strong><a href="https://www.cse.bubt.edu.bd/" target="_blank"
+                    class="text-warning">BUBT CSE</a></strong></p>
+    
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+    <footer class="mbr-section mbr-section--relative mbr-section--fixed-size" id="footer1-99" data-rv-view="110"
+    style="background-color: #205896;">
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <div class="mbr-section__container container">
+      <div class="mbr-footer mbr-footer--wysiwyg row" style="padding-top: 36.9px; padding-bottom: 36.9px;">
+        <div class="col-sm-12 footer_btm">
+          <p class="mbr-footer__copyright">Copyright &copy;2023 Laboratory XYZ | All Rights Researved</p>
+          <p>A <a href="https://www.pixelsofttech.com/" target="_blank">PixelST</a> Creation.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script> -->
+  <script src="{% static 'js/smooth-scroll.js' %}"></script>
+  <script src="{% static 'js/jarallax.js' %}"></script>
+  <script src="{% static 'js/owl.js' %}"></script>
+  <script src="{% static 'js/bootstrap-carousel-swipe.js' %}"></script>
+  <script src="{% static 'js/mbr-script.js' %}"></script>
+  <script src="{% static 'js/custom.js' %}"></script>
+  <script src="{% static 'js/dropdown-menu-script.js' %}"></script>
+
+
+
 </body>
+
 </html>
