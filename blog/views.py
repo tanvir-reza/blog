@@ -12,13 +12,6 @@ def index(request):
 
 
 
-# def people(request):
-#     advisor = People.objects.filter(category = "advisor")
-#     ra = People.objects.filter(category = "research_assistant")
-#     rs = People.objects.filter(category = "research_student")
-
-#     context  = {"advisors" : advisor, "research_assistants": ra,"research_students": rs}
-#     return render(request,'people.html',context)
 def people(request):
     return render(request,"people.html")
 def publications(request):
