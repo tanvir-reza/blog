@@ -1,6 +1,9 @@
 from django.db import models
 from ckeditor.fields import RichTextField
-
+from PIL import Image
+from io import BytesIO
+from django.core.files.uploadedfile import InMemoryUploadedFile
+from django.core.files import File
 STATUS = (
     (0,"Draft"),
     (1,"Publish")
@@ -11,6 +14,17 @@ PEOPLE_CHOICES = (
     ('research_student','Research Student'),
 )
 
+def compress(image):
+    im = Image.open(image)
+    # create a BytesIO object
+    im_io = BytesIO() 
+    # save image to BytesIO object
+    im.save(im_io, 'JPEG', quality=50) 
+    # create a django-friendly Files object
+    new_image = File(im_io, name=image.name)
+    return new_image
+
+
 class HomeSlider (models.Model):
     title = models.CharField(max_length=200, blank = True)
     slogan = models.CharField(max_length=200, blank = True)
@@ -20,6 +34,14 @@ class HomeSlider (models.Model):
     created_on = models.DateTimeField(auto_now_add =True)
     status = models.IntegerField(choices=STATUS, default = 1)
 
+       #for compress images
+    def save(self, *args, **kwargs):
+       # call the compress function
+        new_image = compress(self.photo)
+        # set self.image to new_image
+        self.photo = new_image
+        # save
+        super().save(*args, **kwargs)
     def __str__(self):
         return self.title
     
