@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 
 STATUS = (
     (0,"Draft"),
@@ -12,6 +13,8 @@ PEOPLE_CHOICES = (
 
 class HomeSlider (models.Model):
     title = models.CharField(max_length=200, blank = True)
+    slogan = models.CharField(max_length=200, blank = True)
+    Details = RichTextField(blank=True, null=True)
     photo = models.ImageField(upload_to='HomeSlider/', blank = False)
     updated_on = models.DateTimeField(auto_now = True)
     created_on = models.DateTimeField(auto_now_add =True)
