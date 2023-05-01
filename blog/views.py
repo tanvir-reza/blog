@@ -13,7 +13,15 @@ def index(request):
 
 
 def people(request):
-    return render(request,"people.html")
+    info = Blog.objects.first()
+    advisor = People.objects.filter(category = "advisor")
+    ra = People.objects.filter(category = "research_assistant")
+    rs = People.objects.filter(category = "research_student")
+
+    context  = {"advisors" : advisor, "research_assistants": ra,"research_students": rs,"info":info}
+    return render(request,'people.html',context)
+# def people(request):
+#     return render(request,"people.html")
 def publications(request):
     return render(request,"publications.html")
 def projects(request):

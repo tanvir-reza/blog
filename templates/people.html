@@ -32,146 +32,28 @@
                         </div>
                         <div class="people_list">
                             <div class="row">
+                                {% for advisor in advisors %}
                                 <div class="col-md-3">
                                     <div class="single_people">
                                         <div class="single_people_image">
-                                            <img src="assets/images/advisors/DMFM.png" alt="photo">
+                                            <img src="{{advisor.img.url}}" alt="photo">
                                         </div>
                                         <div class="single_people_bio">
                                             <div class="name">
                                                 <a href="">
-                                                    <h3>Dr. Mohammad Firoz Mridha</h3>
+                                                    <h3>{{advisor.name}}</h3>
                                                 </a>
                                             </div>
                                             <div class="designation">
-                                                <p><em>Associate Professor</em></p>
+                                                <p><em>{{advisor.designation}}</em></p>
                                             </div>
                                             <div class="uni">
-                                                <p>American International University Bangladesh</p>
+                                                <p>{{advisor.university}}</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
-                                    <div class="single_people">
-                                        <div class="single_people_image">
-                                            <img src="assets/images/advisors/DMFM.png" alt="photo">
-                                        </div>
-                                        <div class="single_people_bio">
-                                            <div class="name">
-                                                <a href="">
-                                                    <h3>Dr. Mohammad Firoz Mridha</h3>
-                                                </a>
-                                            </div>
-                                            <div class="designation">
-                                                <p><em>Associate Professor</em></p>
-                                            </div>
-                                            <div class="uni">
-                                                <p>American International University Bangladesh</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="single_people">
-                                        <div class="single_people_image">
-                                            <img src="assets/images/advisors/DMFM.png" alt="photo">
-                                        </div>
-                                        <div class="single_people_bio">
-                                            <div class="name">
-                                                <a href="">
-                                                    <h3>Dr. Mohammad Firoz Mridha</h3>
-                                                </a>
-                                            </div>
-                                            <div class="designation">
-                                                <p><em>Associate Professor</em></p>
-                                            </div>
-                                            <div class="uni">
-                                                <p>American International University Bangladesh</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="single_people">
-                                        <div class="single_people_image">
-                                            <img src="assets/images/advisors/DMFM.png" alt="photo">
-                                        </div>
-                                        <div class="single_people_bio">
-                                            <div class="name">
-                                                <a href="">
-                                                    <h3>Dr. Mohammad Firoz Mridha</h3>
-                                                </a>
-                                            </div>
-                                            <div class="designation">
-                                                <p><em>Associate Professor</em></p>
-                                            </div>
-                                            <div class="uni">
-                                                <p>American International University Bangladesh</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="single_people">
-                                        <div class="single_people_image">
-                                            <img src="assets/images/advisors/DMFM.png" alt="photo">
-                                        </div>
-                                        <div class="single_people_bio">
-                                            <div class="name">
-                                                <a href="">
-                                                    <h3>Dr. Mohammad Firoz Mridha</h3>
-                                                </a>
-                                            </div>
-                                            <div class="designation">
-                                                <p><em>Associate Professor</em></p>
-                                            </div>
-                                            <div class="uni">
-                                                <p>American International University Bangladesh</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="single_people">
-                                        <div class="single_people_image">
-                                            <img src="assets/images/advisors/DMFM.png" alt="photo">
-                                        </div>
-                                        <div class="single_people_bio">
-                                            <div class="name">
-                                                <a href="">
-                                                    <h3>Dr. Mohammad Firoz Mridha</h3>
-                                                </a>
-                                            </div>
-                                            <div class="designation">
-                                                <p><em>Associate Professor</em></p>
-                                            </div>
-                                            <div class="uni">
-                                                <p>American International University Bangladesh</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="single_people">
-                                        <div class="single_people_image">
-                                            <img src="assets/images/advisors/DMFM.png" alt="photo">
-                                        </div>
-                                        <div class="single_people_bio">
-                                            <div class="name">
-                                                <a href="">
-                                                    <h3>Dr. Mohammad Firoz Mridha</h3>
-                                                </a>
-                                            </div>
-                                            <div class="designation">
-                                                <p><em>Associate Professor</em></p>
-                                            </div>
-                                            <div class="uni">
-                                                <p>American International University Bangladesh</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                {% endfor %}
                             </div>
                         </div>
                         <div class="rf_title">
@@ -184,139 +66,61 @@
                         </div>
                         <div class="people_list">
                             <div class="row">
+                                {% for assistant in research_assistants %}
                                 <div class="col-md-3">
                                     <div class="single_people">
                                         <div class="single_people_image">
-                                            <img src="assets/images/r_assistants/hadi.jpeg" alt="photo">
+                                            <img src="{{assistant.img.url}}" alt="photo">
                                         </div>
                                         <div class="single_people_bio">
                                             <div class="name">
                                                 <a href="">
-                                                    <h3>Dr. Mohammad Hasi</h3>
+                                                    <h3>{{assistant.name}}</h3>
                                                 </a>
                                             </div>
                                             <div class="designation">
-                                                <p><em>Professor</em></p>
+                                                <p><em>{{assistant.designation}}</em></p>
                                             </div>
                                             <div class="uni">
-                                                <p>American International University Bangladesh</p>
+                                                <p>{{assistant.university}}</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
-                                    <div class="single_people">
-                                        <div class="single_people_image">
-                                            <img src="assets/images/r_assistants/1.jpeg" alt="photo">
-                                        </div>
-                                        <div class="single_people_bio">
-                                            <div class="name">
-                                                <a href="">
-                                                    <h3>Dr. Mohammad Firoz Mridha</h3>
-                                                </a>
-                                            </div>
-                                            <div class="designation">
-                                                <p><em>Assistant Professor</em></p>
-                                            </div>
-                                            <div class="uni">
-                                                <p>American International University Bangladesh</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="single_people">
-                                        <div class="single_people_image">
-                                            <img src="assets/images/r_assistants/2.jpeg" alt="photo">
-                                        </div>
-                                        <div class="single_people_bio">
-                                            <div class="name">
-                                                <a href="">
-                                                    <h3>Dr. Mohammad Firoz Mridha</h3>
-                                                </a>
-                                            </div>
-                                            <div class="designation">
-                                                <p><em>Associate Professor</em></p>
-                                            </div>
-                                            <div class="uni">
-                                                <p>American International University Bangladesh</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
+                                {% endfor %}
                             </div>
                         </div>
                         <div class="rf_title">
                             <div class="message_title">
                                 <div class="committee_title">
                                     <h3>Research <span>Students </span></h3>
-                                    <!-- <img src="{% static 'images/icons/bubt.png' %}" alt=""> -->
                                 </div>
                             </div>
                         </div>
                         <div class="people_list">
                             <div class="row">
+                                {% for student in research_students %}
                                 <div class="col-md-3">
                                     <div class="single_people">
                                         <div class="single_people_image">
-                                            <img src="assets/images/r_students/1.jpeg" alt="photo">
+                                            <img src="{{student.img.url}}" alt="photo">
                                         </div>
                                         <div class="single_people_bio">
                                             <div class="name">
                                                 <a href="">
-                                                    <h3>Michael Billy</h3>
+                                                    <h3>{{student.name}}</h3>
                                                 </a>
                                             </div>
                                             <div class="designation">
-                                                <p><em>BSc in Engg. in CSE</em></p>
+                                                <p><em>{{student.designation}}</em></p>
                                             </div>
                                             <div class="uni">
-                                                <p>American International University Bangladesh</p>
+                                                <p>{{student.university}}</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
-                                    <div class="single_people">
-                                        <div class="single_people_image">
-                                            <img src="assets/images/r_students/Khaled2.jpg" alt="photo">
-                                        </div>
-                                        <div class="single_people_bio">
-                                            <div class="name">
-                                                <a href="">
-                                                    <h3>Md. Khaled Masud</h3>
-                                                </a>
-                                            </div>
-                                            <div class="designation">
-                                                <p><em>BSc Engg. in CSE</em></p>
-                                            </div>
-                                            <div class="uni">
-                                                <p>Bangladesh University of Business and Technology</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="single_people">
-                                        <div class="single_people_image">
-                                            <img src="assets/images/r_students/Noman.png" alt="photo">
-                                        </div>
-                                        <div class="single_people_bio">
-                                            <div class="name">
-                                                <a href="">
-                                                    <h3>Md. Noman Abdullah</h3>
-                                                </a>
-                                            </div>
-                                            <div class="designation">
-                                                <p><em>BSc Engg. in CSE</em></p>
-                                            </div>
-                                            <div class="uni">
-                                                <p>Bangladesh University of Business and Technology</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
