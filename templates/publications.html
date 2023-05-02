@@ -40,61 +40,13 @@
                             </blockquote>
                             <img src="assets/images/authoredbooks.png" alt="">
                             <ol>
-                                <li>Dipti Kapoor Sarmah, Anand Kulkarni and Ajith Abraham, <a
-                                        href="https://www.springer.com/gp/book/9783030420437">Optimization Models in
-                                        Steganography Using
-                                        Metaheuristics</a>, Intelligent Systems Reference Library, Springer Verlag, ISBN
+                                {% for book in Authored_books %}
+                                <li>{{book.author}}, <a
+                                        href="{{book.DOI}}">{{book.Publication_Title}}</a>, Intelligent Systems Reference Library, Springer Verlag, ISBN
                                     978-3-030-42044-4,
-                                    166 p. 2020.</li>
-                                <li>Meera Ramadas and Ajith Abraham, <a
-                                        href="https://www.springer.com/gp/book/9783030040963">Metaheuristics for Data
-                                        Clustering and Image
-                                        Segmentation</a>, Intelligent Systems Reference Library, Springer Verlag, ISBN
-                                    978- 3-030-04096-3,
-                                    163 p. 2018.</li>
-                                <li>Anand Kulkarni, Ganesh Krishnasamy and Ajith Abraham, <a
-                                        href="https://link.springer.com/book/10.1007/978-3-319-44254-9">Cohort
-                                        Intelligence: A Socio-
-                                        inspired Optimization Method</a>, Intelligent Systems Reference Library Series,
-                                    Springer Verlag,
-                                    ISBN 978-3-319-44253-2, 2015, 134 p. 2017.</li>
-                                <li>Kun Ma, Ajith Abraham, Bo Yang, Runyuan Sun, <a
-                                        href="https://www.springer.com/gp/book/9783319301914">Intelligent Web Data
-                                        Management: Software
-                                        architectures and emerging technologies</a>, Studies in Computational
-                                    Intelligence, Springer Verlag,
-                                    ISBN 978-3-319-30191-4, 2016.</li>
-                                <li>Anand Kulkarni, Kai Tang and Ajith Abraham, <a
-                                        href="http://www.springer.com/engineering/computational+intelligence+and+complexity/book/978-3-319-15999-7">Probability
-                                        Collectives: A Distributed Multi-agent System Approach for Optimization</a>,
-                                    Intelligent Systems
-                                    Reference Library Series, Springer Verlag, ISBN 978-3-319-15999-7, 2015, 157 p.
-                                    2015.</li>
-                                <li>Crina Grosan and Ajith Abraham, <a
-                                        href="http://www.springer.com/engineering/mathematical/book/978-3-642-21003-7">Intelligent
-                                        Systems:
-                                        A Modern Approach</a>, Intelligent Systems Reference Library Series, Springer
-                                    Verlag, ISBN
-                                    978-3-642-21003-7, 450 pages, 2011.</li>
-                                <li>Huihui Bai, Anhong Wang, Yao Zhao, Jeng-Shyang Pan and Ajith Abraham, <a
-                                        href="http://www.springer.com/computer/image+processing/book/978-1-4471-2247-0">Distributed
-                                        Multiple
-                                        Description Coding: Principles Algorithms and Systems</a>, Springer Verlag,
-                                    London, ISBN
-                                    978-1-4471-2247-0, 171 p. 108 illus., 2011.</li>
-                                <li>Yuehui Chen and Ajith Abraham, <a
-                                        href="http://www.springer.com/engineering/book/978-3-642-04738-1">Tree-Structure
-                                        based Hybrid
-                                        Computational Intelligence: Theoretical Foundations and Applications</a>,
-                                    Intelligent Systems
-                                    Reference Library Series, Springer Verlag, ISBN: 978-3-642-04738-1, 2009.</li>
-                                <li>Swagatam Das, Ajith Abraham and Amit Konar, <a
-                                        href="http://www.springer.com/engineering/book/978-3-540-92172-1">Metaheuristic
-                                        Clustering</a>, <a
-                                        href="http://www.springer.com/east/home/computer?SGWID=5-146-69-173623546-0">Studies
-                                        in
-                                        Computational Intelligence</a>, Volume 178, Springer Verlag, ISBN:
-                                    978-3-540-92172-1, 2009.</li>
+                                    166 p. 2020.
+                                </li>
+                                {% endfor %}
                             </ol>
                         </article>
 

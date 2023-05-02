@@ -3,6 +3,7 @@ from django.views.generic import ListView
 
 from website.models import Blog
 from users.models import People
+from users.models import Publications
 
 
 def index(request):
@@ -23,7 +24,12 @@ def people(request):
 # def people(request):
 #     return render(request,"people.html")
 def publications(request):
-    return render(request,"publications.html")
+    info = Blog.objects.first()
+    # Authored_books = Publications.objects.get(category = "Authored Books")
+   
+#    "Authored_books":Authored_books
+    context  = {"info":info,}
+    return render(request,'publications.html',context)
 def projects(request):
     return render(request,"projects.html")
 def FocusAreas(request):
