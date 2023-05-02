@@ -45,7 +45,8 @@ data-interval="5000" id="slider-97" data-rv-view="90" style="background-color: r
                         </div>
                     </div>
                 </div> -->
-      <div {% static 'images/1.jpg' %}
+    {% for slider in sliders %}
+      <div
         class="mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--bg-adapted item dark center mbr-section--full-height active"
         style="background-image: url({% static 'images/1.jpg' %});">
         <div class="mbr-box__magnet mbr-box__magnet--center-center mbr-box__magnet--sm-padding">
@@ -70,56 +71,10 @@ data-interval="5000" id="slider-97" data-rv-view="90" style="background-color: r
           </div>
         </div>
       </div>
-      <div
-        class="mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--bg-adapted item dark center mbr-section--full-height"
-        style="background-image: url({% static 'images/2.jpg' %});">
-        <div class="mbr-box__magnet mbr-box__magnet--center-center mbr-box__magnet--sm-padding">
-          <div class="mbr-overlay" style="background-color: rgb(39, 170, 224);"></div>
-          <div class=" container">
+      
+    {% endfor %} 
 
-            <div class="row">
-              <div class=" col-md-8 col-md-offset-2">
-
-                <div class="mbr-hero">
-                  <h1 class="mbr-hero__text">Flourishing Research Collaboration Globally<br><br></h1>
-
-                  <p class="mbr-hero__subttitle">Setting Research Standards</p>
-
-                  <p class="mbr-hero__subtext">We believe that in order to achieve groundbreaking results in the field of artificial intelligence, it is essential to collaborate with researchers from around the world. By fostering an environment of open communication and knowledge-sharing, we can work together to develop innovative solutions to the most pressing challenges facing our society. Our lab is committed to facilitating this kind of global collaboration, and we look forward to making significant contributions to the field of AI in the years to come.</p>
-                </div>
-                <!-- <div class="mbr-buttons btn-inverse mbr-buttons--center"><a
-                                            class="mbr-buttons__btn btn btn-lg btn-danger"
-                                            href="page34.html">Détails</a> </div> -->
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--bg-adapted item dark center mbr-section--full-height"
-         style="background-image: url({% static 'images/3.jpg' %})">
-        <div class="mbr-box__magnet mbr-box__magnet--center-center mbr-box__magnet--sm-padding">
-          <div class="mbr-overlay" style="background-color: rgb(85, 57, 130);"></div>
-          <div class=" container">
-
-            <div class="row">
-              <div class=" col-md-8 col-md-offset-2">
-
-                <div class="mbr-hero">
-                  <h1 class="mbr-hero__text">Solving Real Life Problems<br><br></h1>
-
-                  <p class="mbr-hero__subttitle">Research Excellence by Scientific Networking</p>
-
-                  <p class="mbr-hero__subtext">At our research lab, we are dedicated to tackling real-life problems through the power of cutting-edge technology and innovation. Our mission is to develop advanced machine learning algorithms and artificial intelligence solutions that can help solve some of the most pressing issues facing society today, from healthcare and education to climate change and transportation. By leveraging the latest research and expertise in the field, we strive to create practical, scalable solutions that can make a real difference in people's lives. Whether you are a researcher, developer, or industry professional, we invite you to join us in our quest to solve real-life problems and drive the future of AI forward.</p>
-                </div>
-                <!-- <div class="mbr-buttons btn-inverse mbr-buttons--center"><a
-                                            class="mbr-buttons__btn btn btn-lg btn-danger"
-                                            href="page34.html">Details</a> </div> -->
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  
       <!-- <div class="mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--bg-adapted item dark center mbr-section--full-height"
                     style="background-image: url({% static 'images/mbr-1920x1280.jpg);">
                     <div class="mbr-box__magnet mbr-box__magnet--center-center mbr-box__magnet--sm-padding">
