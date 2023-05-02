@@ -144,7 +144,7 @@ class Publications(models.Model):
     Publication_Title = models.CharField(max_length=200, blank = False, default="")
     Author = models.ManyToManyField(People, default="")
     abstract =  RichTextField(blank=True, null=True , default = "")
-    category = models.ForeignKey(PublicationCategory, verbose_name=("Publication Type"), on_delete=models.CASCADE , default="",related_name="PublicationCategory")
+    category = models.ForeignKey(PublicationCategory, verbose_name=("PublicationCategory"), on_delete=models.CASCADE , default="")
     DOI = models.CharField(max_length=200, blank = False, default="")
     status = models.IntegerField(choices=STATUS, default = 1)
     total_views = models.IntegerField(default=0)
@@ -157,8 +157,8 @@ class Publications(models.Model):
 
     def __str__(self):
         return self.Publication_Title
-    def get_absolute_url(self):
-        return reverse('CapstoneProject:capstoneProject_detail', args=[self.slug])
+    # def get_absolute_url(self):
+    #     return reverse('CapstoneProject:capstoneProject_detail', args=[self.slug])
 
 # class ProjectCategory(models.Model):
 #     ProjectType = models.CharField(max_length= 20, blank = True , default="")
