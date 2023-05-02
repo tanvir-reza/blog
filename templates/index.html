@@ -47,21 +47,19 @@ data-interval="5000" id="slider-97" data-rv-view="90" style="background-color: r
                 </div> -->
     {% for slider in sliders %}
       <div
-        class="mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--bg-adapted item dark center mbr-section--full-height active"
-        style="background-image: url({% static 'images/1.jpg' %});">
+        class="mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--bg-adapted item dark center mbr-section--full-height {% if forloop.first %}active{% endif %} "
+        style="background-image: url({{slider.photo.url}});">
         <div class="mbr-box__magnet mbr-box__magnet--center-center mbr-box__magnet--sm-padding">
           <div class="mbr-overlay" style="opacity: 0.2; background-color: rgb(184, 49, 47);"></div>
           <div class=" container">
-
             <div class="row">
               <div class=" col-md-8 col-md-offset-2">
 
                 <div class="mbr-hero">
-                  <h1 class="mbr-hero__text">Innovating Artificial Intelligence Research<br><br></h1>
+                  <h1 class="mbr-hero__text">{{slider.title}}<br><br></h1>
+                  <p class="mbr-hero__subttitle">{{slider.slogan}}</p>
 
-                  <p class="mbr-hero__subttitle">Internet of Things - Cyber Physical Systems</p>
-
-                  <p class="mbr-hero__subtext">The field of artificial intelligence is constantly evolving, and with each advancement comes new opportunities for innovation. By innovating artificial intelligence research, we can push the boundaries of what's possible and make breakthroughs that have the potential to transform society. Our lab is dedicated to exploring the latest developments in machine intelligence, developing new techniques and algorithms, and working to apply these innovations to real-world problems. Through our work, we hope to not only advance the state of the art in AI research but also make a meaningful impact on the world around us.</p>
+                  <p class="mbr-hero__subtext">{{slider.Details}}</p>
                 </div>
                 <!-- <div class="mbr-buttons btn-inverse mbr-buttons--center">
                                         <a class="mbr-buttons__btn btn btn-lg btn-danger" href="page34.html">Details</a> 
