@@ -3,6 +3,13 @@ from django.urls import path
 from django.conf import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns, static
 from . import views
+from rest_framework import routers
+
+from website import restApiViews
+router = routers.DefaultRouter()
+router.register(r'pepolas', restApiViews.PeopleViewSet)
+router.register(r'designations', restApiViews.PeopleDesignationViewSet)
+router.register(r'researchtopic', restApiViews.Research_TopicViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
