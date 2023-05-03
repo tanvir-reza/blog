@@ -144,21 +144,20 @@ class ResearchTopic(models.Model):
         verbose_name_plural = 'Research Topics'
 
     def __str__(self):
-        
         return self.research_topic
 
 class People(models.Model):
-    fullName = models.CharField(max_length=200, blank = False, verbose_name = ("Full Name"))
-    banglaName = models.CharField(max_length=200, blank = True)
-    designation = models.ForeignKey(Designation, on_delete= models.CASCADE, verbose_name ="Designation", blank = False) 
-    LoginUser = models.ForeignKey(User, on_delete= models.CASCADE, verbose_name = ("Select your E-mail"))
+    FullName = models.CharField(max_length=200, blank = False, verbose_name = ("Full Name"), null=True)
+    BanglaName = models.CharField(max_length=200, blank = True)
+    designation = models.ForeignKey(Designation, on_delete= models.CASCADE, verbose_name ="Designation", blank = False , null=True)  
+    LoginUser = models.ForeignKey(User, on_delete= models.CASCADE, verbose_name = ("Select your E-mail"),null=True )
     university = models.TextField(max_length=300,null=True,blank=True)
     category = models.CharField(max_length=30,choices=PEOPLE_CHOICES,default="research_student")
     img = models.FileField(upload_to="people/")
     email= models.CharField(max_length=200, blank = True)
     office_Phone = models.CharField(max_length=200, blank = True)
     teachingArea = models.CharField(max_length=200, blank = True, verbose_name = ("Teaching Area"))
-    research_Topic = models.ManyToManyField(ResearchTopic, blank=True, null=True)
+    research_Topic = models.ManyToManyField(ResearchTopic, blank=True, null=True , default="")
     google_ScholarLink = models.CharField(max_length=200, blank = True)
     research_Gate_Link = models.CharField(max_length=200, blank = True)
     website = models.CharField(max_length=200, blank = True)
@@ -179,13 +178,14 @@ class People(models.Model):
     conference_Papers = RichTextField(blank=True, null=True)
     professional_membership= RichTextField(blank=True, null=True)
     professional_international_work = RichTextField(blank=True, null=True)
-    f_photo = models.ImageField(upload_to='PeopleImagesGallary/', blank = True, verbose_name = ("FacultyPhotoGalary"))
+    # f_photo = models.ImageField(upload_to='PeopleImagesGallary/', blank = True, verbose_name = ("FacultyPhotoGalary"))
     status = models.IntegerField(choices=STATUS, default = 1)
     total_views=models.IntegerField(default=0)
 
 
     def __str__(self):
-        return self.fullName
+        return self.FullName
+    
     
     class Meta:
          verbose_name = "People"

@@ -29,12 +29,18 @@ def people(request):
 #     return render(request,"people.html")
 def publications(request):
     info = Blog.objects.first()
-    Authored_books = Publications.objects.filter(category__PublicationType = 'Authored Books')[:10] 
+    Authored_books = Publications.objects.filter(category__PublicationType = 'Authored Books')
     #when you want to show data from another table you have to use first tablecoloumn then __ then second table coloumn ex here we want to show data from publication table and publicationcategory table so we have to use category__PublicationType
     #[0:10] this will show only 10 data from the query set
     #print(Authored_books) #this will print the query set
-    
-    context  = {"info":info,"Authored_books":Authored_books}
+    Edited_Volumes = Publications.objects.filter(category__PublicationType = 'Edited Volumes')
+    Journal_Papers = Publications.objects.filter(category__PublicationType = 'Journal Papers')
+    Book_Chapters = Publications.objects.filter(category__PublicationType = 'Book Chapters')
+    Conference_Proceedings = Publications.objects.filter(category__PublicationType = 'Conference Proceedings')
+    Conference_Papers = Publications.objects.filter(category__PublicationType = 'Conference Papers')
+
+    context = {"info":info,"Authored_books":Authored_books,"Edited_Volumes":Edited_Volumes,"Journal_Papers":Journal_Papers,"Book_Chapters":Book_Chapters,"Conference_Proceedings":Conference_Proceedings,"Conference_Papers":Conference_Papers}
+
     return render(request,'publications.html',context)
 def projects(request):
     return render(request,"projects.html")
