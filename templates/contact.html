@@ -5,7 +5,7 @@
 {% block body %}
     <section class="mbr-section mbr-section--relative mbr-section--fixed-size mbr-parallax-background mbr-after-navbar"
         id="content5-94" data-rv-view="79"
-        style="background-image: url(assets/images/csm-galerie-campusmil-005-7a9a2f188c-1920x1280.jpg);">
+        style="background-image: url(assets/images/4.jpg);">
         <div class="mbr-section__container container mbr-section__container--isolated">
             <div class="mbr-header mbr-header--wysiwyg row">
                 <div class="col-sm-8 col-sm-offset-2">
@@ -17,5 +17,133 @@
     </section>
 
 
+{% comment %} <h1>Contact Us</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="form-actions">
+      <button type="submit">Send</button>
+    </div>
+</form> {% endcomment %}
 
-    {% endblock %}
+
+<section id="page-content" class="page-wrapper">
+    <div class="contact-wrapper">
+        <div class="contact_area ptb-80">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="form_area">
+                            <div class="form_title">
+                                <h1 class="pb-40">Get in Touch</h1>
+                                <p>You can contact us any way that is convenient for you. We are available 24/7 via fax or email. You can also use a quick contact form below or visit our office personally. We would be happy to answer your questions.</p>
+                            </div>
+                            <form action="">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form_wrap pb-30">
+                                            <label for="fname">First name:</label><br>
+                                            <input type="text" id="fname" name="fname" placeholder="Provide First Name">
+                                        </div>
+                                        <div class="form_wrap pb-30">
+                                            <label for="lname">E-mail:</label><br>
+                                            <input type="text" id="lname" name="fname" placeholder="Provide Email Here...">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form_wrap pb-30">
+                                            <label for="lname">Last name:</label><br>
+                                            <input type="text" id="lname" name="lname" placeholder="Provide Last Name">
+                                        </div>
+                                        <div class="form_wrap pb-30">
+                                            <label for="lname">Phone:</label><br>
+                                            <input type="text" id="lname" name="lname" placeholder="Provide Phone Number...">
+                                        </div>
+                                    </div>
+                                    <div class="form_wrap pb-20">
+                                        <label for="message">Message:</label><br>
+                                        <textarea id="message" name="message" rows="8" cols="0" placeholder="Type Your Message Here..."></textarea>
+                                    </div>
+                                    <div class="form_button">
+                                        <button type="submit">Send Message</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="contact_info">
+                                    <div class="info_wrap">
+                                        <h4>Social</h4>
+                                        <div class="info_details social">
+                                            <div class=" cart_design">
+                                                <a href="https://www.linkedin.com/company/31500180"><i class="fa fa-linkedin"></i></a>
+                                                <a href="https://twitter.com/BubtOfficial"><i class="fa fa-twitter"></i></a>
+                                                <a href="https://www.facebook.com/BUBTOfficial/"><i class="fa fa-facebook"></i></a>
+                                                <a href="https://plus.google.com/u/0/115227753775219314742"><i class="fa fa-google-plus"></i></a>
+                                                <a href="https://www.youtube.com/channel/UCRy_y_ExPHhDbAh8Ouo4LDA"><i class="fa fa-youtube"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="info_wrap">
+                                        <h4>Phones</h4>
+                                        <div class="info_details">
+                                            <div class="info_cart ">
+                                                <i class="fa fa-phone"></i>
+                                                <a href="tel:+00123456789"><P>1-800-1234-567</P></a>
+                                            </div>
+                                            <div class="info_cart ">
+                                                <i class="fa fa-phone"></i>
+                                                <a href="tel:+00123456789"><P>1-800-1234-567</P></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="info_wrap">
+                                        <h4>E-mail</h4>
+                                        <div class="info_details">
+                                            <div class="info_cart ">
+                                                <i class="fa fa-envelope"></i>
+                                                <a href="mailto:info@bubt.edu.bd"><P>info@bubt.edu.bd</P></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="info_wrap">
+                                        <h4>Address</h4>
+                                        <div class="info_details">
+                                            <div class="info_cart ">
+                                                <i class="fa fa-map-marker"></i>
+                                                <P>Rupnagar, Mirpur-2, Dhaka-1216, Bangladesh</P>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="info_wrap">
+                                        <h4>Opening Hours</h4>
+                                        <div class="info_details info_cart c_schedule">
+                                            <i class="fa fa-calendar"></i>
+                                            <div class="schedule">
+                                                <P>Sun-Fri: 8:00am-8:00pm</P>
+                                                <P>Sun: 8:00am-3:00pm</P>
+                                                <P>Sat: Closed</P>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="map_area">
+        <div id="googleMap" style="width:100%;height:400px;"></div>
+
+    </div>
+</section>
+
+{% endblock %}
+
+
+

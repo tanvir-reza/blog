@@ -27,6 +27,16 @@ def people(request):
     return render(request,'people.html',context)
 # def people(request):
 #     return render(request,"people.html")
+
+def peopleDetailsView(request, post_id):
+    
+    post = People.objects.get(pk=post_id)
+    
+    post.total_views = post.total_views+1
+    post.save()        
+   
+    return render(request, 'People_details.html', {'post' : post})
+
 def publications(request):
     info = Blog.objects.first()
     Authored_books = Publications.objects.filter(category__PublicationType = 'Authored Books')[:10] 
