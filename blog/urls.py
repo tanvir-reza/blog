@@ -15,7 +15,7 @@ urlpatterns = [
     path('Training-Program', views.TrainingProgram, name="TrainingProgram"),
     path('Contact', views.Contact, name="Contact"),
     # path('people/',views.people,name="people"),
-
+    path('peopleDetailsView/<post_id>/', views.peopleDetailsView, name='peopleDetailsView'),
 ]
 
 
