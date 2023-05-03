@@ -5,6 +5,7 @@ from website.models import Blog
 from users.models import People
 from users.models import HomeSlider
 from users.models import Publications
+from users.models import Project
 
 
 def index(request):
@@ -43,7 +44,10 @@ def publications(request):
 
     return render(request,'publications.html',context)
 def projects(request):
-    return render(request,"projects.html")
+    info  = Blog.objects.first()
+    projects = Project.objects.all()
+    context = {"info":info,"projects":projects}
+    return render(request,"projects.html",context)
 def FocusAreas(request):
     return render(request,"focus.html")
 def OpenPositions(request):
