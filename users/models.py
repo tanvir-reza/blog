@@ -115,6 +115,23 @@ class HomeSlider (models.Model):
             
 #     def __str__(self):
 #         return self.title  
+class Designation(models.Model):
+    title = models.CharField(max_length=250, unique=True, default="")
+    dsgOrder = models.CharField(max_length=3, blank=False, default="", unique=True)
+    slug = models.SlugField(default="", unique=True)
+
+
+    class Meta:
+        ordering = ["-dsgOrder"]
+        verbose_name = 'Faculty designation'
+        verbose_name_plural = 'Faculty designations'
+
+    def __str__(self):
+        return self.title
+
+    # def get_absoulte_url(self):
+    #     return reverse('desginations:list_by_desginations', args=[self.slug])
+    
 class ResearchTopic(models.Model):
     research_topic = models.CharField(max_length=100)
     slug = models.CharField(max_length=250)
@@ -133,7 +150,7 @@ class ResearchTopic(models.Model):
 class People(models.Model):
     fullName = models.CharField(max_length=200, blank = False, verbose_name = ("Full Name"))
     banglaName = models.CharField(max_length=200, blank = True)
-    designation = models.TextField(max_length=100,null=True,blank=True) 
+    designation = models.ForeignKey(Designation, on_delete= models.CASCADE, verbose_name ="Designation", blank = False) 
     LoginUser = models.ForeignKey(User, on_delete= models.CASCADE, verbose_name = ("Select your E-mail"))
     university = models.TextField(max_length=300,null=True,blank=True)
     category = models.CharField(max_length=30,choices=PEOPLE_CHOICES,default="research_student")
