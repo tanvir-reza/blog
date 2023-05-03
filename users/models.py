@@ -1,5 +1,6 @@
 from django.db import models
 from ckeditor.fields import RichTextField
+from django.contrib.auth.models import User
 from PIL import Image
 from io import BytesIO
 import uuid
@@ -114,19 +115,60 @@ class HomeSlider (models.Model):
             
 #     def __str__(self):
 #         return self.title  
+class ResearchTopic(models.Model):
+    research_topic = models.CharField(max_length=100)
+    slug = models.CharField(max_length=250)
+    updated_on = models.DateTimeField(auto_now = True)
+    created_on = models.DateTimeField(auto_now_add =True)
+    status = models.IntegerField(choices=STATUS, default = 1)
+    total_views=models.IntegerField(default=0)
 
+    class Meta:
+        verbose_name_plural = 'Research Topics'
+
+    def __str__(self):
+        
+        return self.research_topic
 
 class People(models.Model):
-    name = models.TextField(max_length=40,null=True,blank=True)
-    designation = models.TextField(max_length=100,null=True,blank=True)
+    fullName = models.CharField(max_length=200, blank = False, verbose_name = ("Full Name"))
+    banglaName = models.CharField(max_length=200, blank = True)
+    designation = models.TextField(max_length=100,null=True,blank=True) 
+    LoginUser = models.ForeignKey(User, on_delete= models.CASCADE, verbose_name = ("Select your E-mail"))
     university = models.TextField(max_length=300,null=True,blank=True)
     category = models.CharField(max_length=30,choices=PEOPLE_CHOICES,default="research_student")
     img = models.FileField(upload_to="people/")
+    email= models.CharField(max_length=200, blank = True)
+    office_Phone = models.CharField(max_length=200, blank = True)
+    teachingArea = models.CharField(max_length=200, blank = True, verbose_name = ("Teaching Area"))
+    research_Topic = models.ManyToManyField(ResearchTopic, blank=True, null=True)
+    google_ScholarLink = models.CharField(max_length=200, blank = True)
+    research_Gate_Link = models.CharField(max_length=200, blank = True)
+    website = models.CharField(max_length=200, blank = True)
+    other_Contact = models.CharField(max_length=200, blank = True)
+    office_RoomNo = models.CharField(max_length=20, blank = True)
+    officeBuilding = models.CharField(max_length=30, blank = True)
+    academic_Background = RichTextField(blank=True, null=True)
+    biography = RichTextField(blank=True, null=True)
+    leav_status = models.CharField(max_length=200, blank = True, verbose_name = ("Leave status(any if)"))
+    teachingExprience = RichTextField(blank=True, null=True)
+    Professional_Certifications = RichTextField(blank=True, null=True)
+    researchArea = RichTextField(blank=True, null=True)
+    research_Interest =  RichTextField(blank=True, null=True)
+    selected_Publications = RichTextField(blank=True, null=True, verbose_name ="Book_Chapter")
+    award = RichTextField(blank=True, null=True)
+    researchGrant  = RichTextField(blank=True, null=True)
+    journal_Papers = RichTextField(blank=True, null=True)
+    conference_Papers = RichTextField(blank=True, null=True)
+    professional_membership= RichTextField(blank=True, null=True)
+    professional_international_work = RichTextField(blank=True, null=True)
+    f_photo = models.ImageField(upload_to='PeopleImagesGallary/', blank = True, verbose_name = ("FacultyPhotoGalary"))
     status = models.IntegerField(choices=STATUS, default = 1)
+    total_views=models.IntegerField(default=0)
 
 
     def __str__(self):
-        return self.name
+        return self.fullName
     
     class Meta:
          verbose_name = "People"
