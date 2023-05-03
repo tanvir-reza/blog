@@ -144,13 +144,14 @@ class ResearchTopic(models.Model):
         verbose_name_plural = 'Research Topics'
 
     def __str__(self):
-        
         return self.research_topic
 
 class People(models.Model):
-    fullName = models.CharField(max_length=200, blank = False, verbose_name = ("Full Name"))
-    designation = models.ForeignKey(Designation, on_delete= models.CASCADE, verbose_name ="Designation", blank = False) 
-    LoginUser = models.ForeignKey(User, on_delete= models.CASCADE, verbose_name = ("Select your E-mail"))
+
+    FullName = models.CharField(max_length=200, blank = False, verbose_name = ("Full Name"), null=True)
+    BanglaName = models.CharField(max_length=200, blank = True)
+    designation = models.ForeignKey(Designation, on_delete= models.CASCADE, verbose_name ="Designation", blank = False , null=True)  
+    LoginUser = models.ForeignKey(User, on_delete= models.CASCADE, verbose_name = ("Select your E-mail"),null=True )
     university = models.TextField(max_length=300,null=True,blank=True)
     category = models.CharField(max_length=30,choices=PEOPLE_CHOICES,default="research_student")
     img = models.FileField(upload_to="people/")
@@ -195,7 +196,7 @@ class People(models.Model):
 
     # def geget_absoulte_url(self):
     #     return reverse('faculty:list_faculty', args=[self.id])
-    
+  
 class PublicationCategory(models.Model):
     PublicationType = models.CharField(max_length= 20, blank = True , default="")
     class Meta:
@@ -225,32 +226,32 @@ class Publications(models.Model):
     # def get_absolute_url(self):
     #     return reverse('CapstoneProject:capstoneProject_detail', args=[self.slug])
 
-# class ProjectCategory(models.Model):
-#     ProjectType = models.CharField(max_length= 20, blank = True , default="")
-#     class Meta:
-#         verbose_name = ("Projcet Type")
-#         verbose_name_plural = ("Projcet Types")
+class ProjectCategory(models.Model):
+    ProjectType = models.CharField(max_length= 20, blank = True , default="")
+    class Meta:
+        verbose_name = ("Projcet Type")
+        verbose_name_plural = ("Projcet Types")
           
-#     def __str__(self):
-#         return self.status
+    def __str__(self):
+        return self.ProjectType
     
 
-# class Project(models.Model):
+class Project(models.Model):
     
-#     project_Title = models.CharField(max_length=200, blank = False, default="")
-#     Author = models.ManyToManyField(People, default="")
-#     abstract =  RichTextField(blank=True, null=True , default = "")
-#     ProjectCategory = models.ForeignKey(ProjectCategory, verbose_name=("Projcet Type"), on_delete=models.CASCADE , default="")
-#     Github_Link = models.CharField(max_length=200, blank = False, default="")
-#     Funding_agency= models.CharField(max_length=200, blank = False, default="")
-#     Funding_period = models.CharField(max_length=200, blank = False, default="")
-#     status = models.IntegerField(choices=STATUS, default = 1)
-#     total_views = models.IntegerField(default=0)
+    project_Title = models.CharField(max_length=200, blank = False, default="")
+    Author = models.ManyToManyField(People, default="")
+    abstract =  RichTextField(blank=True, null=True , default = "")
+    ProjectCategory = models.ForeignKey(ProjectCategory, verbose_name=("Projcet Type"), on_delete=models.CASCADE , default="")
+    Github_Link = models.CharField(max_length=200, blank = False, default="")
+    Funding_agency= models.CharField(max_length=200, blank = False, default="")
+    Funding_period = models.CharField(max_length=200, blank = False, default="")
+    status = models.IntegerField(choices=STATUS, default = 1)
+    total_views = models.IntegerField(default=0)
       
 
-#     class Meta:
-#         verbose_name = ("Project")
-#         verbose_name_plural = ("Project")
+    class Meta:
+        verbose_name = ("Project")
+        verbose_name_plural = ("Project")
 
 
 #     def __str__(self):

@@ -6,7 +6,7 @@
 
     <section class="mbr-section mbr-section--relative mbr-section--fixed-size mbr-parallax-background mbr-after-navbar"
         id="content5-94" data-rv-view="79"
-        style="background-image: url(assets/images/csm-galerie-campusmil-005-7a9a2f188c-1920x1280.jpg);">
+        style="background-image: url({% static '/images/4.jpg' %});">
         <div class="mbr-section__container container mbr-section__container--isolated">
             <div class="mbr-header mbr-header--wysiwyg row">
                 <div class="col-sm-8 col-sm-offset-2">
@@ -31,206 +31,18 @@
                                     </p>
                                     <hr color="#69c1ff">
                                     <ul>
+                                        {% for project in projects %}
                                         <li>
                                             <ul>
-                                                <li><b>Funding agency:</b> Generalitat de Catalunya, Spain</li>
-                                                <li>Topic: Evolving Artificial Intelligence Paradigms on Computational
-                                                    Grid for Knowledge Mining
-                                                </li>
-                                                <li>Funding period: January - December 2008</li>
+                                                <li><b>Funding agency:</b> {{project.Funding_agency}}</li>
+                                                <li>Topic: <a href="{{project.Github_Link}}" target=blank>{{project.project_Title}}</a></li>
+                                                <li>Funding period: {{project.Funding_period}}</li>
+                                                <li>Github: {{project.created}}</li>
 
                                             </ul>
                                         </li>
                                         <br>
-                                        <li>
-                                            <ul>
-                                                <li><b>Funding agency:</b> Ministry of Education, Spain</li>
-                                                <li>Topic: Evolutionary Neural Network Optimization</li>
-                                                <li>Funding period: 2005-2006</li>
-                                            </ul>
-                                        </li>
-                                        <br>
-                                        <li>
-                                            <ul>
-                                                <li><b>Funding agency:</b> Presidential Challenge Grant, Oklahoma State
-                                                    University</li>
-                                                <li>Topic: Web Based Distributed Data Mining Using Hybrid Intelligent
-                                                    Systems</li>
-                                                <li>Funding period: 2003 - 2005</li>
-                                            </ul>
-                                        </li>
-                                        <br>
-                                        <li>
-                                            <ul>
-                                                <li><b>Funding agency:</b>State of Oklahoma, USA Topic: Startup fund as
-                                                    Domain Leader</li>
-                                                <li>Topic: Evolving Artificial Intelligence Paradigms on Computational
-                                                    Grid for Knowledge Mining
-                                                </li>
-                                                <li>Funding period: January - December 2004</li>
-                                            </ul>
-                                        </li>
-                                        <br>
-                                        <li>
-                                            <ul>
-                                                <li><b>Funding agency:</b> Malaysian Government Grant, Higher Learning
-                                                    Ministry, Malaysia</li>
-                                                <li>Topic: Tree structural based method for feature selection</li>
-
-                                                <li>Funding period: 2010 - 2012</li>
-
-                                            </ul>
-                                        </li>
-                                        <br>
-                                        <li>
-                                            <ul>
-                                                <li><b>Funding agency:</b> National Science Foundation of China (NSFC),
-                                                    Grant number: 60873054
-                                                </li>
-                                                <li>Topic: Research on Hidden Chinese Cognition Model Based on Swarm
-                                                    Intelligence</li>
-
-                                                <li>Funding period: 2009 - 2011</li>
-
-                                            </ul>
-                                        </li>
-                                        <br>
-                                        <li>
-                                            <ul>
-                                                <li><b>Funding agency:</b> MOSTI Science Fund, Malaysia</li>
-                                                <li>Topic: Development of An Integrated Adaptive Web Caching and
-                                                    Prefetching</li>
-
-                                                <li>Funding period: 2008 - 2010</li>
-
-                                            </ul>
-                                        </li>
-                                        <br>
-                                        <li>
-                                            <ul>
-                                                <li><b>Funding agency:</b> Government of Malaysia</li>
-                                                <li>Topic: A Novel Swarm Optimized Rough Apriori Model for Mining
-                                                    Significant Resistant Single
-                                                    Nucleotide Polymorphism Subset in Obesity Gene Variants Diagnosis
-                                                </li>
-
-                                                <li>Funding period: 2013 - 2014</li>
-
-                                            </ul>
-                                        </li>
-                                        <br>
-                                        <li>
-                                            <ul>
-                                                <li><b>Funding agency:</b> Government of Malaysia</li>
-                                                <li>Topic: The Augmented Social Network Benchmark for Web Pre-caching on
-                                                    Solving Trust, Accuracy
-                                                    and Expectation Problems</li>
-
-                                                <li>Funding period: 2012 - 2014</li>
-
-                                            </ul>
-                                        </li>
-                                        <br>
-                                        <li>
-                                            <ul>
-                                                <li><b>Funding agency:</b> European Social Fund and Czech Republic State
-                                                    Funds</li>
-                                                <li>Topic: BIO-inspired Methods: research, education and knowledge
-                                                    transfer</li>
-
-                                                <li>Funding period: 2011 - 2014</li>
-
-                                            </ul>
-                                        </li>
-                                        <br>
-                                        <li>
-                                            <ul>
-                                                <li><b>Funding agency:</b> European Social Fund and Czech Republic State
-                                                    Funds</li>
-                                                <li>Topic: IT4Innovations, Center of Excellence</li>
-
-                                                <li>Funding period: 2011 - 2015</li>
-
-                                            </ul>
-                                        </li>
-                                        <br>
-                                        <li>
-                                            <ul>
-                                                <li><b>Funding agency:</b> The International Centre for Genetic
-                                                    Engineering and Biotechnology,
-                                                    Italy</li>
-                                                <li>Topic: A New 3D Descriptor of Synthetic Drug Molecular Structure for
-                                                    Drug Analysis</li>
-
-                                                <li>Funding period: 2014 - 2015</li>
-
-                                            </ul>
-                                        </li>
-                                        <br>
-                                        <li>
-                                            <ul>
-                                                <li><b>Funding agency:</b> European Commission, FP7-PEOPLE-2012-ITN
-                                                    Programme</li>
-                                                <li>Topic: Development of in-silico process models for roll compaction
-                                                </li>
-
-                                                <li>Funding period: 2013 - 2016</li>
-
-                                            </ul>
-                                        </li>
-                                        <br>
-                                        <li>
-                                            <ul>
-                                                <li><b>Funding agency:</b> European Commission, Horizon 2020</li>
-                                                <li>Topic: Regeneration and Optimisation of Cultural Heritage in
-                                                    Creative and Knowledge Cities
-                                                    (ROCK)</li>
-
-                                                <li>Funding period: 2017 - 2020</li>
-
-                                            </ul>
-                                        </li>
-                                        <br>
-                                        <li>
-                                            <ul>
-                                                <li><b>Funding agency:</b> Government of Malaysia</li>
-                                                <li>Topic : Hybrid Blind Deconvolution and DeepOrganNet Techniques for
-                                                    Reconstructing 3D
-                                                    Molecular Structure of Genuine and Falsified Medicine Microscopic
-                                                    Images</li>
-
-                                                <li>Funding period: 2021 - 2023</li>
-
-                                            </ul>
-                                        </li>
-                                        <br>
-                                        <li>
-                                            <ul>
-                                                <li><b>Funding agency:</b> Permodalan Nasional Berhad, Government of
-                                                    Malaysia</li>
-                                                <li>Project: Yayasan Tun Ismail Professorial Chair Programme (YTIPCP)
-                                                </li>
-                                                <li>Topic:An Intelligent Portfolio Management System for Strategic
-                                                    Planning and Investment Deci-
-                                                    sion Making using Artificial Intelligence</li>
-                                                <li>Funding period: 2021 - 2023</li>
-
-                                            </ul>
-                                        </li>
-                                        <br>
-                                        <li>
-                                            <ul>
-                                                <li><b>Funding agency:</b> The Analytical Center for the Government of
-                                                    the Russian Federation
-                                                </li>
-                                                <li>Project: Center for Artificial Intelligence, Innopolis University,
-                                                    Innopolis, Russia</li>
-
-                                                <li>Funding period: 2021 - 2024</li>
-
-                                            </ul>
-                                        </li>
-                                        <br>
+                                        {% endfor %}
                                     </ul>
                                     <p></p>
                                 </div>

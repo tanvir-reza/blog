@@ -6,7 +6,7 @@
 
     <section class="mbr-section mbr-section--relative mbr-section--fixed-size mbr-parallax-background mbr-after-navbar"
         id="content5-94" data-rv-view="79"
-        style="background-image: url(assets/images/csm-galerie-campusmil-005-7a9a2f188c-1920x1280.jpg);">
+        style="background-image: url({% static '/images/4.jpg' %});">
         <div class="mbr-section__container container mbr-section__container--isolated">
             <div class="mbr-header mbr-header--wysiwyg row">
                 <div class="col-sm-8 col-sm-offset-2">
@@ -36,12 +36,15 @@
                                 <div class="col-md-3">
                                     <div class="single_people">
                                         <div class="single_people_image">
+                                            {% if advisor.img %}
                                             <img src="{{advisor.img.url}}" alt="photo">
+                                            {% endif %}
+                                            
                                         </div>
                                         <div class="single_people_bio">
                                             <div class="name">
                                                 <a href="">
-                                                    <h3>{{advisor.name}}</h3>
+                                                    <h3>{{advisor.FullName}}</h3>
                                                 </a>
                                             </div>
                                             <div class="designation">
@@ -75,7 +78,7 @@
                                         <div class="single_people_bio">
                                             <div class="name">
                                                 <a href="">
-                                                    <h3>{{assistant.name}}</h3>
+                                                    <h3>{{assistant.FullName}}</h3>
                                                 </a>
                                             </div>
                                             <div class="designation">
@@ -108,7 +111,7 @@
                                         <div class="single_people_bio">
                                             <div class="name">
                                                 <a href="">
-                                                    <h3>{{student.name}}</h3>
+                                                    <h3>{{student.FullName}}</h3>
                                                 </a>
                                             </div>
                                             <div class="designation">
