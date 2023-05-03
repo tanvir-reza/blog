@@ -16,8 +16,6 @@ def index(request):
     context = {"info":info,"sliders":sliders}
     return render(request,"index.html",context)
 
-
-
 def people(request):
     info = Blog.objects.first()
     advisor = People.objects.filter(category = "advisor")

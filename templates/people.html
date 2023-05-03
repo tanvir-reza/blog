@@ -36,7 +36,10 @@
                                 <div class="col-md-3">
                                     <div class="single_people">
                                         <div class="single_people_image">
+                                            {% if advisor.img %}
                                             <img src="{{advisor.img.url}}" alt="photo">
+                                            {% endif %}
+                                            
                                         </div>
                                         <div class="single_people_bio">
                                             <div class="name">

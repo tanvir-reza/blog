@@ -182,7 +182,6 @@ class People(models.Model):
     status = models.IntegerField(choices=STATUS, default = 1)
     total_views=models.IntegerField(default=0)
 
-
     def __str__(self):
         return self.FullName
     
