@@ -36,7 +36,7 @@ def people(request):
 def peopleDetailsView(request, post_id):
     post = People.objects.get(pk=post_id)
     post.total_views = post.total_views+1
-    post.save(commit=False)
+    post.save()
     return render(request, 'People_details.html', {'post' : post})
 
 def publications(request):
