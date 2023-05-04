@@ -77,7 +77,7 @@
                                         </div>
                                         <div class="single_people_bio">
                                             <div class="name">
-                                                <a href="">
+                                                <a href="{% url 'peopleDetailsView' assistant.pk %}">
                                                     <h3>{{assistant.FullName}}</h3>
                                                 </a>
                                             </div>
@@ -110,7 +110,7 @@
                                         </div>
                                         <div class="single_people_bio">
                                             <div class="name">
-                                                <a href="">
+                                                <a href="{% url 'peopleDetailsView' student.pk %}">
                                                     <h3>{{student.FullName}}</h3>
                                                 </a>
                                             </div>

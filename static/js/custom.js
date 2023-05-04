@@ -75,9 +75,3 @@ jQuery( document ).ready(function( $ ) {
 
 
 });
-
-
-
-function news1() {
-    console.log("news");
-}
