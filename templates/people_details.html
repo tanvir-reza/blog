@@ -1,5 +1,5 @@
 
-{% extends 'base.html' %}
+{% extends 'basic.html' %}
 {% load static %}
 
 {% block body %}
@@ -17,9 +17,9 @@
                             <div class="ph_menu">
                                 <h5><a href="{% url 'index' %}">Home</a></h5>
                                 <h5>/</h5>
-                                <h5><a href="{% url 'faculty' %}">People</a></h5>
-                                <h5>/</h5>
-                                <h5><a href="{% url 'faculty' %}">Faculty</a></h5>
+                                <h5><a href="{% url 'people' %}">People</a></h5>
+                                {% comment %} <h5>/</h5> {% endcomment %}
+                                {% comment %} <h5><a href="">Faculty</a></h5> {% endcomment %}
                                 <h5>/</h5>
                                 <h5>Details</h5>
                             </div>
@@ -36,15 +36,15 @@
                     <div class="col-md-4">
                         <div class="fac_profile pt-20">
                             <div class="fac_dp">
-                                {% if post.photo %}
-                                    <img src="{{ post.photo.url }}" alt="Photo">
+                                {% if post.img %}
+                                    <img src="{{ post.img.url }}" alt="Photo">
                                  {% endif %}
                             </div>
                             <div class="fac_cart">
                                 <div class="f_contact">
                                     <h5>Contact:</h5>
                                     <h6>Department of Computer Science and Engineering (CSE)</h6>
-                                    <p>Bangladesh University of Business and Technology<br>(BUBT)Mirpur, Dhaka-1216, Bangladesh</p>
+                                    <p>{{post.university}}</p>
                                 </div>
                             </div>
                             <div class="fac_cart">
@@ -69,7 +69,7 @@
                             <div class="fac_cart">
                                 <div class="f_web">
                                     <h5>Courses Taught</h5>
-                                    <a href="{% url 'courses-taught' post.pk %}">View Courses</a>
+                                    <a href="">View Courses</a>
                                 </div>
                             </div>
                             <div class="fac_cart">
@@ -83,7 +83,7 @@
                     <div class="col-md-8">
                         <div class="fac_detail pt-20">
                             <div class="fac_title">
-                                <h2>{{ post.fullName | safe }}</h2>{% if post.leav_status %}(<span>{{ post.leav_status | safe }}</span>){% endif %}
+                                <h2>{{ post.FullName  }}</h2>{% if post.leav_status %}(<span>{{ post.leav_status | safe }}</span>){% endif %}
                                 <h6>{{ post.designation | safe }}</h6>
                                 <p>Department of Computer Science & Engineering</p>
                             </div>

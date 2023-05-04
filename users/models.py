@@ -75,46 +75,55 @@ class HomeSlider (models.Model):
 #     def __str__(self):
 #         return self.AdvisorName
     
-# class CollaborationSlider (models.Model):
-#     title = models.CharField(max_length=200, blank = True)
-#     photo = models.ImageField(upload_to='CollaborationSlider/', blank = False)
-#     updated_on = models.DateTimeField(auto_now = True)
-#     created_on = models.DateTimeField(auto_now_add =True)
-#     status = models.IntegerField(choices=STATUS, default = 1)
+class CollaborationSlider (models.Model):
+    title = models.CharField(max_length=200, blank = True)
+    photo = models.ImageField(upload_to='CollaborationSlider/', blank = False)
+    updated_on = models.DateTimeField(auto_now = True)
+    created_on = models.DateTimeField(auto_now_add =True)
+    status = models.IntegerField(choices=STATUS, default = 1)
 
-#        #for compress images
-#     def save(self, *args, **kwargs):
-#        # call the compress function
-#         new_image = compress(self.photo)
-#         # set self.image to new_image
-#         self.photo = new_image
-#         # save
-#         super().save(*args, **kwargs)
-#     def __str__(self):
-#         return self.title
+    #    #for compress images
+    # def save(self, *args, **kwargs):
+    #    # call the compress function
+    #     new_image = compress(self.photo)
+    #     # set self.image to new_image
+    #     self.photo = new_image
+    #     # save
+    #     super().save(*args, **kwargs)
+    def __str__(self):
+        return self.title
 
-# class LetestNews(models.Model):
-#     title = models.CharField(max_length=200, blank = True)
-#     pdf = models.FileField(upload_to='LetestNews/pdf/', blank = True)
-#     photo = models.ImageField(upload_to='LetestNews/photo/', blank = True)
-#     updated_on = models.DateTimeField(auto_now = True)
-#     created_on = models.DateTimeField(blank = False, verbose_name ='On Date')
-#     status = models.IntegerField(choices=STATUS, default = 1)
-#     total_views=models.IntegerField(default=0)
+class LetestNews(models.Model):
+    title = models.CharField(max_length=200, blank = True)
+    Details = RichTextField(blank=True, null=True)
+    pdf = models.FileField(upload_to='LetestNews/pdf/', blank = True)
+    photo = models.ImageField(upload_to='LetestNews/photo/', blank = True)
+    updated_on = models.DateTimeField(auto_now = True)
+    created_on = models.DateTimeField(blank = False, verbose_name ='On Date')
+    status = models.IntegerField(choices=STATUS, default = 1)
+    total_views=models.IntegerField(default=0)
+
+
+    class Meta:
+        ordering = ["-created_on"]
+        verbose_name = 'News'
+        verbose_name_plural = 'LetestNews'
     
-#     #for compress images
-#     if photo.blank == False :
-#         def save(self, *args, **kwargs):
+    #for compress images
+    if photo.blank == False :
+        def save(self, *args, **kwargs):
 
-#             # call the compress function
-#             new_image = compress(self.photo)
-#             # set self.image to new_image
-#             self.photo = new_image
-#             # save
-#             super().save(*args, **kwargs)
+            # call the compress function
+            new_image = compress(self.photo)
+            # set self.image to new_image
+            self.photo = new_image
+            # save
+            super().save(*args, **kwargs)
             
-#     def __str__(self):
-#         return self.title  
+    def __str__(self):
+        return self.title  
+    
+
 class Designation(models.Model):
     title = models.CharField(max_length=250, unique=True, default="")
     dsgOrder = models.CharField(max_length=3, blank=False, default="", unique=True)
@@ -186,13 +195,13 @@ class People(models.Model):
         def save(self, *args, **kwargs):
 
             # call the compress function
-            new_image = compress(self.photo)
+            new_image = compress(self.img)
             # set self.image to new_image
-            self.photo = new_image
+            self.img = new_image
             # save
             super().save(*args, **kwargs)
     def __str__(self):
-        return self.fullName
+        return self.FullName
 
     # def geget_absoulte_url(self):
     #     return reverse('faculty:list_faculty', args=[self.id])
@@ -254,10 +263,24 @@ class Project(models.Model):
         verbose_name_plural = ("Project")
 
 
-#     def __str__(self):
-#         return self.project_Title
+    def __str__(self):
+        return self.project_Title
 #     # def get_absolute_url(self):
 #     #     return reverse('CapstoneProject:capstoneProject_detail', args=[self.slug])
+
+class About(models.Model):
+    title = models.CharField(max_length=50, blank = False, default="")
+    details = RichTextField(blank=True, null=True , default = "")
+    img = models.FileField(upload_to="about/")
+    status = models.IntegerField(choices=STATUS, default = 1)
+    class Meta:
+        verbose_name = ("About")
+        verbose_name_plural = ("About")
+
+    def __str__(self):
+        return self.title
+
+
 
 # class Project(models.Model):
     

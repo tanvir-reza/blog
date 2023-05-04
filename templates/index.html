@@ -59,7 +59,7 @@ data-interval="5000" id="slider-97" data-rv-view="90" style="background-color: r
                   <h1 class="mbr-hero__text">{{slider.title}}<br><br></h1>
                   <p class="mbr-hero__subttitle">{{slider.slogan}}</p>
 
-                  <p class="mbr-hero__subtext">{{slider.Details|truncatewords:"20"|safe}}</p>
+                  <p class="mbr-hero__subtext">{{slider.Details|safe}}</p>
                 </div>
                 <!-- <div class="mbr-buttons btn-inverse mbr-buttons--center">
                                         <a class="mbr-buttons__btn btn btn-lg btn-danger" href="page34.html">Details</a> 
@@ -155,13 +155,13 @@ data-rv-view="85" style="background-image: url({% static 'images/aboutus_bg.jpg)
               <div class="right-content">
                 <!-- <span>Who we are</span> -->
                 <h2>About <em>Us</em></h2>
-                <p>{{info.about}}</p>
+                <p>{{about.details|safe|truncatewords:"20"}}</p>
                 <a href="about.html" class="filled-button">Read More</a>
               </div>
             </div>
             <div class="col-md-6">
               <div class="left-image">
-                <img src="{% static 'images/mirlabs.png' %}" alt="">
+                <img src="{{about.img.url}}" alt="">
               </div>
             </div>
           </div>
@@ -304,34 +304,17 @@ data-rv-view="85" style="background-image: url({% static 'images/aboutus_bg.jpg)
         <div class="row" id="updates">
           <div class="col-md-4">
             <ul>
-              <li><a href='index.html#updates-1'>Latest News <i class="fa fa-angle-right"></i></a></li>
+              <li><a onclick="news1" href='index.html#updates-1'>Latest News <i class="fa fa-angle-right"></i></a></li>
               <li><a href='index.html#updates-2'>Latest Research <i class="fa fa-angle-right"></i></a></li>
               <li><a href='index.html#updates-3'>Latest Projects <i class="fa fa-angle-right"></i></a></li>
             </ul>
           </div>
-          <div class="col-md-8">
+          <div id="l_news" class="col-md-8">
             <section class='updates-content'>
               <article id="updates-1">
-                <p>Successfully conducted the 22nd International Conference on Intelligent Systems Design and
-                  Applications (ISDA’22); 22nd International Conference on Hybrid Intelligent Systems (HIS’22);
-                  18th International Conference on Information Assurance and Security (IAS’22); 14th International
-                  Conference on Soft Computing and Pattern Recognition (SoCPaR’22); 14th World Congress on Nature
-                  and Biologically Inspired Computing (NaBIC’22); 13th International Conference on Innovations in
-                  Bio-Inspired Computing and Applications (IBICA’22) and 12th World Congress on Information and
-                  Communication Technologies (WICT’22) during December 12-16, 2022. Received papers from nearly 65
-                  countries and the summary of accepted papers is as follows:
-                <ul>
-                  <li> <em>ISDA 2022:</em> 224 Papers from 47 countries</li>
-                  <li> <em>HIS 2022:</em> 97 Papers from 28 Countries</li>
-                  <li> <em>IAS 2022:</em> 26 Papers from 14 Countries</li>
-                  <li> <em>SoCPaR 2022:</em> 69 Papers from 20 Countries</li>
-                  <li> <em>NaBIC 2022:</em> 19 Papers from 14 countries</li>
-                  <li> <em>IBICA 2022:</em> 52 Papers from 22 Countries</li>
-                  <li> <em>WICT 2022:</em> 32 papers from 15 Countries</li>
-                </ul>
-                </p>
+                <h2>{{l_news.title}}</h2>
+                <p>{{l_news.Details|safe|truncatewords:"30"}} </p><a  href="#" class="filled-button">More</a>
               </article>
-
             </section>
           </div>
         </div>
@@ -354,30 +337,11 @@ data-rv-view="85" style="background-image: url({% static 'images/aboutus_bg.jpg)
   <div class="row partner_margin">
     <div class="col-md-12">
       <div class="owl-partners owl-carousel">
+        {% for col in collabs %}
         <div class="partner-item">
-          <img src="{% static 'images/collaborator/1.png' %}" alt="">
+          <img src="{{col.photo.url}}" alt="">
         </div>
-        <div class="partner-item">
-          <img src="{% static 'images/collaborator/2.png' %}" alt="">
-        </div>
-        <div class="partner-item">
-          <img src="{% static 'images/collaborator/3.png' %}" alt="">
-        </div>
-        <div class="partner-item">
-          <img src="{% static 'images/collaborator/4.png' %}" alt="">
-        </div>
-        <div class="partner-item">
-          <img src="{% static 'images/collaborator/5.png' %}" alt="">
-        </div>
-        <div class="partner-item">
-          <img src="{% static 'images/collaborator/6.png' %}" alt="">
-        </div>
-        <div class="partner-item">
-          <img src="{% static 'images/collaborator/7.png' %}" alt="">
-        </div>
-        <div class="partner-item">
-          <img src="{% static 'images/collaborator/8.png' %}" alt="">
-        </div>
+        {% endfor %}
       </div>
     </div>
   </div>

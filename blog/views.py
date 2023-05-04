@@ -6,14 +6,20 @@ from users.models import People
 from users.models import HomeSlider
 from users.models import Publications
 from users.models import Project
+from users.models import LetestNews
+from users.models import CollaborationSlider
+from users.models import About
 
 
 def index(request):
     info = Blog.objects.first()
+    about = About.objects.first()
+    l_news = LetestNews.objects.first()
+    collabs = CollaborationSlider.objects.all()
     sliders_count = HomeSlider.objects.count()
     print(sliders_count)
     sliders = HomeSlider.objects.all()
-    context = {"info":info,"sliders":sliders}
+    context = {"info":info,"sliders":sliders,"l_news":l_news,"collabs":collabs,"sliders_count":sliders_count,"about":about}
     return render(request,"index.html",context)
 
 def people(request):
@@ -28,12 +34,9 @@ def people(request):
 #     return render(request,"people.html")
 
 def peopleDetailsView(request, post_id):
-    
     post = People.objects.get(pk=post_id)
-    
     post.total_views = post.total_views+1
-    post.save()        
-   
+    post.save()
     return render(request, 'People_details.html', {'post' : post})
 
 def publications(request):
@@ -56,11 +59,14 @@ def projects(request):
     projects = Project.objects.all()
     context = {"info":info,"projects":projects}
     return render(request,"projects.html",context)
-def FocusAreas(request):
-    return render(request,"focus.html")
+def ResearchUnit(request):
+    return render(request,"research_unit.html")
 def OpenPositions(request):
     return render(request,"openposition.html")
 def TrainingProgram(request):
     return render(request,"traning.html")
 def Contact(request):
-    return render(request,"contact.html")
+    info = Blog.objects.first()
+    context = {"info":info}
+
+    return render(request,"contact.html",context)
