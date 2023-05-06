@@ -166,7 +166,7 @@ class People(models.Model):
     designation = models.ForeignKey(Designation, on_delete= models.CASCADE, verbose_name ="Designation", blank = False , null=True)  
     LoginUser = models.ForeignKey(User, on_delete= models.CASCADE, verbose_name = ("Select your E-mail"),null=True )
     university = models.TextField(max_length=300,null=True,blank=True)
-    category = models.CharField(max_length=30,choices=PEOPLE_CHOICES,default="research_student")
+    category = models.CharField(max_length=100,choices=PEOPLE_CHOICES,default="research_student")
     img = models.FileField(upload_to="people/",blank = True, verbose_name = ("Photo"))
     email= models.CharField(max_length=200, blank = True)
     research_Topic = models.ManyToManyField(ResearchTopic, blank=True, null=True)

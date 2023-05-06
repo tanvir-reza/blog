@@ -42,7 +42,7 @@
                             <ol>
                                 {% for book in Authored_books %}
                                 <li>{% for author in book.Author.all %}{{author}}{% if not forloop.last %}, {% endif %}{% endfor %}, <a
-                                        href="{{book.DOI}}">{{book.Publication_Title}}</a>,{{book.abstract}}
+                                        href="{{book.DOI}}" target=blank<>{{book.Publication_Title}} </a>,{{book.abstract}}
                                 </li>
                                 {% endfor %}
                             </ol>
