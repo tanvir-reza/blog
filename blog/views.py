@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views import generic
 
 from website.models import Blog
 from users.models import People

@@ -7,7 +7,7 @@ from rest_framework import routers
 
 from website import restApiViews
 router = routers.DefaultRouter()
-router.register(r'pepolas', restApiViews.PeopleViewSet)
+router.register(r'peoples', restApiViews.PeopleViewSet)
 router.register(r'designations', restApiViews.PeopleDesignationViewSet)
 router.register(r'researchtopic', restApiViews.Research_TopicViewSet)
 

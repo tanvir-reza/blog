@@ -1,6 +1,7 @@
 from django.db import models
 from ckeditor.fields import RichTextField
 from django.contrib.auth.models import User
+from django.urls import reverse
 from PIL import Image
 from io import BytesIO
 import uuid
@@ -138,8 +139,8 @@ class Designation(models.Model):
     def __str__(self):
         return self.title
 
-    # def get_absoulte_url(self):
-    #     return reverse('desginations:list_by_desginations', args=[self.slug])
+    def get_absoulte_url(self):
+        return reverse('desginations:list_by_desginations', args=[self.slug])
     
 class ResearchTopic(models.Model):
     research_topic = models.CharField(max_length=100)
@@ -163,7 +164,7 @@ class People(models.Model):
     LoginUser = models.ForeignKey(User, on_delete= models.CASCADE, verbose_name = ("Select your E-mail"),null=True )
     university = models.TextField(max_length=300,null=True,blank=True)
     category = models.CharField(max_length=30,choices=PEOPLE_CHOICES,default="research_student")
-    img = models.FileField(upload_to="people/")
+    img = models.FileField(upload_to="people/",blank = True, verbose_name = ("Photo"))
     email= models.CharField(max_length=200, blank = True)
     research_Topic = models.ManyToManyField(ResearchTopic, blank=True, null=True)
     google_ScholarLink = models.CharField(max_length=200, blank = True)
@@ -203,8 +204,8 @@ class People(models.Model):
     def __str__(self):
         return self.FullName
 
-    # def geget_absoulte_url(self):
-    #     return reverse('faculty:list_faculty', args=[self.id])
+    def geget_absoulte_url(self):
+        return reverse('people:list_people', args=[self.id])
   
 class PublicationCategory(models.Model):
     PublicationType = models.CharField(max_length= 20, blank = True , default="")
@@ -232,8 +233,8 @@ class Publications(models.Model):
 
     def __str__(self):
         return self.Publication_Title
-    # def get_absolute_url(self):
-    #     return reverse('CapstoneProject:capstoneProject_detail', args=[self.slug])
+    def get_absolute_url(self):
+        return reverse('CapstoneProject:capstoneProject_detail', args=[self.slug])
 
 class ProjectCategory(models.Model):
     ProjectType = models.CharField(max_length= 20, blank = True , default="")
