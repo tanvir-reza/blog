@@ -25,11 +25,88 @@
                         <div class="rf_title">
                             <div class="message_title">
                                 <div class="committee_title">
+                                    <h3>Founder  <span>& Research Directors </span></h3>
+                                    <!-- <img src="{% static 'images/icons/bubt.png' %}" alt=""> -->
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="people_list">
+                            <div class="row">
+                                {% for advisor in advisors %}
+                                <div class="col-md-3">
+                                    <div class="single_people">
+                                        <div class="single_people_image">
+                                            {% if advisor.img %}
+                                            <img src="{{advisor.img.url}}" alt="photo">
+                                            {% endif %}
+                                            
+                                        </div>
+                                        <div class="single_people_bio">
+                                            <div class="name">
+                                                <a href="{% url 'peopleDetailsView' advisor.pk %}">
+                                                    <h3>{{advisor.FullName}}</h3>
+                                                </a>
+                                            </div>
+                                            <div class="designation">
+                                                <p><em>{{advisor.designation}}</em></p>
+                                            </div>
+                                            <div class="uni">
+                                                <p>{{advisor.university}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="rf_title">
+                            <div class="message_title">
+                                <div class="committee_title">
                                     <h3>All <span>Advisers </span></h3>
                                     <!-- <img src="{% static 'images/icons/bubt.png' %}" alt=""> -->
                                 </div>
                             </div>
                         </div>
+                        
+                        <div class="people_list">
+                            <div class="row">
+                                {% for advisor in advisors %}
+                                <div class="col-md-3">
+                                    <div class="single_people">
+                                        <div class="single_people_image">
+                                            {% if advisor.img %}
+                                            <img src="{{advisor.img.url}}" alt="photo">
+                                            {% endif %}
+                                            
+                                        </div>
+                                        <div class="single_people_bio">
+                                            <div class="name">
+                                                <a href="{% url 'peopleDetailsView' advisor.pk %}">
+                                                    <h3>{{advisor.FullName}}</h3>
+                                                </a>
+                                            </div>
+                                            <div class="designation">
+                                                <p><em>{{advisor.designation}}</em></p>
+                                            </div>
+                                            <div class="uni">
+                                                <p>{{advisor.university}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="rf_title">
+                            <div class="message_title">
+                                <div class="committee_title">
+                                    <h3>Research Coordinator <span>& Lead Research Assistant</span></h3>
+                                    <!-- <img src="{% static 'images/icons/bubt.png' %}" alt=""> -->
+                                </div>
+                            </div>
+                        </div>
+                        
                         <div class="people_list">
                             <div class="row">
                                 {% for advisor in advisors %}
@@ -97,6 +174,40 @@
                             <div class="message_title">
                                 <div class="committee_title">
                                     <h3>Research <span>Students </span></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="people_list">
+                            <div class="row">
+                                {% for student in research_students %}
+                                <div class="col-md-3">
+                                    <div class="single_people">
+                                        <div class="single_people_image">
+                                            <img src="{{student.img.url}}" alt="photo">
+                                        </div>
+                                        <div class="single_people_bio">
+                                            <div class="name">
+                                                <a href="{% url 'peopleDetailsView' student.pk %}">
+                                                    <h3>{{student.FullName}}</h3>
+                                                </a>
+                                            </div>
+                                            <div class="designation">
+                                                <p><em>{{student.designation}}</em></p>
+                                            </div>
+                                            <div class="uni">
+                                                <p>{{student.university}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        <div class="rf_title">
+                            <div class="message_title">
+                                <div class="committee_title">
+                                    <h3>Alum<span>ni </span></h3>
                                 </div>
                             </div>
                         </div>

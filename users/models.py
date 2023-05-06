@@ -13,8 +13,11 @@ STATUS = (
 )
 PEOPLE_CHOICES = (
     ('advisor','Advisor'),
-    ('research_assistant', 'Research Assistant'),
+    ('research_assistant', 'Research Assistants'),
+    ('founder_&_research_directors','Founder & Research Director'),
+    ('research_coordinator_&_lead_research_assistant','Research Coordinator & Lead Research Assistant'),
     ('research_student','Research Student'),
+    ('alumni','Alumni'),
 )
 
 def compress(image):
