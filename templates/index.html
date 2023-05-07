@@ -309,7 +309,7 @@ data-rv-view="85" style="background-image: url({% static 'images/aboutus_bg.jpg)
               <li><a href='index.html#updates-3'>Latest Projects <i class="fa fa-angle-right"></i></a></li>
             </ul>
           </div>
-          <div id="l_news" class="col-md-8">
+          <div onclick="news(this, 'red')" id="l_news" class="col-md-8">
             <section class='updates-content'>
               <article id="updates-1">
                 <h2>{{l_news.title}}</h2>
@@ -317,6 +317,23 @@ data-rv-view="85" style="background-image: url({% static 'images/aboutus_bg.jpg)
               </article>
             </section>
           </div>
+
+          {% comment %} <div id="l_research" class="col-md-8">
+            <section class='updates-content'>
+              <article id="updates-2">
+                <h2>{{l_research.title}}</h2>
+                <p>{{l_research.Details|safe|truncatewords:"30"}} </p><a  href="#" class="filled-button">More</a>
+              </article>
+            </section>
+
+          <div id="l_project" class="col-md-8">
+            <section class='updates-content'>
+              <article id="updates-2">
+                <h2>{{l_project.project_Title}}</h2>
+                <p>{{l_project.project_Title|safe|truncatewords:"30"}}  </p><a  href="#" class="filled-button">More</a>
+              </article>
+            </section> {% endcomment %}
+
         </div>
       </div>
     </div>

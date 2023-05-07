@@ -15,11 +15,14 @@ def index(request):
     info = Blog.objects.first()
     about = About.objects.first()
     l_news = LetestNews.objects.first()
+    # l_resaearch = LetestNews.objects.all().order_by("")
+    l_project = Project.objects.all().order_by("-created_on")[1]
+    print(l_project.project_Title)
     collabs = CollaborationSlider.objects.all()
     sliders_count = HomeSlider.objects.count()
     print(sliders_count)
     sliders = HomeSlider.objects.all()
-    context = {"info":info,"sliders":sliders,"l_news":l_news,"collabs":collabs,"sliders_count":sliders_count,"about":about}
+    context = {"info":info,"sliders":sliders,"l_news":l_news,"collabs":collabs,"sliders_count":sliders_count,"about":about,"l_project":l_project}
     return render(request,"index.html",context)
 
 def people(request):
@@ -27,8 +30,13 @@ def people(request):
     advisor = People.objects.filter(category = "advisor")
     ra = People.objects.filter(category = "research_assistant")
     rs = People.objects.filter(category = "research_student")
+    founders = People.objects.filter(category = "founder_&_research_directors")
+    coordinators = People.objects.filter(category = "research_coordinator_&_lead_research_assistant")
+    alumnis = People.objects.filter(category = "alumni")
+   
+    
 
-    context  = {"advisors" : advisor, "research_assistants": ra,"research_students": rs,"info":info}
+    context  = {"advisors" : advisor, "research_assistants": ra,"research_students": rs,"info":info,"founders":founders,"coordinators":coordinators,"alumnis":alumnis}
     return render(request,'people.html',context)
 # def people(request):
 #     return render(request,"people.html")

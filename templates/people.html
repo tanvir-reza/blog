@@ -33,26 +33,26 @@
                         
                         <div class="people_list">
                             <div class="row">
-                                {% for advisor in advisors %}
+                                {% for founder in founders %}
                                 <div class="col-md-3">
                                     <div class="single_people">
                                         <div class="single_people_image">
-                                            {% if advisor.img %}
-                                            <img src="{{advisor.img.url}}" alt="photo">
+                                            {% if founder.img %}
+                                            <img src="{{founder.img.url}}" alt="photo">
                                             {% endif %}
                                             
                                         </div>
                                         <div class="single_people_bio">
                                             <div class="name">
-                                                <a href="{% url 'peopleDetailsView' advisor.pk %}">
-                                                    <h3>{{advisor.FullName}}</h3>
+                                                <a href="{% url 'peopleDetailsView' founder.pk %}">
+                                                    <h3>{{founder.FullName}}</h3>
                                                 </a>
                                             </div>
                                             <div class="designation">
-                                                <p><em>{{advisor.designation}}</em></p>
+                                                <p><em>{{founder.designation}}</em></p>
                                             </div>
                                             <div class="uni">
-                                                <p>{{advisor.university}}</p>
+                                                <p>{{founder.university}}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -63,7 +63,7 @@
                         <div class="rf_title">
                             <div class="message_title">
                                 <div class="committee_title">
-                                    <h3>All <span>Advisers </span></h3>
+                                    <h3>All <span>Advisors </span></h3>
                                     <!-- <img src="{% static 'images/icons/bubt.png' %}" alt=""> -->
                                 </div>
                             </div>
@@ -109,26 +109,26 @@
                         
                         <div class="people_list">
                             <div class="row">
-                                {% for advisor in advisors %}
+                                {% for coordinator in coordinators %}
                                 <div class="col-md-3">
                                     <div class="single_people">
                                         <div class="single_people_image">
-                                            {% if advisor.img %}
-                                            <img src="{{advisor.img.url}}" alt="photo">
+                                            {% if coordinator.img %}
+                                            <img src="{{coordinator.img.url}}" alt="photo">
                                             {% endif %}
                                             
                                         </div>
                                         <div class="single_people_bio">
                                             <div class="name">
-                                                <a href="{% url 'peopleDetailsView' advisor.pk %}">
-                                                    <h3>{{advisor.FullName}}</h3>
+                                                <a href="{% url 'peopleDetailsView' coordinator.pk %}">
+                                                    <h3>{{coordinator.FullName}}</h3>
                                                 </a>
                                             </div>
                                             <div class="designation">
-                                                <p><em>{{advisor.designation}}</em></p>
+                                                <p><em>{{coordinator.designation}}</em></p>
                                             </div>
                                             <div class="uni">
-                                                <p>{{advisor.university}}</p>
+                                                <p>{{coordinator.university}}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -213,23 +213,23 @@
                         </div>
                         <div class="people_list">
                             <div class="row">
-                                {% for student in research_students %}
+                                {% for alumni in alumnis %}
                                 <div class="col-md-3">
                                     <div class="single_people">
                                         <div class="single_people_image">
-                                            <img src="{{student.img.url}}" alt="photo">
+                                            <img src="{{alumni.img.url}}" alt="photo">
                                         </div>
                                         <div class="single_people_bio">
                                             <div class="name">
-                                                <a href="{% url 'peopleDetailsView' student.pk %}">
-                                                    <h3>{{student.FullName}}</h3>
+                                                <a href="{% url 'peopleDetailsView' alumni.pk %}">
+                                                    <h3>{{alumni.FullName}}</h3>
                                                 </a>
                                             </div>
                                             <div class="designation">
-                                                <p><em>{{student.designation}}</em></p>
+                                                <p><em>{{alumni.designation}}</em></p>
                                             </div>
                                             <div class="uni">
-                                                <p>{{student.university}}</p>
+                                                <p>{{alumni.university}}</p>
                                             </div>
                                         </div>
                                     </div>

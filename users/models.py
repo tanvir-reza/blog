@@ -259,6 +259,7 @@ class Project(models.Model):
     Funding_agency= models.CharField(max_length=200, blank = False, default="")
     Funding_period = models.CharField(max_length=200, blank = False, default="")
     status = models.IntegerField(choices=STATUS, default = 1)
+    created_on = models.DateTimeField(auto_now_add =True)
     total_views = models.IntegerField(default=0)
       
 

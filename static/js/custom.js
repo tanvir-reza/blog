@@ -69,9 +69,4 @@ jQuery( document ).ready(function( $ ) {
             }
         });
     }
-
-
-
-
-
 });

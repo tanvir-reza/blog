@@ -36,11 +36,9 @@
                                             <ul>
                                                 <li><b>Date Of Completion:</b> {{project.Funding_period}}</li>
                                                 <li>Project Title: <a href="{{project.Github_Link}}" target=blank>{{project.project_Title}}</a></li>
-                                                <li>Brief Description: {{project.Funding_period}} {{project.Funding_agency}}</li>
-                                                <div class="cp_paper">
-                                                    <h5><a href="{{project.Github_Link}}" target=blank>View Project <i class="fa fa-save"></i></i></a></h5>
-                                                   
-                                                </div>
+                                                <li>Brief Description:{{project.abstract|safe}} </li>
+                                                <a style="padding: 3px 6px;font-size: 12px;margin-bottom: 10px;" href="{{project.Github_Link}}" target=blank class="filled-button">View Project</a>
+                                                {% comment %} <a class="btn btn-primary">View Project</a> {% endcomment %}
                                             </ul>
                                            
                                         </li>
