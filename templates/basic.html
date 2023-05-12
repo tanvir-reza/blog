@@ -16,11 +16,12 @@
   <meta name="description" content="">
 
 
-  <title>@MIR Labs</title>
+  <title>{% block title %}{% endblock title %}</title>
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Roboto:700,400&subset=cyrillic,latin,greek,vietnamese">
   <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;600;700&display=swap" rel="stylesheet">
   <!-- import font here -->
+  <link rel="icon" type="image/x-icon" href="{% static 'images/MIR-Icon.png' %}">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -39,10 +40,6 @@
   <link rel="stylesheet" href="{% static 'css/mobirise-slider-style.css' %}">
   <link rel="preload" as="style" href="{% static 'css/mbr-additional.css' %}">
   <link rel="stylesheet" href="{% static 'css/mbr-additional.css' %}" type="text/css">
-
-
-
-
 </head>
 
 <body>
@@ -54,7 +51,7 @@
       <div class="container">
 
         <div class="navbar-brand">
-          <a href="{% url 'index' %}" class="navbar-logo"><img src="{% static 'images/mirlogo.png' %}" alt="Logo"></a>
+          <a href="{% url 'index' %}" class="navbar-logo"><img src="{% static 'images/logo.png' %}" alt="Logo"></a>
         </div>
 
         <button class="navbar-toggler pull-xs-right hidden-md-up" type="button" data-toggle="collapse"
