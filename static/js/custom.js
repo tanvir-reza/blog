@@ -70,3 +70,30 @@ jQuery( document ).ready(function( $ ) {
         });
     }
 });
+
+$(document).ready(function(){
+  $("#l_news").click(function(){
+      $("#tr_news").removeClass("d-none");
+      $("#tr_research").addClass("d-none");
+      $("#tr_project").addClass("d-none");
+  });
+});
+
+$(document).ready(function(){
+  $("#l_research").click(function(){
+    $("#tr_news").addClass("d-none");
+     $("#tr_research").removeClass("d-none");
+      $("#tr_project").addClass("d-none");
+  });
+});
+
+$(document).ready(function(){
+    $("#l_project").click(function () {
+      $("#tr_news").addClass("d-none");
+     $("#tr_research").addClass("d-none");
+      $("#tr_project").removeClass("d-none");
+      
+  });
+});
+
+

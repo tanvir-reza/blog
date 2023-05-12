@@ -838,7 +838,9 @@ html {
   -o-animation: floating-arrow 1.6s infinite ease-in-out 0s;
   animation: floating-arrow 1.6s infinite ease-in-out 0s;
 }
-
+.d-none{
+  display: none;
+}
 @-webkit-keyframes floating-arrow {
   from {
     -webkit-transform: translateY(0);

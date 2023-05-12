@@ -9,6 +9,19 @@ MIR Lab | {{ post.FullName  }}
 
 {% block body %}
 
+<section class="mbr-section mbr-section--relative mbr-section--fixed-size mbr-parallax-background mbr-after-navbar"
+        id="content5-94" data-rv-view="79"
+        style="background-image: url({% static '/images/4.jpg' %});">
+        <div class="mbr-section__container container mbr-section__container--isolated">
+            <div class="mbr-header mbr-header--wysiwyg row">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <h3 class="mbr-header__text">Team Details</h3>
+
+                </div>
+            </div>
+        </div>
+</section>
+
 <section id="page-content" class="page-wrapper">
     {% comment %} <div class="page_head_bg">
         <div class="page_head">
@@ -41,8 +54,8 @@ MIR Lab | {{ post.FullName  }}
                     <div class="col-md-4">
                         <div class="fac_profile res_profile">
                             <div class="fac_dp">
-                                {% if post.photo %}
-                                    <img src="{{ post.photo.url }}" alt="Photo">
+                                {% if post.img %}
+                                    <img src="{{ post.img.url }}" alt="Photo">
                                  {% endif %}
                             </div>
                         </div>
@@ -50,7 +63,7 @@ MIR Lab | {{ post.FullName  }}
                     <div class="col-md-8">
                         <div class="fac_detail fac_name">
                             <div class="fac_title">
-                                <h2>{{ post.fullName | safe }}</h2>{% if post.leav_status %}(<span>{{ post.leav_status | safe }}</span>){% endif %}
+                                <h2>{{ post.FullName | safe }}</h2>{% if post.leav_status %}(<span>{{ post.leav_status | safe }}</span>){% endif %}
                                 <h6>{{ post.designation | safe }}</h6>
                                 <p>Department of Computer Science & Engineering</p>
                             </div>
@@ -138,8 +151,8 @@ MIR Lab | {{ post.FullName  }}
                                     <button class="accordion for_facDet">Professional Experience</button>
                                     <div class="panel for_bgborder">
                                         <div class="academic_block table-responsive">
-                                            {% if post.teachingExprience %}
-                                                {{ post.teachingExprience | safe }}
+                                            {% if post.Professional_Certifications %}
+                                                {{ post.Professional_Certifications | safe }}
                                             {% endif %}
                                             <!-- {% if post.Professional_Certifications %}
                                                 <p>{{ post.Professional_Certifications | safe }}</p> 
@@ -148,18 +161,8 @@ MIR Lab | {{ post.FullName  }}
                                     </div>
                                 </div>
                                 
-                                <div class="fac_info">
-                                    <button class="accordion for_facDet">Teaching Area</button>
-                                    <div class="panel for_bgborder">
-                                        <div class="academic_block table-responsive">
-                                            {% if post.teachingArea %}
-                                                {{ post.teachingArea | safe }}
-                                            {% endif %}
-                                        </div>
-                                    </div>
-                                </div>
                                 
-                                <div class="fac_info">
+                                {% comment %} <div class="fac_info">
                                     <button class="accordion for_facDet">Research Interest</button>
                                     <div class="panel for_bgborder">
                                         <div class="academic_block table-responsive">
@@ -172,45 +175,21 @@ MIR Lab | {{ post.FullName  }}
                                             {% endif %}
                                         </div>
                                     </div>
-                                </div>
+                                </div> {% endcomment %}
                                 
                                 <div class="fac_info">
                                     <button class="accordion for_facDet">Publications</button>
                                     <div class="panel for_bgborder">
-                                        <div class="academic_block">
-                                            <div class="faculty_body">
-                                                <nav>
-                                                    <div class="nav nav-tabs custom_event" id="nav-tab" role="tablist">
-                                                        <button class="nav-link custom_event_btn active" id="nav-journal-tab" data-bs-toggle="tab" data-bs-target="#nav-journal" type="button" role="tab" aria-controls="nav-journal" aria-selected="false">Journal Papers</button>
-                                                        <button class="nav-link custom_event_btn" id="nav-book-tab" data-bs-toggle="tab" data-bs-target="#nav-book" type="button" role="tab" aria-controls="nav-book" aria-selected="false">Book Chapters</button>
-                                                        <button class="nav-link custom_event_btn" id="nav-conferences-tab" data-bs-toggle="tab" data-bs-target="#nav-conferences" type="button" role="tab" aria-controls="nav-conferences" aria-selected="false">Conferences</button>
-                                                    </div>
-                                                </nav>
-                                                <div class="tab-content" id="nav-tabContent">
-                                                    <div class="tab-pane fade show active" id="nav-journal" role="tabpanel" aria-labelledby="nav-journal-tab">
-                                                        {% if post.journal_Papers %}
-                                                        <div class="journal table-responsive">
-                                                        {{ post.journal_Papers | safe }}
-                                                        </div>
-                                                        {% endif %}
-                                                    </div>
-                                                    <div class="tab-pane fade" id="nav-book" role="tabpanel" aria-labelledby="nav-book-tab">
-                                                        {% if post.selected_Publications %}
-                                                        <div class="conference table-responsive">
-                                                            {{ post.selected_Publications | safe }}
-                                                        </div>
-                                                        {% endif %}
-                                                    </div>
-                                                    <div class="tab-pane fade" id="nav-conferences" role="tabpanel" aria-labelledby="nav-conferences-tab">
-                                                        {% if post.conference_Papers %}
-                                                        <div class="conference table-responsive">
-                                                           {{ post.conference_Papers | safe }}
-                                                        </div>
-                                                        {% endif %}
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        <div class="">
+                                        <div class="">
+                                            {% if post.journal_Papers %}
+                                                {{ post.journal_Papers | safe }}
+                                            {% endif %}
+                                            {% if post.conference_Papers %}
+                                                {{ post.conference_Papers | safe }}
+                                            {% endif %}
                                         </div>
+                                    </div>
                                     </div>
                                 </div>
 
@@ -218,13 +197,13 @@ MIR Lab | {{ post.FullName  }}
                                     <button class="accordion for_facDet">Award and  Research grant</button>
                                     <div class="panel for_bgborder">
                                         <div class="academic_block table-responsive">
-                                            {% if post.award %}
-                                                {{ post.award | safe }}
+                                            {% if post.AwardAndResearchGrant %}
+                                                {{ post.AwardAndResearchGrant | safe }}
                                             {% endif %}
                                             
-                                            {% if post.researchGrant %}
+                                            {% comment %} {% if post.researchGrant %}
                                                 {{ post.researchGrant | safe }}
-                                            {% endif %}
+                                            {% endif %} {% endcomment %}
                                         </div>
                                     </div>
                                 </div>
@@ -246,18 +225,6 @@ MIR Lab | {{ post.FullName  }}
                                                 {{ post.professional_international_work | safe }}
                                             {% endif %}
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="fac_info">
-                                    <button class="accordion for_facDet">Photo Gallery</button>
-                                    <div class="panel for_bgborder">
-                                        <div class="academic_block table-responsive">
-                                            {% if post.f_photo %}
-                                                    <img src="{{ post.f_photo.url }}" alt="Photo">
-                                            {% endif %}
-                                        </div>
-
-                                      
                                     </div>
                                 </div>
                                 <p>This page viewed total {{post.total_views}} times</p>
