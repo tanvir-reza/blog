@@ -564,7 +564,7 @@ a.filled-button:hover {
 }
 
 .partners .p-margin {
-	margin-top: 180px;
+	margin: 180px 0px 0px 0px;
 }
 
 .partners-title em {
@@ -1345,6 +1345,84 @@ a.filled-button:hover {
 }
 
 
+/* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+	background-color: #349595;
+	color: #fff;
+	cursor: pointer;
+	padding: 9px 20px;
+	width: 100%;
+	text-align: left;
+	border: none;
+	outline: none;
+	transition: 0.4s;
+	font-family: "Dosis";
+	font-size: 28px;
+	font-weight: 700;
+	margin-bottom: 8px;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.accordion:hover {
+	background-color: #135252;
+}
+
+.accordion.active:hover {
+	background-color: #135252;
+}
+
+.accordion.active {
+	background-color: #135252;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+
+.panel {
+	font-family: 'Roboto';
+	padding: 0 18px;
+	background-color: white;
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.2s ease-out;
+}
+
+.panel p {
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 24px;
+	color: #626262;
+	margin-bottom: 15px;
+	font-family: "Roboto" !important;
+}
+
+.panel span {
+	font-family: 'Roboto';
+}
+
+.accordion::after {
+	content: '+';
+	/* Unicode character for "plus" sign (+) */
+	font-size: 60px;
+	color: #fff;
+	float: right;
+	margin-left: 5px;
+	margin-top: 13px;
+	line-height: 0px;
+}
+
+.active.accordion::after {
+	content: "-";
+	/* Unicode character for "minus" sign (-) */
+}
+
+.mfp-bg {
+	z-index: 99999998;
+}
+
+.mfp-wrap {
+	z-index: 99999999;
+}
+
 /*************************************
      faculty details page css End   
  **************************************/
@@ -1379,6 +1457,10 @@ a.filled-button:hover {
 	background: #135252;
 }
 
+.pl-15 {
+	padding: 0px 15px;
+}
+
 .form_wrap label {
 	font-family: 'Dosis';
 	font-weight: 600;
@@ -1395,9 +1477,29 @@ textarea {
 	color: #444;
 }
 
+.form_wrap input {
+	width: 100% !important;
+	height: 45px !important;
+	padding: 5px !important;
+}
+
+.form_wrap textarea {
+	width: 100% !important;
+	padding: 5px !important;
+}
+
 .form_wrap input:focus,
 textarea:focus {
-	border: 1px solid #349595;
+	border: 1px solid #349595 !important;
+}
+
+.form_wrap input:focus-visible,
+textarea:focus-visible {
+	outline: none !important;
+}
+
+.contact_area {
+	padding-bottom: 60px;
 }
 
 .form_button button {
