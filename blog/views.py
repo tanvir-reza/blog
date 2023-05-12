@@ -15,7 +15,7 @@ def index(request):
     info = Blog.objects.first()
     about = About.objects.first()
     l_news = LetestNews.objects.first()
-    # l_resaearch = LetestNews.objects.all().order_by("")
+    l_resaearch = Publications.objects.first()
     l_project = Project.objects.all().order_by("-created_on")[1]
     founders = People.objects.filter(
         category="founder_&_research_directors")[:2]
@@ -23,8 +23,7 @@ def index(request):
     sliders_count = HomeSlider.objects.count()
     print(sliders_count)
     sliders = HomeSlider.objects.all()
-    context = {"info": info, "sliders": sliders, "l_news": l_news, "collabs": collabs,
-               "sliders_count": sliders_count, "about": about, "l_project": l_project, "founders": founders}
+    context = {"info": info, "sliders": sliders, "l_news": l_news, "collabs": collabs, "sliders_count": sliders_count, "about": about, "l_project": l_project, "founders": founders , "l_resaearch":l_resaearch}
     return render(request, "index.html", context)
 
 
