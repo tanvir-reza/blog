@@ -2575,6 +2575,6 @@ p {
   font-family: "Roboto" !important;
 }
 
-h3 {
+h3,h2 {
   letter-spacing: 2px !important;
 }
