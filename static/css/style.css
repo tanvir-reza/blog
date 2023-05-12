@@ -2570,5 +2570,8 @@ p {
   font-weight: normal;
   line-height: 24px;
   margin-bottom: 15px;
-  font-family: "Roboto" !important;
+}
+
+h3 {
+  letter-spacing: 2px !important;
 }

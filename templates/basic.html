@@ -169,6 +169,17 @@
       element.style.color = color;
       }
     
+      var header = $(".navbar");
+      $(".navbar").scroll(function() {
+             var scroll = $(this).scrollTop();
+             if (scroll >= 10) {
+                 $(this).addClass("navbar-short");
+             } else {
+                 $(this).removeClass("navbar-short");
+             }
+      });
+          
+
   </script>
 
 
