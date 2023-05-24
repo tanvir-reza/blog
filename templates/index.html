@@ -158,7 +158,7 @@ data-rv-view="85" style="background-image: url({% static 'images/aboutus_bg.jpg)
               <div class="right-content">
                 <!-- <span>Who we are</span> -->
                 <h2>About <em>Us</em></h2>
-                <p>{{about.details|safe|truncatewords:"20"}}</p>
+                <p>{{about.details|safe|truncatewords:"40"}}</p>
                 <a href="about.html" class="filled-button">Read More</a>
               </div>
             </div>
@@ -190,14 +190,14 @@ data-rv-view="85" style="background-image: url({% static 'images/aboutus_bg.jpg)
               <img src="{{founder.img.url}}" alt="">
               <div class="down-content">
                 <h4><a href="index.html#">{{founder.FullName}}</a></h4>
-                <span>{{founder.designation}}</span>
-                <p>2008-2022</p>
+                <span>{{founder.category}}</span>
+                <p>2022-Running</p>
               </div>
             </div>
           </div>
           {% endfor %}
           <div class="col-sm-1"></div>
-          <div class="col-sm-5">
+          <div class="col-sm-8">
             <div class="section-heading">
               <h2>Our Team <em>Members</em></h2>
               <p class="subheading">Meet our Interdisciplinary Team with <em>Big Ideas</em>.</p>
@@ -205,12 +205,15 @@ data-rv-view="85" style="background-image: url({% static 'images/aboutus_bg.jpg)
             <div class="wrapp">
               <div class="">
                 <div class="">
-                  <div class="col-sm-2"></div>
-                  <div class="col-sm-8">
+                  <div class="col-sm-1"></div>
+                  <div class="col-sm-9">
                     <div class="more-members">
-                      <h5><a href="team.html#tabs-1"><i class="fa fa-users"></i> Advisers</a></h5><br>
-                      <h5><a href="team.html#tabs-2"><i class="fa fa-users"></i> Research Assistant</a></h5><br>
-                      <h5><a href="team.html#tabs-3"><i class="fa fa-users"></i> Research Students</a></h5><br>
+                      <h5><a href="{% url 'people' %}#team1"><i class="fa fa-users"></i> Founder & Research Director</a></h5><br>
+                      <h5><a href="{% url 'people' %}#team2"><i class="fa fa-users"></i> Advisers</a></h5><br>
+                      <h5><a href="{% url 'people' %}#team3"><i class="fa fa-users"></i> Research Coordinator & Lead R.A</a></h5><br>
+                      <h5><a href="{% url 'people' %}#team4"><i class="fa fa-users"></i> Research Assistants</a></h5><br>
+                      <h5><a href="{% url 'people' %}#team5"><i class="fa fa-users"></i> Research Intern Students</a></h5><br>
+                      <h5><a href="{% url 'people' %}#team6"><i class="fa fa-users"></i> Alumni</a></h5><br>
                       <!-- <h5><a href="team.html"><i class="fa fa-users"></i> Interns</a></h5><br>   -->
                     </div>
                   </div>
@@ -229,7 +232,7 @@ data-rv-view="85" style="background-image: url({% static 'images/aboutus_bg.jpg)
 <!--Our team ends here-->
 
 <!--Fun Facts Starts here -->
-<section id="fun-facts">
+{% comment %} <section id="fun-facts">
 <div class="container">
   <div class="col-md-12 text-center white wow fadeInUp">
     <h3 class="fun-title">Some interesting facts About US</h3>
@@ -280,7 +283,7 @@ data-rv-view="85" style="background-image: url({% static 'images/aboutus_bg.jpg)
     </div>
   </div>
 </div>
-</section>
+</section> {% endcomment %}
 <!--Fun Facts ends here -->
 
 

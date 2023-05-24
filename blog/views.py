@@ -18,7 +18,7 @@ def index(request):
     l_resaearch = Publications.objects.first()
     l_project = Project.objects.all().order_by("-created_on")[1]
     founders = People.objects.filter(
-        category="founder_&_research_directors")[:2]
+        category="Founder & Research Director")[:2]
     collabs = CollaborationSlider.objects.all()
     sliders_count = HomeSlider.objects.count()
     print(sliders_count)
@@ -29,13 +29,13 @@ def index(request):
 
 def people(request):
     info = Blog.objects.first()
-    advisor = People.objects.filter(category="advisor")
-    ra = People.objects.filter(category="research_assistant")
-    rs = People.objects.filter(category="research_student")
-    founders = People.objects.filter(category="founder_&_research_directors")
+    advisor = People.objects.filter(category="Advisor")
+    ra = People.objects.filter(category="Research Assistants")
+    rs = People.objects.filter(category="Research Intern Student")
+    founders = People.objects.filter(category="Founder & Research Director")
     coordinators = People.objects.filter(
-        category="research_coordinator_&_lead_research_assistant")
-    alumnis = People.objects.filter(category="alumni")
+        category="Research Coordinator & Lead R.A")
+    alumnis = People.objects.filter(category="Alumni")
 
     context = {"advisors": advisor, "research_assistants": ra, "research_students": rs,
                "info": info, "founders": founders, "coordinators": coordinators, "alumnis": alumnis}
@@ -99,3 +99,38 @@ def Contact(request):
     context = {"info": info}
 
     return render(request, "contact.html", context)
+
+
+# eight research fields page connection start
+def re_cml(request):
+    topic = People.objects.filter(research_Topic__slug ='CML')
+    return render(request, 're_cml.html', {'CML': topic})
+
+def re_qml(request):
+    topic = People.objects.filter(research_Topic__slug = 'QML')
+    return render(request, 're_qml.html',{'QML': topic})
+
+def re_nlp(request):
+    topic = People.objects.filter(research_Topic__slug = 'NLP')
+    return render(request, 're_nlp.html',{'NLP': topic})
+
+def re_rnn(request):
+    topic = People.objects.filter(research_Topic__slug = 'RNN')
+    return render(request, 're_rnn.html',{'RNN': topic})
+
+def re_xai(request):
+    topic = People.objects.filter(research_Topic__slug = 'XAI')
+    return render(request, 're_xai.html',{'XAI': topic})
+
+def re_mu(request):
+    topic = People.objects.filter(research_Topic__slug = 'MU')
+    return render(request, 're_mu.html',{'MU': topic})
+
+def re_cv(request):
+    topic = People.objects.filter(research_Topic__slug = 'CV')
+    return render(request, 're_cv.html',{'CV': topic})
+
+def re_others(request):
+    topic = People.objects.filter(research_Topic__slug = 'ROF')
+    return render(request, 're_others.html',{'ROF': topic})
+# eight research fields page connection end

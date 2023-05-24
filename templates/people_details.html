@@ -65,7 +65,7 @@ MIR Lab | {{ post.FullName  }}
                             <div class="fac_title">
                                 <h2>{{ post.FullName | safe }}</h2>{% if post.leav_status %}(<span>{{ post.leav_status | safe }}</span>){% endif %}
                                 <h6>{{ post.designation | safe }}</h6>
-                                <p>Department of Computer Science & Engineering</p>
+                                <p>{{ post.category.capitalize | safe }}</p>
                             </div>
                         </div>
                     </div>
@@ -82,8 +82,9 @@ MIR Lab | {{ post.FullName  }}
                             <div class="fac_cart">
                                 <div class="f_contact">
                                     <h5>Contact:</h5>
-                                    <h6>Department of Computer Science and Engineering (CSE)</h6>
-                                    <p>Bangladesh University of Business and Technology<br>(BUBT)Mirpur, Dhaka-1216, Bangladesh</p>
+                                    <h6>{{ post.category.capitalize | safe }}</h6>
+                                    <p>Advanced Machine Intelligence Research Labs<br>(AMIR Labs), Block-B, Banani.
+Dhaka-1213, Bangladesh</p>
                                 </div>
                             </div>
                             <div class="fac_cart">
@@ -103,6 +104,10 @@ MIR Lab | {{ post.FullName  }}
                                     <h5>Publication Profile:</h5>
                                     <a href="{{ post.google_ScholarLink | safe }}">Google Scholar</a>
                                     <a href="{{ post.research_Gate_Link | safe }}">Research Gate</a>
+									<a href="{{ post.GitHub_link | safe }}">Github</a>
+									<a href="{{ post.LinkedIn_link | safe }}">LinkedIn</a>
+									<a href="{{ post.Kaggle_link | safe }}">Kaggle</a>
+									
                                 </div>
                             </div>
                             {% comment %} <div class="fac_cart">

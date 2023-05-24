@@ -96,7 +96,7 @@
     {% block body %}
     {% endblock body %}
     
-    <section class="mbr-section mbr-section--relative mbr-section--fixed-size footer_top_sec" id="contacts2-98"
+    {% comment %} <section class="mbr-section mbr-section--relative mbr-section--fixed-size footer_top_sec" id="contacts2-98"
     data-rv-view="108">
     
     <div class="mbr-section__container container">
@@ -151,8 +151,140 @@
         </div>
       </div>
     </div>
-  </footer>
+  </footer> {% endcomment %}
+  <footer id="footer" class="footer-area">
+    <div class="container">
+              <div class="footer_top ptb-20">
+                  <div class="row">
+                      <div class="footer_inner">
+                          <div class="footer_logo">
+                              <a href="/">
+                                  <img src="{% static 'images/logo.png' %}" alt="footer-logo">
+                              </a>
+                          </div>
+                          <div class="footerTitle">
+                              <h3><strong>AMIRL</strong></h3>
+                              <h5><strong>Advanced Machine Intelligence Research Lab</strong></h5>
+                          </div>
+                          <ul class="footer_address">
+                              <li>
+                                  <p>
+                                      <i class="fa fa-map-marker"></i>
+                                      House # 105, Road # 4, Block-B, Banani, Dhaka-1213
+                                  </p>
+                              </li>
+                              <li>
+                                  <a href="mailto:www.yourmail.com">
+                                      <i class="fa fa-envelope"></i>
+                                      info@amirl.org
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="tel:+8801674791594">
+                                      <i class="fa fa-phone"></i>
+                                      +8801674791594 
+                                  </a>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+              {% comment %} <div class="footer_content ptb-50">
+                  <div class="row">
+                      <div class="col-md-2 col-sm-12">
+                          <div class="footer_widget">
+                              <h2 class="footer_title">Student Corner</h2>
+                              <ul class="list">
+                                  <li><a href="https://annex.bubt.edu.bd/" target="_blank">Student Portal</a></li>
+                                  <li><a href="/cse-alumni">Alumni</a></li>
+                                  <li><a href="https://convocation.bubt.edu.bd/" target="_blank">Convocation</a></li>
+                                  <li><a href="https://www.bubt.edu.bd/Home/page_details/Semester_Policy/" target="_blank">Semester Policy</a></li>
+                                  <li><a href="https://www.bubt.edu.bd/downloads/index/9091/" target="_blank">Download Center</a></li>
+                              </ul>
+                          </div>
+                      </div> 
+                      <div class="col-md-2 col-sm-12">
+                          <div class="footer_widget f_PL">
+                              <h2 class="footer_title">Quick Links</h2>
+                              <ul class="list">
+                                  <li><a href="https://www.bubt.edu.bd/Home/page_details/Admission_Notices/" target="_blank">Admission</a></li>
+                                  <li><a href="#">Registration</a></li>
+                                  <li><a href="https://www.bubt.edu.bd/Home/page_details/Requirements_Procedures/" target="_blank">Requirements &amp; Procedures</a></li>
+                                  <li><a href="https://www.bubt.edu.bd/newsletter/" target="_blank">Newsletter</a></li>
+                              </ul>
+                          </div>
+                      </div>
+                      <div class="col-md-4  col-sm-12">
+                          <div class="footer_widget ">
+                              <h2 class="footer_title f_center">CLubs</h2>
+                              <div class="row">
+                                  <div class="col-md-6  col-sm-12">
+                                      <ul class="list f_right">
+                                          <li><a href="https://annex.bubt.edu.bd/" target="_blank">Annex</a></li>
+                                          <li><a href="https://amllab.bubt.edu.bd/" target="_blank">AML Club</a></li>
+                                          <li><a href="https://web.facebook.com/BUBTROVERDHAKA/" target="_blank">Rover Scout</a></li>
+                                          <li><a href="https://web.facebook.com/bubt.cc/" target="_blank">Cultural Club</a></li>
+                                          <li><a href="#">Programming Club</a></li>
+                                      </ul>
+                                  </div>
+                                  <div class="col-md-6  col-sm-12">
+                                      <ul class="list">
+                                          <li><a href="https://itclub.bubt.edu.bd/" target="_blank">IT Club</a></li>
+                                          <li><a href="https://web.facebook.com/BUBT-Sports-Club-737000109655346/" target="_blank">Sports Club</a></li>
+                                          <li><a href="#">Language Club</a></li>
+                                          <li><a href="https://web.facebook.com/BUBTSWC/" target="_blank">Social Welfare</a></li>
+                                          <li><a href="https://web.facebook.com/Bubt.Photography.Club/" target="_blank">Photography Club</a></li>
+                                      </ul>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
 
+                      <div class="col-md-2  col-sm-12">
+                          <div class="footer_widget f_right f_PR">
+                              <h2 class="footer_title">Academic</h2>
+                              <ul class="list">
+                                  <li><a href="https://www.bubt.edu.bd/Home/all_notice/" target="_blank">Notice</a></li>
+                                  <li><a href="http://103.15.140.180:8000/" target="_blank">Library</a></li>
+                                  <li><a href="/exam-results">Results</a></li>
+                                  <li><a href="/class-routine">Class Routine</a></li>
+                                  <li><a href="/exam-routine">Exam Routine</a></li>
+                              </ul>
+                          </div>
+                      </div>
+                      <div class="col-md-2 col-sm-12">
+                          <div class="footer_widget f_right">
+                              <h2 class="footer_title">Important Links</h2>
+                              <ul class="list">
+                                  <li><a href="http://www.ugc.gov.bd/" target="_blank">UGC</a></li>
+                                  <li><a href="https://ictd.gov.bd/" target="_blank">ICT Division</a></li>
+                                  <li><a href="https://pmo.gov.bd/" target="_blank">Prime Minister Office</a></li>
+                                  <li><a href="http://www.moedu.gov.bd/" target="_blank">Ministry of Education</a></li>
+                                  <li><a href="http://www.ugc.gov.bd/en/home/university/private/75" target="_blank">List of All Universities</a></li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+              </div> {% endcomment %}
+              <div class="copyright_content">
+                  <div class="row">
+                      <div class="copyright_inner">
+                          <div class="copyright">
+                            <p>© 2023 <a href="/">AMIRL</a> All Right Reserved.&nbsp&nbsp<a href="/meetTheCreator">PixelST</a>&nbspCreation.</p></div>
+                          <div class="footer_social">
+                              <ul class="footer_menu">
+                                  <li><a href="https://www.facebook.com/BUBTOfficial/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                  <li><a href="https://www.youtube.com/channel/UCRy_y_ExPHhDbAh8Ouo4LDA" target="_blank"><i class="fa fa-youtube"></i></a></li>
+                                  <li><a href="https://www.linkedin.com/company/31500180" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                                  <li><a href="https://plus.google.com/u/0/115227753775219314742" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                                  <li><a href="https://twitter.com/BubtOfficial" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                              </ul>
+                          </div>                           
+                      </div>
+                  </div>
+              </div>
+          </div>
+  </footer>
 
   <script src="{% static 'js/jquery.min.js' %}"></script>
   <script src="{% static 'js/bootstrap.min.js' %}"></script>

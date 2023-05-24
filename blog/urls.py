@@ -22,6 +22,14 @@ urlpatterns = [
     path('Training-Program', views.TrainingProgram, name="TrainingProgram"),
     path('Contact', views.Contact, name="Contact"),
     # path('people/',views.people,name="people"),
+    path('CML', views.re_cml, name='re_cml'),
+    path('QML', views.re_qml, name='re_qml'),
+    path('NLP', views.re_nlp, name='re_nlp'),
+    path('RNN', views.re_rnn, name='re_rnn'),
+    path('XAI', views.re_xai, name='re_xai'),
+    path('MU', views.re_mu, name='re_mu'),
+    path('CV', views.re_cv, name='re_cv'),
+    path('ROF', views.re_others, name='re_others'),
     path('peopleDetailsView/<post_id>/', views.peopleDetailsView, name='peopleDetailsView'),
 ]
 
