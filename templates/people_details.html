@@ -63,9 +63,9 @@ MIR Lab | {{ post.FullName  }}
                     <div class="col-md-8">
                         <div class="fac_detail fac_name">
                             <div class="fac_title">
-                                <h2>{{ post.FullName | safe }}</h2>{% if post.leav_status %}(<span>{{ post.leav_status | safe }}</span>){% endif %}
+                                <h2>{{ post.FullName }}</h2>{% if post.leav_status %}(<span>{{ post.leav_status | safe }}</span>){% endif %}
                                 <h6>{{ post.designation | safe }}</h6>
-                                <p>{{ post.category.capitalize | safe }}</p>
+                                <p>{{ post.category | safe }}</p>
                             </div>
                         </div>
                     </div>
@@ -82,7 +82,7 @@ MIR Lab | {{ post.FullName  }}
                             <div class="fac_cart">
                                 <div class="f_contact">
                                     <h5>Contact:</h5>
-                                    <h6>{{ post.category.capitalize | safe }}</h6>
+                                    <h6>{{ post.category | safe }}</h6>
                                     <p>Advanced Machine Intelligence Research Labs<br>(AMIR Labs), Block-B, Banani.
 Dhaka-1213, Bangladesh</p>
                                 </div>

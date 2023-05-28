@@ -20,6 +20,7 @@ PEOPLE_CHOICES = (
     ('Alumni','Alumni'),
 )
 
+
 def compress(image):
     im = Image.open(image)
     # create a BytesIO object
@@ -267,7 +268,6 @@ class Project(models.Model):
         verbose_name = ("Project")
         verbose_name_plural = ("Project")
 
-
     def __str__(self):
         return self.project_Title
 #     # def get_absolute_url(self):
@@ -284,6 +284,28 @@ class About(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class openPositonCategory(models.Model):
+    title = models.CharField(max_length=200)
+    created_at = models.DateTimeField(auto_now_add=True)
+    status = models.IntegerField(choices=STATUS,default=1)
+
+    def __str__(self):
+        return self.title
+
+
+class openPositon(models.Model):
+    title = models.CharField(max_length=200)
+    description = RichTextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    status = models.IntegerField(choices=STATUS,default=1)
+    category = models.ForeignKey(openPositonCategory,on_delete=models.CASCADE)
+
+
+    def __str__(self):
+        return self.title
+
 
 
 

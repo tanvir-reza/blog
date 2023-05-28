@@ -9,6 +9,9 @@ from users.models import Project
 from users.models import LetestNews
 from users.models import CollaborationSlider
 from users.models import About
+from users.models import openPositon
+from users.models import ResearchTopic
+
 
 
 def index(request):
@@ -87,7 +90,11 @@ def ResearchUnit(request):
 
 
 def OpenPositions(request):
-    return render(request, "openposition.html")
+    data = openPositon.objects.all()
+    data2 = ResearchTopic.objects.all()
+    print(data)
+    context = {"data" : data,"data2":data2}
+    return render(request, "openposition.html",context)
 
 
 def TrainingProgram(request):
