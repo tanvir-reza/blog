@@ -19,7 +19,7 @@ def index(request):
     about = About.objects.first()
     l_news = LetestNews.objects.first()
     l_resaearch = Publications.objects.first()
-    l_project = Project.objects.all().order_by("-created_on")[1]
+    l_project = Project.objects.first()
     founders = People.objects.filter(
         category="Founder & Research Director")[:2]
     collabs = CollaborationSlider.objects.all()
