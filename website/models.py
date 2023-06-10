@@ -4,7 +4,6 @@ from ckeditor.fields import RichTextField
 # Create your models here.
 class Blog(models.Model):
     name = models.TextField(max_length=250,blank=True,null=True)
-    about = models.TextField(blank=True,null=True)
     phone = models.CharField(max_length=20,blank=True,null=True)
     phone2 = models.CharField(max_length=20,blank=True,null=True)
     linkedin = models.CharField(max_length=250,blank=True,null=True)
@@ -19,5 +18,6 @@ class Blog(models.Model):
         return self.name
     
     class Meta:
-         verbose_name = "Site Info"
+        verbose_name = "Site Info"
+        verbose_name_plural = "Site Info"
 

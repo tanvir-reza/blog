@@ -159,7 +159,7 @@ data-rv-view="85" style="background-image: url({% static 'images/aboutus_bg.jpg)
                 <!-- <span>Who we are</span> -->
                 <h2>About <em>Us</em></h2>
                 <p>{{about.details|safe|truncatewords:"40"}}</p>
-                <a href="about.html" class="filled-button">Read More</a>
+                <a href="{% url 'about' %}" class="filled-button">Read More</a>
               </div>
             </div>
             <div class="col-md-6">
@@ -209,11 +209,12 @@ data-rv-view="85" style="background-image: url({% static 'images/aboutus_bg.jpg)
                   <div class="col-sm-9">
                     <div class="more-members">
                       <h5><a href="{% url 'people' %}#team1"><i class="fa fa-users"></i> Founder & Research Director</a></h5><br>
-                      <h5><a href="{% url 'people' %}#team2"><i class="fa fa-users"></i> Advisers</a></h5><br>
-                      <h5><a href="{% url 'people' %}#team3"><i class="fa fa-users"></i> Research Coordinator & Lead R.A.</a></h5><br>
-                      <h5><a href="{% url 'people' %}#team4"><i class="fa fa-users"></i> Research Assistants</a></h5><br>
-                      <h5><a href="{% url 'people' %}#team5"><i class="fa fa-users"></i> Research Intern Students</a></h5><br>
-                      <h5><a href="{% url 'people' %}#team6"><i class="fa fa-users"></i> Alumni</a></h5><br>
+                      <h5><a href="{% url 'people' %}#team2"><i class="fa fa-users"></i> Advisors</a></h5><br>
+                      <h5><a href="{% url 'people' %}#team3"><i class="fa fa-users"></i> Research Associates</a></h5><br>
+                      <h5><a href="{% url 'people' %}#team4"><i class="fa fa-users"></i> Research Coordinator & Lead R.A.</a></h5><br>
+                      <h5><a href="{% url 'people' %}#team5"><i class="fa fa-users"></i> Research Assistants</a></h5><br>
+                      <h5><a href="{% url 'people' %}#team6"><i class="fa fa-users"></i> Research Intern Students</a></h5><br>
+                      <h5><a href="{% url 'people' %}#team7"><i class="fa fa-users"></i> Alumni</a></h5><br>
                       <!-- <h5><a href="team.html"><i class="fa fa-users"></i> Interns</a></h5><br>   -->
                     </div>
                   </div>

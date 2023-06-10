@@ -15,6 +15,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name="index"),
     path('people', views.people, name="people"),
+    path('about', views.about, name="about"),
     path('publications', views.publications, name="publications"),
     path('projects', views.projects, name="projects"),
     path('research-unit/', views.ResearchUnit, name="ResearchUint"),

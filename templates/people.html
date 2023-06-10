@@ -105,6 +105,44 @@ MIR Lab | People
                         <div class="rf_title" id="team3">
                             <div class="message_title">
                                 <div class="committee_title">
+                                    <h3>Research<span> Associates </span></h3>
+                                    <!-- <img src="{% static 'images/icons/bubt.png' %}" alt=""> -->
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="people_list">
+                            <div class="row">
+                                {% for advisor in researchAssociates %}
+                                <div class="col-md-3">
+                                    <div class="single_people">
+                                        <div class="single_people_image">
+                                            {% if advisor.img %}
+                                            <img src="{{advisor.img.url}}" alt="photo">
+                                            {% endif %}
+                                            
+                                        </div>
+                                        <div class="single_people_bio">
+                                            <div class="name">
+                                                <a href="{% url 'peopleDetailsView' advisor.pk %}">
+                                                    <h3>{{advisor.FullName}}</h3>
+                                                </a>
+                                            </div>
+                                            <div class="designation">
+                                                <p><em>{{advisor.designation}}</em></p>
+                                            </div>
+                                            <div class="uni">
+                                                <p>{{advisor.university}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="rf_title" id="team4">
+                            <div class="message_title">
+                                <div class="committee_title">
                                     <h3>Research Coordinator <span>& Lead R.A.</span></h3>
                                     <!-- <img src="{% static 'images/icons/bubt.png' %}" alt=""> -->
                                 </div>
@@ -140,7 +178,7 @@ MIR Lab | People
                                 {% endfor %}
                             </div>
                         </div>
-                        <div class="rf_title" id="team4"> 
+                        <div class="rf_title" id="team5"> 
                             <div class="message_title">
                                 <div class="committee_title">
                                     <h3>Research <span>Assistants</span></h3>
@@ -174,10 +212,10 @@ MIR Lab | People
                                 {% endfor %}
                             </div>
                         </div>
-                        <div class="rf_title" id="team5">
+                        <div class="rf_title" id="team6">
                             <div class="message_title">
                                 <div class="committee_title">
-                                    <h3>Research Intern<span>Student </span></h3>
+                                    <h3>Research Intern <span>Student </span></h3>
                                 </div>
                             </div>
                         </div>
@@ -208,7 +246,7 @@ MIR Lab | People
                             </div>
                         </div>
 
-                        <div class="rf_title" id="team6">
+                        <div class="rf_title" id="team7">
                             <div class="message_title">
                                 <div class="committee_title">
                                     <h3>Alum<span>ni </span></h3>

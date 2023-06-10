@@ -13,6 +13,7 @@ STATUS = (
 )
 PEOPLE_CHOICES = (
     ('Advisor','Advisor'),
+    ('Research Associates','Research Associates'),
     ('Research Assistants', 'Research Assistants'),
     ('Founder & Research Director','Founder & Research Director'),
     ('Research Coordinator & Lead R.A','Research Coordinator & Lead R.A'),

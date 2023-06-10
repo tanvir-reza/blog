@@ -33,6 +33,7 @@ def index(request):
 def people(request):
     info = Blog.objects.first()
     advisor = People.objects.filter(category="Advisor")
+    researchAssociates = People.objects.filter(category="Research Associates")
     ra = People.objects.filter(category="Research Assistants")
     rs = People.objects.filter(category="Research Intern Student")
     founders = People.objects.filter(category="Founder & Research Director")
@@ -41,7 +42,7 @@ def people(request):
     alumnis = People.objects.filter(category="Alumni")
 
     context = {"advisors": advisor, "research_assistants": ra, "research_students": rs,
-               "info": info, "founders": founders, "coordinators": coordinators, "alumnis": alumnis}
+               "info": info, "founders": founders, "coordinators": coordinators, "alumnis": alumnis, "researchAssociates": researchAssociates}
     return render(request, 'people.html', context)
 # def people(request):
 #     return render(request,"people.html")
@@ -53,6 +54,10 @@ def peopleDetailsView(request, post_id):
     post.save()
     return render(request, 'people_details.html', {'post': post})
 
+def about(request):
+    post = About.objects.first()
+    context = {"post": post}
+    return render(request, "about.html", context)
 
 def publications(request):
     info = Blog.objects.first()
