@@ -687,7 +687,6 @@ a.filled-button:hover {
 .committee_title::after {
 	position: absolute;
 	content: "";
-	/* background: #333; */
 	background: #10529b;
 	height: 2px;
 	width: 100px;
@@ -1597,7 +1596,7 @@ textarea:focus-visible {
   width: auto;
 }
 
-.committee_title::after {
+/* .committee_title::after {
   position: absolute;
   content: "";
   background: #333;
@@ -1605,7 +1604,7 @@ textarea:focus-visible {
   width: 100px;
   left: 20px;
   bottom: 9px;
-}
+} */
 
 .committee_member {
   border-bottom: 1px solid #cdcdcd;

@@ -83,7 +83,7 @@ MIR Lab | {{ post.FullName  }}
                                 <div class="f_contact">
                                     <h5>Contact:</h5>
                                     <h6>{{ post.category | safe }}</h6>
-                                    <p>Advanced Machine Intelligence Research Labs<br>(AMIR Labs), Block-B, Banani.
+                                    <p>Advanced Machine Intelligence Research Lab<br>(AMIRL), Block-B, Banani.
 Dhaka-1213, Bangladesh</p>
                                 </div>
                             </div>
@@ -104,9 +104,7 @@ Dhaka-1213, Bangladesh</p>
                                     <h5>Publication Profile:</h5>
                                     <a href="{{ post.google_ScholarLink | safe }}">Google Scholar</a>
                                     <a href="{{ post.research_Gate_Link | safe }}">Research Gate</a>
-									<a href="{{ post.GitHub_link | safe }}">Github</a>
-									<a href="{{ post.LinkedIn_link | safe }}">LinkedIn</a>
-									<a href="{{ post.Kaggle_link | safe }}">Kaggle</a>
+									
 									
                                 </div>
                             </div>
@@ -118,8 +116,11 @@ Dhaka-1213, Bangladesh</p>
                             </div> {% endcomment %}
                             <div class="fac_cart">
                                 <div class="f_web">
-                                    <h5>Web Page:</h5>
+                                    <h5>Web Page & Social Link:</h5>
                                     <a href="{{post.website | safe}}">Web Page</a>
+                                    <a href="{{ post.GitHub_link | safe }}">Github</a>
+									<a href="{{ post.LinkedIn_link | safe }}">LinkedIn</a>
+									<a href="{{ post.Kaggle_link | safe }}">Kaggle</a>
                                 </div>
                             </div>
                         </div>
