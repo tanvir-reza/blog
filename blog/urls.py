@@ -20,6 +20,7 @@ urlpatterns = [
     path('projects', views.projects, name="projects"),
     path('research-unit/', views.ResearchUnit, name="ResearchUint"),
     path('Open-Positions', views.OpenPositions, name="OpenPositions"),
+    path('Founder-Message', views.founderMsg, name="founderMsg"),
     path('Training-Program', views.TrainingProgram, name="TrainingProgram"),
     path('Contact', views.Contact, name="Contact"),
     # path('people/',views.people,name="people"),

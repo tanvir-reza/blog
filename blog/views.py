@@ -9,6 +9,7 @@ from users.models import Project
 from users.models import LetestNews
 from users.models import CollaborationSlider
 from users.models import About
+from users.models import Founder
 from users.models import openPositon
 from users.models import ResearchTopic
 
@@ -28,6 +29,12 @@ def index(request):
     sliders = HomeSlider.objects.all()
     context = {"info": info, "sliders": sliders, "l_news": l_news, "collabs": collabs, "sliders_count": sliders_count, "about": about, "l_project": l_project, "founders": founders , "l_resaearch":l_resaearch}
     return render(request, "index.html", context)
+
+
+def founderMsg(request):
+    post = Founder.objects.first()
+    context = {"post": post}
+    return render(request,'f-msg.html',context)
 
 
 def people(request):

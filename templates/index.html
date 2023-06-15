@@ -183,13 +183,12 @@ data-rv-view="85" style="background-image: url({% static 'images/aboutus_bg.jpg)
     <div class="col-md-12">
       <div class="about-us-content">
         <div class="row">
-          <!-- <div class="col-sm-1"></div> -->
           {% for founder in founders %}
           <div class="col-sm-3">
             <div class="team-item">
               <img src="{{founder.img.url}}" alt="">
               <div class="down-content">
-                <h4><a href="index.html#">{{founder.FullName}}</a></h4>
+                <h4><a href="{% url 'founderMsg' %}">{{founder.FullName}}</a></h4>
                 <span>{{founder.category}}</span>
                 <p>2020-Running</p>
               </div>

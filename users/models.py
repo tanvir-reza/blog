@@ -128,7 +128,19 @@ class LetestNews(models.Model):
             
     def __str__(self):
         return self.title  
-    
+
+
+class Founder(models.Model):
+    name = models.CharField(max_length=200, blank = True)
+    designation = models.CharField(max_length=200, blank = True)
+    photo = models.ImageField(upload_to='Founder/', blank = True)
+    message = RichTextField(blank=True, null=True)
+    updated_on = models.DateTimeField(auto_now = True)
+    created_on = models.DateTimeField(auto_now_add =True)
+    status = models.IntegerField(choices=STATUS, default = 1)
+
+    def __str__(self):
+        return self.name
 
 class Designation(models.Model):
     title = models.CharField(max_length=250, unique=True, default="")
