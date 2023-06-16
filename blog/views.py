@@ -126,7 +126,9 @@ def Contact(request):
 # eight research fields page connection start
 def re_cml(request):
     topic = People.objects.filter(research_Topic__slug ='CML')
-    return render(request, 're_cml.html', {'CML': topic})
+    data = ResearchTopic.objects.filter(slug ='CML')
+    context = {'CML': topic,'data':data}
+    return render(request, 're_cml.html', context)
 
 def re_qml(request):
     topic = People.objects.filter(research_Topic__slug = 'QML')

@@ -173,6 +173,7 @@ class trainingProgram(models.Model):
 class ResearchTopic(models.Model):
     research_topic = models.CharField(max_length=100)
     slug = models.CharField(max_length=250)
+    short_bio = models.CharField(default="",max_length=500)
     updated_on = models.DateTimeField(auto_now = True)
     created_on = models.DateTimeField(auto_now_add =True)
     status = models.IntegerField(choices=STATUS, default = 1)
@@ -194,7 +195,7 @@ class People(models.Model):
     category = models.CharField(max_length=100,choices=PEOPLE_CHOICES,default="research_student")
     img = models.FileField(upload_to="people/",blank = True, verbose_name = ("Photo"))
     email= models.CharField(max_length=200, blank = True)
-    research_Topic = models.ManyToManyField(ResearchTopic, blank=True, null=True)
+    research_Topic = models.ManyToManyField(ResearchTopic, blank=True)
     google_ScholarLink = models.CharField(max_length=200, blank = True)
     research_Gate_Link = models.CharField(max_length=200, blank = True)
     GitHub_link= models.CharField(max_length=200, blank = True)
