@@ -11,6 +11,7 @@ from users.models import CollaborationSlider
 from users.models import About
 from users.models import Founder
 from users.models import openPositon
+from users.models import trainingProgram
 from users.models import ResearchTopic
 
 
@@ -110,7 +111,9 @@ def OpenPositions(request):
 
 
 def TrainingProgram(request):
-    return render(request, "traning.html")
+    post = trainingProgram.objects.first()
+    context = {"post": post}
+    return render(request, "traning.html", context)
 
 
 def Contact(request):

@@ -158,7 +158,18 @@ class Designation(models.Model):
 
     def get_absoulte_url(self):
         return reverse('desginations:list_by_desginations', args=[self.slug])
+
+class trainingProgram(models.Model):
+    title = models.CharField(max_length=200, blank = True)
+    Details = RichTextField(blank=True, null=True)
+    created_on = models.DateTimeField(auto_now_add =True)
+    status = models.IntegerField(choices=STATUS, default = 1)
+
+    def __str__(self):
+        return self.title
     
+
+
 class ResearchTopic(models.Model):
     research_topic = models.CharField(max_length=100)
     slug = models.CharField(max_length=250)
