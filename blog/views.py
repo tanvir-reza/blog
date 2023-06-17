@@ -15,7 +15,6 @@ from users.models import trainingProgram
 from users.models import ResearchTopic
 
 
-
 def index(request):
     info = Blog.objects.first()
     about = About.objects.first()
@@ -28,14 +27,15 @@ def index(request):
     sliders_count = HomeSlider.objects.count()
     print(sliders_count)
     sliders = HomeSlider.objects.all()
-    context = {"info": info, "sliders": sliders, "l_news": l_news, "collabs": collabs, "sliders_count": sliders_count, "about": about, "l_project": l_project, "founders": founders , "l_resaearch":l_resaearch}
+    context = {"info": info, "sliders": sliders, "l_news": l_news, "collabs": collabs, "sliders_count": sliders_count,
+               "about": about, "l_project": l_project, "founders": founders, "l_resaearch": l_resaearch}
     return render(request, "index.html", context)
 
 
 def founderMsg(request):
     post = Founder.objects.first()
     context = {"post": post}
-    return render(request,'f-msg.html',context)
+    return render(request, 'f-msg.html', context)
 
 
 def people(request):
@@ -62,10 +62,12 @@ def peopleDetailsView(request, post_id):
     post.save()
     return render(request, 'people_details.html', {'post': post})
 
+
 def about(request):
     post = About.objects.first()
     context = {"post": post}
     return render(request, "about.html", context)
+
 
 def publications(request):
     info = Blog.objects.first()
@@ -106,8 +108,8 @@ def OpenPositions(request):
     data = openPositon.objects.all()
     data2 = ResearchTopic.objects.all()
     print(data)
-    context = {"data" : data,"data2":data2}
-    return render(request, "openposition.html",context)
+    context = {"data": data, "data2": data2}
+    return render(request, "openposition.html", context)
 
 
 def TrainingProgram(request):
@@ -125,36 +127,49 @@ def Contact(request):
 
 # eight research fields page connection start
 def re_cml(request):
-    topic = People.objects.filter(research_Topic__slug ='CML')
-    data = ResearchTopic.objects.filter(slug ='CML')
-    context = {'CML': topic,'data':data}
-    return render(request, 're_cml.html', context)
+    topic = People.objects.filter(research_Topic__slug='CML')
+    data = ResearchTopic.objects.filter(slug='CML').first()
+    return render(request, 're_cml.html', {'CML': topic, 'data': data})
+
 
 def re_qml(request):
-    topic = People.objects.filter(research_Topic__slug = 'QML')
-    return render(request, 're_qml.html',{'QML': topic})
+    topic = People.objects.filter(research_Topic__slug='QML')
+    data = ResearchTopic.objects.filter(slug='QML').first()
+    return render(request, 're_qml.html', {'QML': topic, 'data': data})
+
 
 def re_nlp(request):
-    topic = People.objects.filter(research_Topic__slug = 'NLP')
-    return render(request, 're_nlp.html',{'NLP': topic})
+    topic = People.objects.filter(research_Topic__slug='NLP')
+    data = ResearchTopic.objects.filter(slug='NLP').first()
+    return render(request, 're_nlp.html', {'NLP': topic, 'data': data})
+
 
 def re_rnn(request):
-    topic = People.objects.filter(research_Topic__slug = 'RNN')
-    return render(request, 're_rnn.html',{'RNN': topic})
+    topic = People.objects.filter(research_Topic__slug='RNN')
+    data = ResearchTopic.objects.filter(slug='RNN').first()
+    return render(request, 're_rnn.html', {'RNN': topic, 'data': data})
+
 
 def re_xai(request):
-    topic = People.objects.filter(research_Topic__slug = 'XAI')
-    return render(request, 're_xai.html',{'XAI': topic})
+    topic = People.objects.filter(research_Topic__slug='XAI')
+    data = ResearchTopic.objects.filter(slug='XAI').first()
+    return render(request, 're_xai.html', {'XAI': topic, 'data': data})
+
 
 def re_mu(request):
-    topic = People.objects.filter(research_Topic__slug = 'MU')
-    return render(request, 're_mu.html',{'MU': topic})
+    topic = People.objects.filter(research_Topic__slug='MU')
+    data = ResearchTopic.objects.filter(slug='MU').first()
+    return render(request, 're_mu.html', {'MU': topic, 'data': data})
+
 
 def re_cv(request):
-    topic = People.objects.filter(research_Topic__slug = 'CV')
-    return render(request, 're_cv.html',{'CV': topic})
+    topic = People.objects.filter(research_Topic__slug='CV')
+    data = ResearchTopic.objects.filter(slug='CV').first()
+    return render(request, 're_cv.html', {'CV': topic, 'data': data})
+
 
 def re_others(request):
-    topic = People.objects.filter(research_Topic__slug = 'ROF')
-    return render(request, 're_others.html',{'ROF': topic})
+    topic = People.objects.filter(research_Topic__slug='ROF')
+    data = ResearchTopic.objects.filter(slug='ROF').first()
+    return render(request, 're_others.html', {'ROF': topic, 'data': data})
 # eight research fields page connection end
