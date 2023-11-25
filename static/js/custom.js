@@ -97,3 +97,54 @@ $(document).ready(function(){
 });
 
 
+$(document).ready(function(){
+    $("#authored").click(function () {
+        $("#tabs-1").removeClass("d-none");
+        $("#tabs-2").addClass("d-none");
+        $("#tabs-3").addClass("d-none");
+        $("#tabs-4").addClass("d-none");
+        $("#tabs-5").addClass("d-none");
+  });
+});
+
+
+$(document).ready(function(){
+    $("#journal").click(function () {
+        $("#tabs-2").removeClass("d-none");
+        $("#tabs-1").addClass("d-none");
+        $("#tabs-3").addClass("d-none");
+        $("#tabs-4").addClass("d-none");
+        $("#tabs-5").addClass("d-none");
+  });
+});
+
+$(document).ready(function(){
+    $("#book").click(function () {
+         $("#tabs-1").addClass("d-none");
+        $("#tabs-2").addClass("d-none");
+        $("#tabs-3").removeClass("d-none");
+        $("#tabs-4").addClass("d-none");
+        $("#tabs-5").addClass("d-none");
+  });
+});
+
+$(document).ready(function(){
+    $("#procesdings").click(function () {
+         $("#tabs-1").addClass("d-none");
+        $("#tabs-2").addClass("d-none");
+        $("#tabs-3").addClass("d-none");
+        $("#tabs-4").removeClass("d-none");
+        $("#tabs-5").addClass("d-none");
+  });
+});
+
+$(document).ready(function(){
+    $("#conference").click(function () {
+         $("#tabs-1").addClass("d-none");
+        $("#tabs-2").addClass("d-none");
+        $("#tabs-3").addClass("d-none");
+        $("#tabs-4").addClass("d-none");
+        $("#tabs-5").removeClass("d-none");
+  });
+});
+

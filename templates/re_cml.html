@@ -35,7 +35,7 @@ style="background-image: url({% static '/images/4.jpg' %});">
                             <div class="row">
                                 {% for post in CML %}
                                 <div class="col-md-3 col-sm-6 col-xs-12">
-                                    <a href="{% url 'peopleDetailsView' post.pk %}">
+                                    <a href="{% url 'peopleDetailsView' post.slug %}">
                                         <div class="re_contributor">
                                             {% if post.img %}
                                             <img src="{{ post.img.url }}" alt="">

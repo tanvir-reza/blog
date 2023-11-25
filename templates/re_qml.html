@@ -12,7 +12,7 @@ style="background-image: url({% static '/images/4.jpg' %});">
 <div class="mbr-section__container container mbr-section__container--isolated">
     <div class="mbr-header mbr-header--wysiwyg row">
         <div class="col-sm-8 col-sm-offset-2">
-            <h3 class="mbr-header__text">Quantum Machine Learning (QML)</h3>
+            <h3 class="mbr-header__text">Department of Quantum Computing and Federated Learning</h3>
 
         </div>
     </div>
@@ -27,16 +27,16 @@ style="background-image: url({% static '/images/4.jpg' %});">
                     <div class="iot_cc_rf">
                         <div class="message_title">
                             <div class="committee_title">
-                                <h3>Quantum Machine <span>Learning (QML)</span></h3>
+                                <h3>Department of Quantum Computing <span>and Federated Learning(DQCFL)</span></h3>
                                 <p>{{data.short_bio}}</p>
                                 <img src="{% static 'images/icons/bubt.png' %}" alt="">
                             </div>
                         </div>
                         <div class="list_of_re">
                             <div class="row">
-                                {% for post in QML %}
+                                {% for post in DQCFL %}
                                 <div class="col-md-3 col-sm-6 col-xs-12">
-                                    <a href="{% url 'peopleDetailsView' post.pk %}">
+                                    <a href="{% url 'peopleDetailsView' post.slug %}">
                                         <div class="re_contributor">
                                             {% if post.img %}
                                             <img src="{{ post.img.url }}" alt="">

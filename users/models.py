@@ -12,12 +12,13 @@ STATUS = (
     (1,"Publish")
 )
 PEOPLE_CHOICES = (
+	('Founder & Research Director','Founder & Research Director'),
     ('Advisor','Advisor'),
-    ('Research Associates','Research Associates'),
-    ('Research Assistants', 'Research Assistants'),
-    ('Founder & Research Director','Founder & Research Director'),
-    ('Research Coordinator & Lead R.A','Research Coordinator & Lead R.A'),
-    ('Research Intern Student','Research Intern Student'),
+    ('Head Of The Department','Head Of The Department'),
+    ('Lead Researcher', 'Lead Researcher'),
+    ('Researcher','Researcher'),
+	('Research Assistants','Research Assistants'),
+    ('Research Intern','Research Intern'),
     ('Alumni','Alumni'),
 )
 
@@ -213,12 +214,19 @@ class People(models.Model):
     professional_international_work = RichTextField(blank=True, null=True)
     seniority_order = models.IntegerField(default= 999)
     status = models.IntegerField(choices=STATUS, default = 1)
+    slug = models.CharField(max_length=200,unique=True, blank=True, null=True, editable=True)
     total_views=models.IntegerField(default=0)
 
     class Meta:
         ordering = ['seniority_order']
         verbose_name = 'Team Member'
         verbose_name_plural = 'Team Members'
+
+
+    def save(self, *args, **kwargs):  # new
+        if not self.slug:
+            self.slug = self.FullName.replace(" ", "-").replace(",", "").replace(".", "")
+        return super(People, self).save(*args, **kwargs)
 
     #for compress images
     if img.blank == False :
@@ -233,7 +241,7 @@ class People(models.Model):
     def __str__(self):
         return self.FullName
 
-    def geget_absoulte_url(self):
+    def get_absoulte_url(self):
         return reverse('people:list_people', args=[self.id])
   
 class PublicationCategory(models.Model):
@@ -247,10 +255,8 @@ class PublicationCategory(models.Model):
     
 class Publications(models.Model):
     Publication_Title = models.CharField(max_length=200, blank = False, default="")
-    Author = models.ManyToManyField(People, default="")
-    abstract =  RichTextField(blank=True, null=True , default = "")
+    details =  RichTextField(blank=True, null=True , default = "")
     category = models.ForeignKey(PublicationCategory, verbose_name=("PublicationCategory"), on_delete=models.CASCADE , default="")
-    DOI = models.CharField(max_length=200, blank = False, default="")
     status = models.IntegerField(choices=STATUS, default = 1)
     total_views = models.IntegerField(default=0)
       

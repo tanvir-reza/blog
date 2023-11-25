@@ -31,8 +31,8 @@ urlpatterns = [
     path('XAI', views.re_xai, name='re_xai'),
     path('MU', views.re_mu, name='re_mu'),
     path('CV', views.re_cv, name='re_cv'),
-    path('ROF', views.re_others, name='re_others'),
-    path('peopleDetailsView/<post_id>/', views.peopleDetailsView, name='peopleDetailsView'),
+    path('RL', views.re_others, name='re_others'),
+    path('peopleDetailsView/<slug>/', views.peopleDetailsView, name='peopleDetailsView'),
 ]
 
 

@@ -25,113 +25,86 @@ AMIRL | Publications
             <div class="row" id="tabs">
                 <div class="col-md-4">
                     <ul>
-                        <li><a href='publications.html#tabs-1'>Authored Books<i class="fa fa-angle-right"></i></a></li>
+                        <li ><a id="authored" href='publications.html#tabs-1'>Authored Books<i class="fa fa-angle-right"></i></a></li>
                         {% comment %} <li><a href='publications.html#tabs-2'>Edited Volumes<i class="fa fa-angle-right"></i></a></li> {% endcomment %}
-                        <li><a href='publications.html#tabs-3'>Journal Papers<i class="fa fa-angle-right"></i></a></li>
-                        <li><a href='publications.html#tabs-4'>Book Chapters<i class="fa fa-angle-right"></i></a></li>
-                        <li><a href='publications.html#tabs-5'>Proceedings<i class="fa fa-angle-right"></i></a></li>
-                        <li><a href='publications.html#tabs-6'>Conference Papers<i class="fa fa-angle-right"></i></a>
+                        <li><a id="journal" href='publications.html#tabs-2'>Journal Papers<i class="fa fa-angle-right"></i></a></li>
+                        <li><a id="book" href='publications.html#tabs-3'>Book Chapters<i class="fa fa-angle-right"></i></a></li>
+                        <li><a id="procesdings" href='publications.html#tabs-4'>Conference Proceedings<i class="fa fa-angle-right"></i></a></li>
+                        <li><a id="conference" href='publications.html#tabs-5'>Conference Papers<i class="fa fa-angle-right"></i></a>
                         </li>
                     </ul>
                 </div>
                 <div class="col-md-8">
                     <section class='tabs-content'>
-                        <article id='tabs-1'>
+                        <article id='tabs-1' class=" d-none r">
 
                             <blockquote>
                                 Authored Books
                             </blockquote>
                             <img src="assets/images/authoredbooks.png" alt="">
-                            <ol>
+                            <p>
                                 {% for book in Authored_books %}
-                                <li>{% for author in book.Author.all %}{{author}}{% if not forloop.last %}, {% endif %}{% endfor %}, <a
-                                        href="{{book.DOI}}" target=blank<>{{book.Publication_Title}} </a>,{{book.abstract}}
-                                </li>
+                                    {{book.details|safe}}
                                 {% endfor %}
-                            </ol>
+                            </p>
                         </article>
-
-                        {% comment %} <article id='tabs-2'>
-
-                            <blockquote>
-                                Edited Volumes
-                            </blockquote>
-                            <img src="assets/images/volume.jpeg" alt="">
-                            <ol>
-                                {% for book in Edited_Volumes %}
-                                <li>{% for author in book.Author.all %}{{author}}{% if not forloop.last %}, {% endif %}{% endfor %}, <a
-                                        href="{{book.DOI}}">{{book.Publication_Title}}</a>,{{book.abstract}}
-                                </li>
-                                {% endfor %}
-                            </ol>
-                        </article> {% endcomment %}
-
-
-
-
-                        <article id='tabs-3'>
+                        <article id='tabs-2' >
 
                             <blockquote>
                                 Journal Papers
                             </blockquote>
                             <img src="assets/images/Journals.jpeg" alt="">
-                            <ol>
+                            <p>
                                 {% for book in Journal_Papers %}
-                                <li>{% for author in book.Author.all %}{{author}}{% if not forloop.last %}, {% endif %}{% endfor %}, <a
-                                        href="{{book.DOI}}">{{book.Publication_Title}}</a>,{{book.abstract}}
-                                </li>
+                                
+                                    {{book.details|safe}}
+                                
                                 {% endfor %}
-                            </ol>
+                            </p>
                         </article>
 
 
 
 
-                        <article id='tabs-4'>
+                        <article id='tabs-3' class=" d-none ">
 
                             <blockquote>
                                 Book Chapters
                             </blockquote>
                             <img src="assets/images/BookChapter.jpg" alt="">
-                            <ol start="1">
+                            <p >
                                {% for book in Book_Chapters %}
-                                <li>{% for author in book.Author.all %}{{author}}{% if not forloop.last %}, {% endif %}{% endfor %}, <a
-                                        href="{{book.DOI}}">{{book.Publication_Title}}</a>,{{book.abstract}}
-                                </li>
+                                    {{book.details|safe}}
                                 {% endfor %}
-                            </ol>
+                            </p>
                         </article>
 
 
 
 
-                        <article id='tabs-5'>
+                        <article id='tabs-4' class="d-none">
 
                             <blockquote>
                                 Conference Proceedings
                             </blockquote>
                             <img src="assets/images/confproc.jpeg" alt="">
-                            <ol start="1">
+                            <p>
                                {% for book in Conference_Proceedings %}
-                                <li>{% for author in book.Author.all %}{{author}}{% if not forloop.last %}, {% endif %}{% endfor %}, <a
-                                        href="{{book.DOI}}">{{book.Publication_Title}}</a>,{{book.abstract}}
-                                </li>
-                                {% endfor %}
-                            </ol>
+                                 {{book.details|safe}}
+                               {% endfor %}
+                            </p>
                         </article>
 
-                        <article id='tabs-6'>
+                        <article id='tabs-5' class="d-none">
                             <blockquote>
                                 Conference Papers
                             </blockquote>
                             <img src="assets/images/conf.jpeg" alt="">
-                            <ol start="1">
+                            <p>
                                 {% for book in Conference_Papers %}
-                                <li>{% for author in book.Author.all %}{{author}}{% if not forloop.last %}, {% endif %}{% endfor %}, <a
-                                        href="{{book.DOI}}">{{book.Publication_Title}}</a>,{{book.abstract}}
-                                </li>
+                                    {{book.details|safe}}
                                 {% endfor %}
-                            </ol>
+                            </p>
                         </article>
                     </section>
                 </div>

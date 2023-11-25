@@ -56,8 +56,8 @@ def people(request):
 #     return render(request,"people.html")
 
 
-def peopleDetailsView(request, post_id):
-    post = People.objects.get(pk=post_id)
+def peopleDetailsView(request, slug):
+    post = People.objects.get(slug=slug)
     post.total_views = post.total_views+1
     post.save()
     return render(request, 'people_details.html', {'post': post})
@@ -133,14 +133,16 @@ def re_cml(request):
 
 
 def re_qml(request):
-    topic = People.objects.filter(research_Topic__slug='QML')
-    data = ResearchTopic.objects.filter(slug='QML').first()
-    return render(request, 're_qml.html', {'QML': topic, 'data': data})
+    topic = People.objects.filter(research_Topic__slug='DQCFL')
+    data = ResearchTopic.objects.filter(slug='DQCFL').first()
+    print(topic)
+    return render(request, 're_qml.html', {'DQCFL': topic, 'data': data})
 
 
 def re_nlp(request):
     topic = People.objects.filter(research_Topic__slug='NLP')
     data = ResearchTopic.objects.filter(slug='NLP').first()
+    print(topic)
     return render(request, 're_nlp.html', {'NLP': topic, 'data': data})
 
 
@@ -169,7 +171,7 @@ def re_cv(request):
 
 
 def re_others(request):
-    topic = People.objects.filter(research_Topic__slug='ROF')
-    data = ResearchTopic.objects.filter(slug='ROF').first()
-    return render(request, 're_others.html', {'ROF': topic, 'data': data})
+    topic = People.objects.filter(research_Topic__slug='RL')
+    data = ResearchTopic.objects.filter(slug='RL').first()
+    return render(request, 're_others.html', {'RL': topic, 'data': data})
 # eight research fields page connection end
