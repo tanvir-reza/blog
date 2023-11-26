@@ -1,0 +1,58 @@
+
+{% extends 'basic.html' %}
+{% block title %}
+AMIRL | About Page
+{% endblock title %}
+{% load static %}
+
+{% block body %}
+
+<section id="page-content" class="page-wrapper">
+    <section class="mbr-section mbr-section--relative mbr-section--fixed-size mbr-parallax-background mbr-after-navbar"
+        id="content5-94" data-rv-view="79"
+        style="background-image: url({% static '/images/2.jpg' %});">
+        <div class="mbr-section__container container mbr-section__container--isolated">
+            <div class="mbr-header mbr-header--wysiwyg row">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <h3 class="mbr-header__text" style="color: white">ABOUT</h3>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="c_message_wrapper">
+        <div class="c_message_area ptb-80">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="chairman_message_area">
+                            <div class="message_title">
+                                <div class="committee_title">
+                                    <h3>About <span>AMIRL:</span></h3>
+                                    <img src="{% static 'images/MIR-Icon.png' %}" alt="BUBT Logo">
+                                </div>
+                            </div>
+                            <div class="message_body">
+                                {{post.details | safe }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="chairman_photo_area">
+                            <div class="chairman_photo">
+                                <img src="{{post.img.url}}" alt="">
+                            </div>
+                            <div class="chairman_title">
+                                <h3>Advanced Machine Intelligence Research Lab</h3>
+                                {% comment %} <h5>{{post.ChairmanDegi | safe}}</h5> {% endcomment %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock body %}

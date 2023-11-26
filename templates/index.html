@@ -1,0 +1,480 @@
+{% extends 'basic.html' %}
+
+{% block title %}
+AMIRL | Home Page
+{% endblock title %}
+
+{% load static %}
+{% block body %}
+
+
+<section class="mbr-slider mbr-section mbr-section--no-padding carousel slide" data-ride="carousel" data-wrap="true"
+data-interval="5000" id="slider-97" data-rv-view="90" style="background-color: rgb(0, 0, 0);">
+<div class="mbr-section__container">
+  <div>
+    <ol class="carousel-indicators">
+      <li data-app-prevent-settings="" data-target="#slider-97" data-slide-to="0" class="active"></li>
+      <li data-app-prevent-settings="" data-target="#slider-97" data-slide-to="1"></li>
+      <li data-app-prevent-settings="" data-target="#slider-97" data-slide-to="2"></li>
+      <!-- <li data-app-prevent-settings="" data-target="#slider-97" class="" data-slide-to="3"></li> -->
+      <!-- <li data-app-prevent-settings="" data-target="#slider-97" data-slide-to="4"></li> -->
+    </ol>
+    <div class="carousel-inner" role="listbox">
+      <!-- <div class="mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--bg-adapted item dark center mbr-section--full-height "
+                    style="background-image: url({% static 'images/mbr-1920x960.jpg);">
+                    <div class="mbr-box__magnet mbr-box__magnet--center-center mbr-box__magnet--sm-padding">
+                        <div class="mbr-overlay" style="background-color: rgb(250, 197, 28);"></div>
+                        <div class=" container">
+
+                            <div class="row">
+                                <div class=" col-md-8 col-md-offset-2">
+
+                                    <div class="mbr-hero">
+                                        <h1 class="mbr-hero__text">New serological project on COVID-19</h1>
+
+                                        <p class="mbr-hero__subtext">In collaboration with the research laboratories
+                                            of Jean-François Masson (U. of Montreal) and Denis Boudreau (U. Laval),
+                                            the help of organizations such as Instruments Scientifiques Affinité,
+                                            Héma-Québec as well as many other collaborators, we We are currently
+                                            developing a combined ELISA and SPR (Surface Plasmon Resonance) approach
+                                            to quantify and characterize antibodies against the SARS-CoV-2
+                                            virus.<br></p>
+                                    </div>
+                                    <div class="mbr-buttons btn-inverse mbr-buttons--center">
+                                        <a class="mbr-buttons__btn btn btn-lg btn-danger" href="page34.html">Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+    {% for slider in sliders %}
+      <div
+        class="mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--bg-adapted item dark center mbr-section--full-height {% if forloop.first %}active{% endif %} "
+        style="background-image: url({{slider.photo.url}});">
+        <div class="mbr-box__magnet mbr-box__magnet--center-center mbr-box__magnet--sm-padding">
+          <div class="mbr-overlay" style="opacity: 0.2; background-color: rgb(184, 49, 47);"></div>
+          <div class=" container">
+            <div class="row">
+              <div class=" col-md-8 col-md-offset-2">
+
+                <div class="mbr-hero">
+                  <h1 class="mbr-hero__text">{{slider.title}}<br><br></h1>
+                  <p class="mbr-hero__subttitle">{{slider.slogan}}</p>
+
+                  <p class="mbr-hero__subtext">{{slider.Details|safe}}</p>
+                </div>
+                <!-- <div class="mbr-buttons btn-inverse mbr-buttons--center">
+                                        <a class="mbr-buttons__btn btn btn-lg btn-danger" href="page34.html">Details</a> 
+                                    </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    {% endfor %} 
+
+  
+      <!-- <div class="mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--bg-adapted item dark center mbr-section--full-height"
+                    style="background-image: url({% static 'images/mbr-1920x1280.jpg);">
+                    <div class="mbr-box__magnet mbr-box__magnet--center-center mbr-box__magnet--sm-padding">
+                        <div class="mbr-overlay" style="background-color: rgb(250, 197, 28);"></div>
+                        <div class=" container">
+
+                            <div class="row">
+                                <div class=" col-md-8 col-md-offset-2">
+
+                                    <div class="mbr-hero">
+                                        <h1 class="mbr-hero__text">Enzymatic degradation of plastic<br><br></h1>
+
+                                        <p class="mbr-hero__subtext">Coming!<br></p>
+                                    </div>
+                                    <div class="mbr-buttons btn-inverse mbr-buttons--center"><a
+                                            class="mbr-buttons__btn btn btn-lg btn-danger"
+                                            href="page34.html">Details</a> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+    </div>
+
+    <a data-app-prevent-settings="" class="left carousel-control" role="button" data-slide="prev" href="#slider-97">
+      <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a data-app-prevent-settings="" class="right carousel-control" role="button" data-slide="next"
+      href="#slider-97">
+      <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+</section>
+
+<!-- <section class="mbr-section mbr-section--relative mbr-section--fixed-size mbr-parallax-background mbr-after-navbar" id="content5-94" data-rv-view="79" style="background-image: url({% static 'images/csm-galerie-campusmil-005-7a9a2f188c-1920x1280.jpg);">
+
+<div class="mbr-section__container container mbr-section__container--isolated" style="padding-top: 0px; padding-bottom: 31px;">
+    <div class="mbr-header mbr-header--wysiwyg row">
+        <div class="col-sm-8 col-sm-offset-2">
+            <h3 class="mbr-header__text"><br>&nbsp;LABORATOIRE JOELLE PELLETIER<br>D'INGÉNIERIE DES PROTÉINES</h3>
+            
+        </div>
+    </div>
+</div>
+
+
+</section> -->
+
+<!-- <section class="mbr-section mbr-section--relative mbr-section--fixed-size" id="msg-box3-b0" data-rv-view="82"
+    style="background-color: rgb(255, 255, 255);">
+
+
+
+    <div class="mbr-section__container container mbr-section__container--isolated"
+        style="padding-top: 31px; padding-bottom: 31px;">
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+                <div class="mbr-buttons mbr-buttons--center"><a class="mbr-buttons__btn btn btn-lg btn-default"
+                        href="page32.html">ENGLISH</a></div>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+<section class="mbr-section mbr-section--relative mbr-section--fixed-size mbr-parallax-background" id="features1-95"
+data-rv-view="85" style="background-image: url({% static 'images/aboutus_bg.jpg);' %}">
+<!-- <div class="mbr-overlay" style="opacity: 0.8; background-color: rgb(255, 255, 255);"></div> -->
+
+<!--About us starts here-->
+<div class="about-us">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="about-us-content">
+          <div class="row">
+            <div class="col-md-6 align-self-center">
+              <div class="right-content">
+                <!-- <span>Who we are</span> -->
+                <h2>About <em>Us</em></h2>
+                <p>{{about.details|safe|truncatewords:"40"}}</p>
+                <a href="{% url 'about' %}" class="filled-button">Read More</a>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="left-image">
+                <img src="{{about.img.url}}" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--About us ends here-->
+</section>
+
+<!--Our team starts here-->
+<div class="team">
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="about-us-content">
+        <div class="row">
+          {% for founder in founders %}
+          <div class="col-sm-3">
+            <div class="team-item">
+              <img src="{{founder.img.url}}" alt="">
+              <div class="down-content">
+                <h4><a href="{% url 'founderMsg' %}">{{founder.FullName}}</a></h4>
+                <span>{{founder.category}}</span>
+                <p>2020-Running</p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          <div class="col-sm-1"></div>
+          <div class="col-sm-8">
+            <div class="section-heading">
+              <h2>Our Team <em>Members</em></h2>
+              <p class="subheading">Meet our Interdisciplinary Team with <em>Big Ideas</em>.</p>
+            </div>
+            <div class="wrapp">
+              <div class="">
+                <div class="">
+                  <div class="col-sm-1"></div>
+                  <div class="col-sm-9">
+                    <div class="more-members">
+                      <h5><a href="{% url 'people' %}#team1"><i class="fa fa-users"></i> Founder & Research Director</a></h5><br>
+                      <h5><a href="{% url 'people' %}#team2"><i class="fa fa-users"></i> Advisors</a></h5><br>
+                      <h5><a href="{% url 'people' %}#team3"><i class="fa fa-users"></i> Research Associates</a></h5><br>
+                      <h5><a href="{% url 'people' %}#team4"><i class="fa fa-users"></i> Research Coordinator & Lead R.A.</a></h5><br>
+                      <h5><a href="{% url 'people' %}#team5"><i class="fa fa-users"></i> Research Assistants</a></h5><br>
+                      <h5><a href="{% url 'people' %}#team6"><i class="fa fa-users"></i> Research Intern Students</a></h5><br>
+                      <h5><a href="{% url 'people' %}#team7"><i class="fa fa-users"></i> Alumni</a></h5><br>
+                      <!-- <h5><a href="team.html"><i class="fa fa-users"></i> Interns</a></h5><br>   -->
+                    </div>
+                  </div>
+                  <div class="col-sm-2"></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!--Our team ends here-->
+
+<!--Fun Facts Starts here -->
+{% comment %} <section id="fun-facts">
+<div class="container">
+  <div class="col-md-12 text-center white wow fadeInUp">
+    <h3 class="fun-title">Some interesting facts About US</h3>
+    <p class="fun-subheading"><em>You can make us better</em></p>
+    <!-- <p class="subheading">Interdisciplinary team with <em>big ideas</em> and <em> challenges</em>.</p> -->
+  </div>
+  <div class="counter-row row text-center wow fadeInUp">
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-2">
+        <i class="fa fa-bank"></i>
+        <div class="count-area-content">
+          <div class="count-digit">13</div>
+          <div class="count-title">International Funded Grants</div>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <i class="fa fa-globe"></i>
+        <div class="count-area-content">
+          <div class="count-digit">100</div>
+          <div class="count-title">Countries <br> <br> </div>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <i class="fa fa-users"></i>
+        <div class="count-area-content">
+          <div class="count-digit">1100</div>
+          <div class="count-title">Scientists <br> <br> </div>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <!-- <i class="fa fa-file-text"></i> -->
+        <i class="fa fa-clipboard"></i>
+        <div class="count-area-content">
+          <div class="count-digit">1400</div>
+          <div class="count-title">Peer Reviewed Publications</div>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <i class="fa fa-bar-chart"></i>
+        <!-- <i class="flaticon-projector-screen"></i> -->
+        <div class="count-area-content">
+          <div class="count-digit">50000</div>
+          <div class="count-title">Academic Citations</div>
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+  </div>
+</div>
+</section> {% endcomment %}
+<!--Fun Facts ends here -->
+
+
+<!--latest new starts here-->
+<div class="update_bg">
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center white wow fadeInUp">
+      <h3 class="updates-title">Recent<em> Updates</em></h3>
+      <!-- <p class="res-subheading"><em>Ideas and Challenges</em></p> -->
+    </div>
+  </div>
+  <div class="row">
+    <div class="latest-updates">
+      <div class="container">
+        <div class="row" id="updates">
+          <div class="col-md-4">
+            <ul>
+              <li><a id = "l_news" href='index.html#updates-1'>Latest News <i class="fa fa-angle-right"></i></a></li>
+              <li><a id = "l_research" href='index.html#updates-2'>Latest Research <i class="fa fa-angle-right"></i></a></li>
+              <li><a id = "l_project" href='index.html#updates-3'>Latest Projects <i class="fa fa-angle-right"></i></a></li>
+            </ul>
+          </div>
+          <div  id="tr_news" class="col-md-8 ">
+            <section class='updates-content'>
+              <article id="updates-1">
+                <h2>{{l_news.title}}</h2>
+                <p>{{l_news.Details|safe|truncatewords:"30"}} </p><a  href="#" class="filled-button">More</a>
+              </article>
+            </section>
+          </div>
+
+           <div id="tr_research" class="d-none col-md-8">
+            <section class='updates-content'>
+              <article id="updates-2">
+                <h2>{{l_resaearch.Publication_Title}}</h2>
+                <p>{{l_resaearch.abstract|safe|truncatewords:"30"}} </p><a  href="#" class="filled-button">More</a>
+              </article>
+            </section>
+          </div>
+          <div id="tr_project" class="d-none col-md-8">
+            <section class='updates-content'>
+              <article id="updates-3">
+                <h2>{{l_project.project_Title}}</h2>
+                <p>{{l_project.project_Title|safe|truncatewords:"30"}}  </p><a  href="#" class="filled-button">More</a>
+              </article>
+            </section> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!--latest new ends here-->
+
+
+<!--sponsors start here-->
+<div class="partners">
+<div class="container">
+  <div class="row p-margin">
+    <div class="col-md-12 text-center white wow fadeInUp">
+      <h3 class="partners-title">Collaborated <em>Universities</em></h3>
+    </div>
+  </div>
+  <div class="row partner_margin">
+    <div class="col-md-12">
+      <div class="owl-partners owl-carousel">
+        {% for col in collabs %}
+        <div class="partner-item">
+          <img src="{{col.photo.url}}" alt="">
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!--sponsors ends here-->
+
+<!-- <section class="mbr-section mbr-section--relative mbr-section--fixed-size mbr-parallax-background" id="features1-95"
+    data-rv-view="85"
+    style="background-image: url({% static 'images/csm-galerie-campusmil-005-7a9a2f188c-1920x1280.jpg);">
+    <div class="mbr-overlay" style="opacity: 0.8; background-color: rgb(255, 255, 255);"></div>
+    <div class="mbr-section__container mbr-section__container--std-top-padding mbr-section__container--sm-bot-padding mbr-section-title container"
+        style="padding-top: 31px;">
+        <div class="mbr-header mbr-header--center mbr-header--wysiwyg row">
+            <div class="col-sm-8 col-sm-offset-2">
+                <h3 class="mbr-header__text">NEWS<br></h3>
+
+            </div>
+        </div>
+    </div>
+    <div class="mbr-section__container container">
+        <div class="mbr-section__row row">
+            <div class="mbr-section__col col-xs-12 col-md-3 col-sm-6">
+
+                <div class="mbr-section__container mbr-section__container--middle">
+                    <div class="mbr-header mbr-header--reduce mbr-header--center mbr-header--wysiwyg">
+                        <h3 class="mbr-header__text">TRAVEL SCHOLARSHIPS AWARDED FOR THE PROTEIN SOCIETY SYMPOSIUM -
+                            POSTER PRESENTATIONS</h3>
+                    </div>
+                </div>
+                <div class="mbr-section__container mbr-section__container--middle">
+                    <div class="mbr-article mbr-article--wysiwyg">
+                        <p>&nbsp;Congratulations to Adem H.-Parisien and Jonathan Besna for their travel grants from
+                            the Protein Society. The Protein Society's 2022 Annual Symposium (PS36) will take place
+                            July 7-10, in San Francisco, CA.<br></p>
+                    </div>
+                </div>
+                <div class="mbr-section__container mbr-section__container--last" style="padding-bottom: 0px;">
+                    <div class="mbr-buttons mbr-buttons--center"><a
+                            href="https://www.proteinsociety.org/page/PROGRAM-AND-SPEAKERS"
+                            class="mbr-buttons__btn btn btn-wrap btn-xs-lg btn-warning" target="_blank">READ
+                            MORE</a></div>
+                </div>
+            </div>
+            <div class="mbr-section__col col-xs-12 col-md-3 col-sm-6">
+
+                <div class="mbr-section__container mbr-section__container--middle">
+                    <div class="mbr-header mbr-header--reduce mbr-header--center mbr-header--wysiwyg">
+                        <h3 class="mbr-header__text">NEW SUMMER INTERNS - 2022<div></div>
+                        </h3>
+                    </div>
+                </div>
+                <div class="mbr-section__container mbr-section__container--middle">
+                    <div class="mbr-article mbr-article--wysiwyg">
+                        <p>Welcome to the 4 new interns of the Joelle Pelletier laboratory and congratulations to
+                            Alexis Bonneau-Burke for her poster presentation award at the 12th annual CCGC
+                            symposium!<br></p>
+                    </div>
+                </div>
+                <div class="mbr-section__container mbr-section__container--last" style="padding-bottom: 0px;">
+                    <div class="mbr-buttons mbr-buttons--center"><a href="page30.html"
+                            class="mbr-buttons__btn btn btn-wrap btn-xs-lg btn-primary">DISCOVER THE TEAM</a></div>
+                </div>
+            </div>
+            <div class="clearfix visible-sm-block"></div>
+            <div class="mbr-section__col col-xs-12 col-md-3 col-sm-6">
+
+                <div class="mbr-section__container mbr-section__container--middle">
+                    <div class="mbr-header mbr-header--reduce mbr-header--center mbr-header--wysiwyg">
+                        <h3 class="mbr-header__text">NEW GRADUATE STUDENTS<div><br></div>
+                        </h3>
+                    </div>
+                </div>
+                <div class="mbr-section__container mbr-section__container--middle">
+                    <div class="mbr-article mbr-article--wysiwyg">
+                        <p>The Joelle Pelletier laboratory&nbsp;is pleased to welcome two new graduate students:
+                            Maxime Saint-Aubin and Megan-Faye Parker (CIHR Scholar).</p>
+                    </div>
+                </div>
+                <div class="mbr-section__container mbr-section__container--last" style="padding-bottom: 0px;">
+                    <div class="mbr-buttons mbr-buttons--center"><a href="page30.html"
+                            class="mbr-buttons__btn btn btn-wrap btn-xs-lg btn-info">DISCOVER THE TEAM</a></div>
+                </div>
+            </div>
+
+            <div class="mbr-section__col col-xs-12 col-md-3 col-sm-6">
+
+                <div class="mbr-section__container mbr-section__container--middle">
+                    <div class="mbr-header mbr-header--reduce mbr-header--center mbr-header--wysiwyg">
+                        <h3 class="mbr-header__text">2 RECENT REVIEWS WERE PUBLISHED&nbsp;</h3>
+                    </div>
+                </div>
+                <div class="mbr-section__container mbr-section__container--middle">
+                    <div class="mbr-article mbr-article--wysiwyg">
+                        <p>Cytochrome P450 Immobilization Strategies [...] was published in ACS
+                            catalysis.<br>_________________________<br><br><em>Methods of mutagenesis and library
+                                creation</em> was published in BioEssays.<br></p>
+                    </div>
+                </div>
+                <div class="mbr-section__container mbr-section__container--last" style="padding-bottom: 0px;">
+                    <div class="mbr-buttons mbr-buttons--center"><a
+                            href="https://scholar.google.com/citations?user=FYazIkcAAAAJ&hl=fr"
+                            class="mbr-buttons__btn btn btn-wrap btn-xs-lg btn-success" target="_blank">READ
+                            ARTICLES</a></div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</section> -->
+
+
+
+
+
+{% endblock %}
+
+
+

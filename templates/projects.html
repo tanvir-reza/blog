@@ -1,0 +1,66 @@
+{% extends 'basic.html' %}
+
+{% block title %}
+AMIRL | Projects
+{% endblock title %}
+
+{% load static %}
+{% block body %}
+
+    <section class="mbr-section mbr-section--relative mbr-section--fixed-size mbr-parallax-background mbr-after-navbar"
+        id="content5-94" data-rv-view="79"
+        style="background-image: url({% static '/images/4.jpg' %});">
+        <div class="mbr-section__container container mbr-section__container--isolated">
+            <div class="mbr-header mbr-header--wysiwyg row">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <h3 class="mbr-header__text">PROJECTS</h3>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="more-info about-info">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="more-info-content">
+                        <div class="row">
+                            <div class="">
+                                <div class="right-content grant-info">
+                                    <h2>Project <em>Informations</em></h2>
+                                    <p>
+                                    </p>
+                                    <hr color="#69c1ff">
+                                    <ul>
+                                        {% for project in projects %}
+                                        <li>
+                                            <ul>
+                                                <li><b>Date Of Completion:</b> {{project.Funding_period}}</li>
+                                                <li>Project Title: <a href="{{project.Github_Link}}" target="_blank">{{project.project_Title}}</a></li>
+                                                <li>Brief Description:{{project.abstract|safe}} </li>
+                                                <a style="padding: 3px 6px;font-size: 12px;margin-bottom: 10px;" href="{{project.Github_Link}}" target=blank class="filled-button">View Project</a>
+                                                {% comment %} <a class="btn btn-primary">View Project</a> {% endcomment %}
+                                            </ul>
+                                           
+                                        </li>
+                                       
+                                        <br>
+                                        {% endfor %}
+                                    </ul>
+                                    <p></p>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        {% endblock %}

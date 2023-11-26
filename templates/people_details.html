@@ -1,0 +1,268 @@
+
+{% extends 'basic.html' %}
+{% load static %}
+
+
+{% block title %}
+AMIRL | {{ post.FullName  }}
+{% endblock title %}
+
+{% block body %}
+
+<section class="mbr-section mbr-section--relative mbr-section--fixed-size mbr-parallax-background mbr-after-navbar"
+        id="content5-94" data-rv-view="79"
+        style="background-image: url({% static '/images/4.jpg' %});">
+        <div class="mbr-section__container container mbr-section__container--isolated">
+            <div class="mbr-header mbr-header--wysiwyg row">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <h3 class="mbr-header__text">Team Details</h3>
+
+                </div>
+            </div>
+        </div>
+</section>
+
+<section id="page-content" class="page-wrapper">
+    {% comment %} <div class="page_head_bg">
+        <div class="page_head">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="page_head_section ptb-70">
+                            <div class="ph_title">
+                                <h2>Faculty Details</h2>
+                            </div>
+                            <div class="ph_menu">
+                                <h5><a href="{% url 'index' %}">Home</a></h5>
+                                <h5>/</h5>
+                                <h5><a href="{% url 'faculty' %}">People</a></h5>
+                                <h5>/</h5>
+                                <h5><a href="{% url 'faculty' %}">Faculty</a></h5>
+                                <h5>/</h5>
+                                <h5>Details</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> {% endcomment %}
+    <div class="f-detail-wrapper">
+        <div class="f-detail_area ptb-80">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="fac_profile res_profile">
+                            <div class="fac_dp">
+                                {% if post.img %}
+                                    <img src="{{ post.img.url }}" alt="Photo">
+                                 {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="fac_detail fac_name">
+                            <div class="fac_title">
+                                <h2>{{ post.FullName }}</h2>{% if post.leav_status %}(<span>{{ post.leav_status | safe }}</span>){% endif %}
+                                <h6>{{ post.designation | safe }}</h6>
+                                <p>{{ post.category | safe }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="fac_profile">
+                            <!-- <div class="fac_dp">
+                                {% if post.photo %}
+                                    <img src="{{ post.photo.url }}" alt="Photo">
+                                 {% endif %}
+                            </div> -->
+                            <div class="fac_cart">
+                                <div class="f_contact">
+                                    <h5>Contact:</h5>
+                                    <h6>{{ post.category | safe }}</h6>
+                                    <p>Advanced Machine Intelligence Research Lab<br>(AMIRL), Block-B, Banani.
+Dhaka-1213, Bangladesh</p>
+                                </div>
+                            </div>
+                            <div class="fac_cart">
+                                <div class="f_mail">
+                                    <h5>E-mail:</h5>
+                                    <a href="mailto:{{post.email}}">{{ post.email | safe }}</a>
+                                </div>
+                            </div>
+                            <div class="fac_cart">
+                                <div class="f_cell">
+                                    <h5>Telephone:</h5>
+                                    <p>Office: {{ post.office_Phone | safe }}<br>Cell: {{ post.other_Contact | safe }} </p>
+                                </div>
+                            </div>
+                            <div class="fac_cart">
+                                <div class="f_pp">
+                                    <h5>Publication Profile:</h5>
+                                    <a href="{{ post.google_ScholarLink | safe }}">Google Scholar</a>
+                                    <a href="{{ post.research_Gate_Link | safe }}">Research Gate</a>
+									
+									
+                                </div>
+                            </div>
+                            {% comment %} <div class="fac_cart">
+                                <div class="f_ct">
+                                    <h5>Courses Taught</h5>
+                                    <a href="{% url 'courses-taught' post.pk %}">View Courses</a>
+                                </div>
+                            </div> {% endcomment %}
+                            <div class="fac_cart">
+                                <div class="f_web">
+                                    <h5>Web Page & Social Link:</h5>
+                                    <a href="{{post.website | safe}}">Web Page</a>
+                                    <a href="{{ post.GitHub_link | safe }}">Github</a>
+									<a href="{{ post.LinkedIn_link | safe }}">LinkedIn</a>
+									<a href="{{ post.Kaggle_link | safe }}">Kaggle</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="fac_detail">
+                            <!-- <div class="fac_title">
+                                <h2>{{ post.fullName | safe }}</h2>{% if post.leav_status %}(<span>{{ post.leav_status | safe }}</span>){% endif %}
+                                <h6>{{ post.designation | safe }}</h6>
+                                <p>Department of Computer Science & Engineering</p>
+                            </div> -->
+                            <div class="fac_info_wrapper">
+                                
+                                <div class="fac_info">
+                                    <button class="accordion for_facDet">Academic Background</button>
+                                    <div class="panel for_bgborder">
+                                        <div class="academic_block table-responsive">
+                                            {{ post.academic_Background | safe }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="fac_info">
+                                    <button class="accordion for_facDet">Short Biography</button>
+                                    <div class="panel for_bgborder">
+                                        <div class="academic_block table-responsive">
+                                            {% if post.biography %}
+                                            {{ post.biography | safe }}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="fac_info">
+                                    <button class="accordion for_facDet">Professional Experience</button>
+                                    <div class="panel for_bgborder">
+                                        <div class="academic_block table-responsive">
+                                            {% if post.Professional_Certifications %}
+                                                {{ post.Professional_Certifications | safe }}
+                                            {% endif %}
+                                            <!-- {% if post.Professional_Certifications %}
+                                                <p>{{ post.Professional_Certifications | safe }}</p> 
+                                            {% endif %} -->
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                
+                                {% comment %} <div class="fac_info">
+                                    <button class="accordion for_facDet">Research Interest</button>
+                                    <div class="panel for_bgborder">
+                                        <div class="academic_block table-responsive">
+                                            {% if post.researchArea %}
+                                                {{ post.researchArea | safe }}
+                                            {% endif %}
+                                            
+                                            {% if post.research_Interest %}
+                                                {{ post.research_Interest | safe }}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div> {% endcomment %}
+                                
+                                <div class="fac_info">
+                                    <button class="accordion for_facDet">Publications</button>
+                                    <div class="panel for_bgborder">
+                                        <div class="">
+                                        <div class="">
+                                            {% if post.journal_Papers %}
+                                                {{ post.journal_Papers | safe }}
+                                            {% endif %}
+                                            {% if post.conference_Papers %}
+                                                {{ post.conference_Papers | safe }}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+
+                                <div class="fac_info">
+                                    <button class="accordion for_facDet">Award and  Research grant</button>
+                                    <div class="panel for_bgborder">
+                                        <div class="academic_block table-responsive">
+                                            {% if post.AwardAndResearchGrant %}
+                                                {{ post.AwardAndResearchGrant | safe }}
+                                            {% endif %}
+                                            
+                                            {% comment %} {% if post.researchGrant %}
+                                                {{ post.researchGrant | safe }}
+                                            {% endif %} {% endcomment %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="fac_info">
+                                    <button class="accordion for_facDet">Professional Membership</button>
+                                    <div class="panel for_bgborder">
+                                        <div class="academic_block table-responsive">
+                                            {% if post.professional_membership %}
+                                                {{ post.professional_membership | safe }}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="fac_info">
+                                    <button class="accordion for_facDet">Professional Collaboration</button>
+                                    <div class="panel for_bgborder">
+                                        <div class="academic_block table-responsive">
+                                            {% if post.professional_international_work %}
+                                                {{ post.professional_international_work | safe }}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <p>This page viewed total {{post.total_views}} times</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+</section>
+
+
+
+
+
+
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+    
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "%";
+        }
+      });
+    }
+</script>
+
+{% endblock %}

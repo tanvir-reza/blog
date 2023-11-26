@@ -1,0 +1,88 @@
+
+{% extends 'base.html' %}
+{% block title %}
+AMIRL | Project Page
+{% endblock title %}
+{% load static %}
+
+{% block content %}
+
+<section id="page-content" class="page-wrapper">
+    <div class="page_head_bg">
+        <div class="page_head">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="page_head_section ptb-70">
+                            <div class="ph_title">
+                                <h2>Capstone Projects Details</h2>
+                            </div>
+                            <div class="ph_menu">
+                                <h5><a href="{% url 'index' %}">Home</a></h5>
+                                <h5>/</h5>
+                                <h5><a href="{% url 'r_field' %}">Research</a></h5>
+                                <h5>/</h5>
+                                <h5><a href="{% url 'capstoneProject' %}">Capstone Projects</a></h5>
+                                <h5>/</h5>
+                                <h5>Details</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="capstone_project_area ptb-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-1"></div>
+                {% for p in post %}
+                <div class="col-md-10">
+                    <div class="eatch_cp_details">
+                        <div class="cp_title">
+                            <h2>{{p.project_Title}}</h2>
+                        </div>
+                        {% for sup in p.supervisor.all %}
+                        <div class="cp_supervisor">
+                            <h5><strong><em>Supervisor: </em></strong><a href="{% url 'faculty-details' sup.pk %}">{{ sup.fullName }}</a></h5>
+                        </div>
+                        {% endfor %}
+                        <div class="cp_contributors">
+                            <h5><strong><em>Contributors:</em></strong></h5>
+                            <div class="contributors_list">
+                                <div class="row">
+                                    {% for s in p.students.all %}
+                                    <div class="col-sm-6 col-md-3 col-lg-2">
+                                        <ul class="each_con">
+                                            <li>{{ s.name }}</li>
+                                            <li><strong>ID: </strong>{{ s.studentId }}</li>
+                                            <li><strong>Intake/Section: </strong>{{ s.intakeSection.intake }}/{{ s.intakeSection.section.section }}</li>
+                                        </ul>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cp_abstract">
+                            {% if p.abstract %}
+                            <p><span>Abstract: </span>{{p.abstract | safe }}</p>
+                            {% endif %}
+                        </div>
+                        <div class="cp_paper">
+                            <h5><a href="" onclick="myFunction()">Get Full Document <i class="fa fa-save"></i></i></a></h5>
+                            <script>
+                            function myFunction(){
+                                alert("Only Bubt Student can access this");
+                                }
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
