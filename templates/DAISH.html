@@ -1,0 +1,255 @@
+{% extends 'basic.html' %}
+
+{% block title %}
+{{d}}{{s}}
+{% endblock title %}
+
+
+{% load static %}
+{% block body %}
+
+    <section class="mbr-section mbr-section--relative mbr-section--fixed-size mbr-parallax-background mbr-after-navbar"
+        id="content5-94" data-rv-view="79"
+        style="background-image: url({% static '/images/4.jpg' %});">
+        <div class="mbr-section__container container mbr-section__container--isolated">
+            <div class="mbr-header mbr-header--wysiwyg row">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <h3 class="mbr-header__text">{{d}} ({{s}})</h3>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="people_area ptb-80">
+        <div class="container">
+            <div class="" style="color:#135252">
+                                <h3>{{d}} ({{s}})</h3>
+                                <p style="margin-top: 14px;">{{topic.short_bio}}</p>
+                                
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="rf_outerwrap">
+                        <div class="rf_title" id="team3">
+                            <div class="message_title">
+                                <div class="committee_title">
+                                    <h3>Head of the <span> Department </span></h3>
+                                    <!-- <img src="{% static 'images/icons/bubt.png' %}" alt=""> -->
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="people_list">
+                            <div class="row">
+                                {% for advisor in heads %}
+                                <div class="col-md-3">
+                                    <div class="single_people">
+                                        <div class="single_people_image">
+                                            {% if advisor.img %}
+                                            <img src="{{advisor.img.url}}" alt="photo">
+                                            {% endif %}
+                                            
+                                        </div>
+                                        <div class="single_people_bio">
+                                            <div class="name">
+                                                <a href="{% url 'peopleDetailsView' advisor.slug %}">
+                                                    <h3>{{advisor.FullName}}</h3>
+                                                </a>
+                                            </div>
+                                            <div class="designation">
+                                                <p><em>{{advisor.designation}}</em></p>
+                                            </div>
+                                            <div class="uni">
+                                                <p>{{advisor.university}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="rf_title" id="team3">
+                            <div class="message_title">
+                                <div class="committee_title">
+                                    <h3>Lead <span> Researcher </span></h3>
+                                    <!-- <img src="{% static 'images/icons/bubt.png' %}" alt=""> -->
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="people_list">
+                            <div class="row">
+                                {% for advisor in lead_researchers %}
+                                <div class="col-md-3">
+                                    <div class="single_people">
+                                        <div class="single_people_image">
+                                            {% if advisor.img %}
+                                            <img src="{{advisor.img.url}}" alt="photo">
+                                            {% endif %}
+                                            
+                                        </div>
+                                        <div class="single_people_bio">
+                                            <div class="name">
+                                                <a href="{% url 'peopleDetailsView' advisor.slug %}">
+                                                    <h3>{{advisor.FullName}}</h3>
+                                                </a>
+                                            </div>
+                                            <div class="designation">
+                                                <p><em>{{advisor.designation}}</em></p>
+                                            </div>
+                                            <div class="uni">
+                                                <p>{{advisor.university}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="rf_title" id="team4">
+                            <div class="message_title">
+                                <div class="committee_title">
+                                    <h3>Research<span>s</span></h3>
+                                    <!-- <img src="{% static 'images/icons/bubt.png' %}" alt=""> -->
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="people_list">
+                            <div class="row">
+                                {% for coordinator in researcher %}
+                                <div class="col-md-3">
+                                    <div class="single_people">
+                                        <div class="single_people_image">
+                                            {% if coordinator.img %}
+                                            <img src="{{coordinator.img.url}}" alt="photo">
+                                            {% endif %}
+                                            
+                                        </div>
+                                        <div class="single_people_bio">
+                                            <div class="name">
+                                                <a href="{% url 'peopleDetailsView' coordinator.slug %}">
+                                                    <h3>{{coordinator.FullName}}</h3>
+                                                </a>
+                                            </div>
+                                            <div class="designation">
+                                                <p><em>{{coordinator.designation}}</em></p>
+                                            </div>
+                                            <div class="uni">
+                                                <p>{{coordinator.university}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="rf_title" id="team5"> 
+                            <div class="message_title">
+                                <div class="committee_title">
+                                    <h3>Research <span>Assistants</span></h3>
+                                    <!-- <img src="{% static 'images/icons/bubt.png' %}" alt=""> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="people_list">
+                            <div class="row">
+                                {% for assistant in research_assistants %}
+                                <div class="col-md-3">
+                                    <div class="single_people">
+                                        <div class="single_people_image">
+                                            <img src="{{assistant.img.url}}" alt="photo">
+                                        </div>
+                                        <div class="single_people_bio">
+                                            <div class="name">
+                                                <a href="{% url 'peopleDetailsView' assistant.slug %}">
+                                                    <h3>{{assistant.FullName}}</h3>
+                                                </a>
+                                            </div>
+                                            <div class="designation">
+                                                <p><em>{{assistant.designation}}</em></p>
+                                            </div>
+                                            <div class="uni">
+                                                <p>{{assistant.university}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="rf_title" id="team6">
+                            <div class="message_title">
+                                <div class="committee_title">
+                                    <h3>RESEARCH INTERN <span>STUDENTS </span></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="people_list">
+                            <div class="row">
+                                {% for student in research_students %}
+                                <div class="col-md-3">
+                                    <div class="single_people">
+                                        <div class="single_people_image">
+                                            <img src="{{student.img.url}}" alt="photo">
+                                        </div>
+                                        <div class="single_people_bio">
+                                            <div class="name">
+                                                <a href="{% url 'peopleDetailsView' student.slug %}">
+                                                    <h3>{{student.FullName}}</h3>
+                                                </a>
+                                            </div>
+                                            <div class="designation">
+                                                <p><em>{{student.designation}}</em></p>
+                                            </div>
+                                            <div class="uni">
+                                                <p>{{student.university}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        <div class="rf_title" id="team7">
+                            <div class="message_title">
+                                <div class="committee_title">
+                                    <h3>Alum<span>ni </span></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="people_list">
+                            <div class="row">
+                                {% for alumni in alumnis %}
+                                <div class="col-md-3">
+                                    <div class="single_people">
+                                        <div class="single_people_image">
+                                            <img src="{{alumni.img.url}}" alt="photo">
+                                        </div>
+                                        <div class="single_people_bio">
+                                            <div class="name">
+                                                <a href="{% url 'peopleDetailsView' alumni.slug %}">
+                                                    <h3>{{alumni.FullName}}</h3>
+                                                </a>
+                                            </div>
+                                            <div class="designation">
+                                                <p><em>{{alumni.designation}}</em></p>
+                                            </div>
+                                            <div class="uni">
+                                                <p>{{alumni.university}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}
