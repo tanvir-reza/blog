@@ -14,9 +14,10 @@ STATUS = (
 PEOPLE_CHOICES = (
 	('Founder & Research Director','Founder & Research Director'),
     ('Advisor','Advisor'),
-    ('Research Associates','Research Associates'),
-    ('Research Coordinator & Lead R.A', 'Research Coordinator & Lead R.A'),
-	('Research Assistants','Research Assistants'),
+    ('Head of the Department', 'Head of the Department'),
+    ('Lead Researcher', 'Lead Researcher'),
+    ('Researcher', 'Researcher'),
+	('Research Assistant','Research Assistant'),
     ('Research Intern','Research Intern'),
     ('Alumni','Alumni'),
 )
@@ -170,6 +171,19 @@ class trainingProgram(models.Model):
     
 
 
+
+class ResurachUnit_Designation(models.Model):
+    title = models.CharField(max_length=250, unique=True, default="")
+
+    class Meta:
+        verbose_name = 'Research Unit Designation'
+        verbose_name_plural = 'Research Unit Designations'
+
+    def __str__(self):
+        return self.title
+    
+
+    
 class ResearchTopic(models.Model):
     research_topic = models.CharField(max_length=100)
     slug = models.CharField(max_length=250)
@@ -185,15 +199,20 @@ class ResearchTopic(models.Model):
     def __str__(self):
         return self.research_topic
     
-class ResurachUnit_Designation(models.Model):
-    title = models.CharField(max_length=250, unique=True, default="")
 
-    class Meta:
-        verbose_name = 'Research Unit Designation'
-        verbose_name_plural = 'Research Unit Designations'
+class ResearchAreaPeople(models.Model):
+    people = models.ForeignKey('People', on_delete=models.CASCADE)
+    research_topic = models.ForeignKey('ResearchTopic', on_delete=models.CASCADE)
+    designation = models.ForeignKey(
+        'ResurachUnit_Designation', on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    status = models.IntegerField(choices=STATUS, default = 1)
 
-    def __str__(self):
-        return self.title
+
+
+    def __str__(self) -> str:
+        return f"{self.people} - {self.research_topic} - {self.designation}"
+    
 
 
 class People(models.Model):
@@ -222,7 +241,6 @@ class People(models.Model):
     conference_Papers = RichTextField(blank=True, null=True)
     professional_membership= RichTextField(blank=True, null=True)
     professional_international_work = RichTextField(blank=True, null=True)
-    RU_Designation = models.ForeignKey(ResurachUnit_Designation, on_delete= models.CASCADE, verbose_name = ("Research Unit Designation"), blank = True , null=True)
     seniority_order = models.IntegerField(default= 999)
     status = models.IntegerField(choices=STATUS, default = 1)
     slug = models.CharField(max_length=200,unique=True, blank=True, null=True, editable=True)

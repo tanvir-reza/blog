@@ -105,7 +105,7 @@ AMIRL | Team
                         <div class="rf_title" id="team3">
                             <div class="message_title">
                                 <div class="committee_title">
-                                    <h3>Research<span> Associates </span></h3>
+                                    <h3>Head of the <span>Department </span></h3>
                                     <!-- <img src="{% static 'images/icons/bubt.png' %}" alt=""> -->
                                 </div>
                             </div>
@@ -113,7 +113,7 @@ AMIRL | Team
                         
                         <div class="people_list">
                             <div class="row">
-                                {% for advisor in researchAssociates %}
+                                {% for advisor in heads %}
                                 <div class="col-md-3">
                                     <div class="single_people">
                                         <div class="single_people_image">
@@ -143,7 +143,7 @@ AMIRL | Team
                         <div class="rf_title" id="team4">
                             <div class="message_title">
                                 <div class="committee_title">
-                                    <h3>Research Coordinator <span>& Lead R.A.</span></h3>
+                                    <h3>Lead <span>Researcher</span></h3>
                                     <!-- <img src="{% static 'images/icons/bubt.png' %}" alt=""> -->
                                 </div>
                             </div>
@@ -151,7 +151,7 @@ AMIRL | Team
                         
                         <div class="people_list">
                             <div class="row">
-                                {% for coordinator in coordinators %}
+                                {% for coordinator in lead %}
                                 <div class="col-md-3">
                                     <div class="single_people">
                                         <div class="single_people_image">
@@ -181,14 +181,14 @@ AMIRL | Team
                         <div class="rf_title" id="team5"> 
                             <div class="message_title">
                                 <div class="committee_title">
-                                    <h3>Research <span>Assistants</span></h3>
+                                    <h3>Researche <span>r</span></h3>
                                     <!-- <img src="{% static 'images/icons/bubt.png' %}" alt=""> -->
                                 </div>
                             </div>
                         </div>
                         <div class="people_list">
                             <div class="row">
-                                {% for assistant in research_assistants %}
+                                {% for assistant in researchers %}
                                 <div class="col-md-3">
                                     <div class="single_people">
                                         <div class="single_people_image">
@@ -212,7 +212,41 @@ AMIRL | Team
                                 {% endfor %}
                             </div>
                         </div>
-                        <div class="rf_title" id="team6">
+                        <div class="rf_title" id="team6"> 
+                            <div class="message_title">
+                                <div class="committee_title">
+                                    <h3>Research <span>Assistant</span></h3>
+                                    <!-- <img src="{% static 'images/icons/bubt.png' %}" alt=""> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="people_list">
+                            <div class="row">
+                                {% for assistant in research_ass %}
+                                <div class="col-md-3">
+                                    <div class="single_people">
+                                        <div class="single_people_image">
+                                            <img src="{{assistant.img.url}}" alt="photo">
+                                        </div>
+                                        <div class="single_people_bio">
+                                            <div class="name">
+                                                <a href="{% url 'peopleDetailsView' assistant.slug %}">
+                                                    <h3>{{assistant.FullName}}</h3>
+                                                </a>
+                                            </div>
+                                            <div class="designation">
+                                                <p><em>{{assistant.designation}}</em></p>
+                                            </div>
+                                            <div class="uni">
+                                                <p>{{assistant.university}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="rf_title" id="team7">
                             <div class="message_title">
                                 <div class="committee_title">
                                     <h3>RESEARCH INTERN <span>STUDENTS </span></h3>
@@ -221,7 +255,7 @@ AMIRL | Team
                         </div>
                         <div class="people_list">
                             <div class="row">
-                                {% for student in research_students %}
+                                {% for student in research_int %}
                                 <div class="col-md-3">
                                     <div class="single_people">
                                         <div class="single_people_image">
@@ -246,7 +280,7 @@ AMIRL | Team
                             </div>
                         </div>
 
-                        <div class="rf_title" id="team7">
+                        <div class="rf_title" id="team8">
                             <div class="message_title">
                                 <div class="committee_title">
                                     <h3>Alum<span>ni </span></h3>

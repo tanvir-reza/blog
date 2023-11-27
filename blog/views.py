@@ -14,6 +14,7 @@ from users.models import Founder
 from users.models import openPositon
 from users.models import trainingProgram
 from users.models import ResearchTopic
+from users.models import ResearchAreaPeople
 
 
 def index(request):
@@ -39,21 +40,23 @@ def founderMsg(request):
 
 
 def people(request):
-    advisor = People.objects.filter(category="Advisor")
-    researchAssociates = People.objects.filter(category="Research Associates")
-    ra = People.objects.filter(category="Research Assistants")
-    rs = People.objects.filter(category="Research Intern")
     founders = People.objects.filter(category="Founder & Research Director")
-    coordinators = People.objects.filter(
-        category="Research Coordinator & Lead R.A")
+    advisor = People.objects.filter(category="Advisor")
+    head = People.objects.filter(
+        category="Head of the Department")
+    lead = People.objects.filter(category="Lead Researcher")
+    researcher = People.objects.filter(category="Researcher")
+    research_ass = People.objects.filter(category="Research Assistant")
+    research_int = People.objects.filter(category="Research Intern")
+
     alumnis = People.objects.filter(category="Alumni")
 
     print(advisor)
 
     print(founders)
 
-    context = {"advisors": advisor, "research_assistants": ra, "research_students": rs,
-               "founders": founders, "coordinators": coordinators, "alumnis": alumnis, "researchAssociates": researchAssociates}
+    context = {"advisors": advisor, "founders": founders, "alumnis": alumnis,
+               "heads": head, "lead": lead, "researchers": researcher, "research_ass": research_ass,"research_int":research_int}
     return render(request, 'people.html', context)
 # def people(request):
 #     return render(request,"people.html")
@@ -131,23 +134,22 @@ def DAIBI(request):
     d = "Department of Artificial Intelligence and Biomedical Imaging"
     s = "DAIBI"
     topic = ResearchTopic.objects.filter(slug=s).values('short_bio').first()
-    heads = People.objects.filter(
-        research_Topic__research_topic=d, RU_Designation__title='Head of the Department')
-    lead_researchers = People.objects.filter(
-        research_Topic__research_topic=d, RU_Designation__title='Lead Researcher')
-    researcher = People.objects.filter(
-        research_Topic__research_topic=d, RU_Designation__title='Researcher')
-    research_assistants = People.objects.filter(
-        research_Topic__research_topic=d, RU_Designation__title='Research Assistant')
-    research_interns = People.objects.filter(
-        research_Topic__research_topic=d, RU_Designation__title='Research Intern')
-    alumni = People.objects.filter(
-        research_Topic__research_topic=d, RU_Designation__title='Alumni')
+    heads = ResearchAreaPeople.objects.filter(
+        research_topic__research_topic=d, designation__title='Head of the Department')
+    lead_researchers = ResearchAreaPeople.objects.filter(
+        research_topic__research_topic=d, designation__title='Lead Researcher')
+    researcher = ResearchAreaPeople.objects.filter(
+        research_topic__research_topic=d, designation__title='Researcher')
+    research_assistants = ResearchAreaPeople.objects.filter(
+        research_topic__research_topic=d, designation__title='Research Assistant')
+    research_interns = ResearchAreaPeople.objects.filter(
+        research_topic__research_topic=d, designation__title='Research Intern')
+    
 
     context = {
         "heads": heads, "lead_researchers": lead_researchers,
         "researcher": researcher, "research_assistants": research_assistants, "research_interns": research_interns,
-        "alumni": alumni,
+        
         'd': d, 's': s, 'topic': topic
     }
 
@@ -158,134 +160,128 @@ def DDLNCV(request):
     d = "Department of Deep Learning and Computer Vision"
     s = "DDLNCV"
     topic = ResearchTopic.objects.filter(slug=s).values('short_bio').first()
-    heads = People.objects.filter(
-        research_Topic__research_topic=d, RU_Designation__title='Head of the Department')
-    lead_researchers = People.objects.filter(
-        research_Topic__research_topic=d, RU_Designation__title='Lead Researcher')
-    researcher = People.objects.filter(
-        research_Topic__research_topic=d, RU_Designation__title='Researcher')
-    research_assistants = People.objects.filter(
-        research_Topic__research_topic=d, RU_Designation__title='Research Assistant')
-    research_interns = People.objects.filter(
-        research_Topic__research_topic=d, RU_Designation__title='Research Intern')
-    alumni = People.objects.filter(
-        research_Topic__research_topic=d, RU_Designation__title='Alumni')
+    heads = ResearchAreaPeople.objects.filter(
+        research_topic__research_topic=d, designation__title='Head of the Department')
+    lead_researchers = ResearchAreaPeople.objects.filter(
+        research_topic__research_topic=d, designation__title='Lead Researcher')
+    researcher = ResearchAreaPeople.objects.filter(
+        research_topic__research_topic=d, designation__title='Researcher')
+    research_assistants = ResearchAreaPeople.objects.filter(
+        research_topic__research_topic=d, designation__title='Research Assistant')
+    research_interns = ResearchAreaPeople.objects.filter(
+        research_topic__research_topic=d, designation__title='Research Intern')
 
     context = {
         "heads": heads, "lead_researchers": lead_researchers,
         "researcher": researcher, "research_assistants": research_assistants, "research_interns": research_interns,
-        "alumni": alumni,
+        
         'd': d, 's': s, 'topic': topic
     }
-    return render(request, 'DDLNCV.html', context)
+    return render(request, 'DAIBI.html', context)
 
 
 def DNLPT(request):
     d = "Department of Natural Language Processing and Transformers"
     s = "DNLPT"
     topic = ResearchTopic.objects.filter(slug=s).values('short_bio').first()
-    heads = People.objects.filter(
-        research_Topic__research_topic=d, RU_Designation__title='Head of the Department')
-    lead_researchers = People.objects.filter(
-        research_Topic__research_topic=d, RU_Designation__title='Lead Researcher')
-    researcher = People.objects.filter(
-        research_Topic__research_topic=d, RU_Designation__title='Researcher')
-    research_assistants = People.objects.filter(
-        research_Topic__research_topic=d, RU_Designation__title='Research Assistant')
-    research_interns = People.objects.filter(
-        research_Topic__research_topic=d, RU_Designation__title='Research Intern')
-    alumni = People.objects.filter(
-        research_Topic__research_topic=d, RU_Designation__title='Alumni')
+    heads = ResearchAreaPeople.objects.filter(
+        research_topic__research_topic=d, designation__title='Head of the Department')
+    lead_researchers = ResearchAreaPeople.objects.filter(
+        research_topic__research_topic=d, designation__title='Lead Researcher')
+    researcher = ResearchAreaPeople.objects.filter(
+        research_topic__research_topic=d, designation__title='Researcher')
+    research_assistants = ResearchAreaPeople.objects.filter(
+        research_topic__research_topic=d, designation__title='Research Assistant')
+    research_interns = ResearchAreaPeople.objects.filter(
+        research_topic__research_topic=d, designation__title='Research Intern')
+
 
     context = {
         "heads": heads, "lead_researchers": lead_researchers,
         "researcher": researcher, "research_assistants": research_assistants, "research_interns": research_interns,
-        "alumni": alumni,
         'd': d, 's': s, 'topic': topic
     }
 
-    return render(request, 'DNLPT.html', context)
+    return render(request, 'DAIBI.html', context)
 
 
 def DIOTR(request):
     d = "Department of Internet of Things and Robotics"
     s = "DIOTR"
     topic = ResearchTopic.objects.filter(slug=s).values('short_bio').first()
-    heads = People.objects.filter(
-        research_Topic__research_topic=d, RU_Designation__title='Head of the Department')
-    lead_researchers = People.objects.filter(
-        research_Topic__research_topic=d, RU_Designation__title='Lead Researcher')
-    researcher = People.objects.filter(
-        research_Topic__research_topic=d, RU_Designation__title='Researcher')
-    research_assistants = People.objects.filter(
-        research_Topic__research_topic=d, RU_Designation__title='Research Assistant')
-    research_interns = People.objects.filter(
-        research_Topic__research_topic=d, RU_Designation__title='Research Intern')
-    alumni = People.objects.filter(
-        research_Topic__research_topic=d, RU_Designation__title='Alumni')
+    heads = ResearchAreaPeople.objects.filter(
+        research_topic__research_topic=d, designation__title='Head of the Department')
+    lead_researchers = ResearchAreaPeople.objects.filter(
+        research_topic__research_topic=d, designation__title='Lead Researcher')
+    researcher = ResearchAreaPeople.objects.filter(
+        research_topic__research_topic=d, designation__title='Researcher')
+    research_assistants = ResearchAreaPeople.objects.filter(
+        research_topic__research_topic=d, designation__title='Research Assistant')
+    research_interns = ResearchAreaPeople.objects.filter(
+        research_topic__research_topic=d, designation__title='Research Intern')
+
+    
 
     context = {
         "heads": heads, "lead_researchers": lead_researchers,
         "researcher": researcher, "research_assistants": research_assistants, "research_interns": research_interns,
-        "alumni": alumni,
+        
         'd': d, 's': s, 'topic': topic
     }
 
-    return render(request, 'DIOTR.html', context)
+    return render(request, 'DAIBI.html', context)
 
 
 def DAISH(request):
     d = "Department of Artificial Intelligence in Security and Healthcare"
     s = "DAISH"
     topic = ResearchTopic.objects.filter(slug=s).values('short_bio').first()
-    heads = People.objects.filter(
-        research_Topic__research_topic=d, RU_Designation__title='Head of the Department')
-    lead_researchers = People.objects.filter(
-        research_Topic__research_topic=d, RU_Designation__title='Lead Researcher')
-    researcher = People.objects.filter(
-        research_Topic__research_topic=d, RU_Designation__title='Researcher')
-    research_assistants = People.objects.filter(
-        research_Topic__research_topic=d, RU_Designation__title='Research Assistant')
-    research_interns = People.objects.filter(
-        research_Topic__research_topic=d, RU_Designation__title='Research Intern')
-    alumni = People.objects.filter(
-        research_Topic__research_topic=d, RU_Designation__title='Alumni')
+    heads = ResearchAreaPeople.objects.filter(
+        research_topic__research_topic=d, designation__title='Head of the Department')
+    lead_researchers = ResearchAreaPeople.objects.filter(
+        research_topic__research_topic=d, designation__title='Lead Researcher')
+    researcher = ResearchAreaPeople.objects.filter(
+        research_topic__research_topic=d, designation__title='Researcher')
+    research_assistants = ResearchAreaPeople.objects.filter(
+        research_topic__research_topic=d, designation__title='Research Assistant')
+    research_interns = ResearchAreaPeople.objects.filter(
+        research_topic__research_topic=d, designation__title='Research Intern')
+    
 
     context = {
         "heads": heads, "lead_researchers": lead_researchers,
         "researcher": researcher, "research_assistants": research_assistants, "research_interns": research_interns,
-        "alumni": alumni,
+        
         'd': d, 's': s, 'topic': topic
     }
 
-    return render(request, 'DAISH.html', context)
+    return render(request, 'DAIBI.html', context)
 
 
 def DDSFL(request):
     d = "Department of Data Science and Federated Learning"
     s = "DDSFL"
     topic = ResearchTopic.objects.filter(slug=s).values('short_bio').first()
-    heads = People.objects.filter(
-        research_Topic__research_topic=d, RU_Designation__title='Head of the Department')
-    lead_researchers = People.objects.filter(
-        research_Topic__research_topic=d, RU_Designation__title='Lead Researcher')
-    researcher = People.objects.filter(
-        research_Topic__research_topic=d, RU_Designation__title='Researcher')
-    research_assistants = People.objects.filter(
-        research_Topic__research_topic=d, RU_Designation__title='Research Assistant')
-    research_interns = People.objects.filter(
-        research_Topic__research_topic=d, RU_Designation__title='Research Intern')
-    alumni = People.objects.filter(
-        research_Topic__research_topic=d, RU_Designation__title='Alumni')
+    heads = ResearchAreaPeople.objects.filter(
+        research_topic__research_topic=d, designation__title='Head of the Department')
+    lead_researchers = ResearchAreaPeople.objects.filter(
+        research_topic__research_topic=d, designation__title='Lead Researcher')
+    researcher = ResearchAreaPeople.objects.filter(
+        research_topic__research_topic=d, designation__title='Researcher')
+    research_assistants = ResearchAreaPeople.objects.filter(
+        research_topic__research_topic=d, designation__title='Research Assistant')
+    research_interns = ResearchAreaPeople.objects.filter(
+        research_topic__research_topic=d, designation__title='Research Intern')
+    
 
     context = {
         "heads": heads, "lead_researchers": lead_researchers,
         "researcher": researcher, "research_assistants": research_assistants, "research_interns": research_interns,
-        "alumni": alumni,
+        
         'd': d, 's': s, 'topic': topic
     }
 
-    return render(request, 'DDSFL.html', context)
+    return render(request, 'DAIBI.html', context)
 
 
 # def re_cv(request):

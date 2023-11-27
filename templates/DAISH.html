@@ -29,10 +29,10 @@
                             </div>
                             <div><p style="color:black !important; text-align: justify;">{{topic.short_bio}}</p></div>
             </div> 
-            
             <div class="row">
                 <div class="col-md-12">
                     <div class="rf_outerwrap">
+                        
                         <div class="rf_title" id="team3">
                             <div class="message_title">
                                 <div class="committee_title">
@@ -48,22 +48,22 @@
                                 <div class="col-md-3">
                                     <div class="single_people">
                                         <div class="single_people_image">
-                                            {% if advisor.img %}
-                                            <img src="{{advisor.img.url}}" alt="photo">
+                                            {% if advisor.people.img %}
+                                            <img src="{{advisor.people.img.url}}" alt="photo">
                                             {% endif %}
                                             
                                         </div>
                                         <div class="single_people_bio">
                                             <div class="name">
-                                                <a href="{% url 'peopleDetailsView' advisor.slug %}">
-                                                    <h3>{{advisor.FullName}}</h3>
+                                                <a href="{% url 'peopleDetailsView' advisor.people.slug %}">
+                                                    <h3>{{advisor.people.FullName}}</h3>
                                                 </a>
                                             </div>
                                             <div class="designation">
-                                                <p><em>{{advisor.designation}}</em></p>
+                                                <p><em>{{advisor.people.designation}}</em></p>
                                             </div>
                                             <div class="uni">
-                                                <p>{{advisor.university}}</p>
+                                                <p>{{advisor.people.university}}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -86,22 +86,22 @@
                                 <div class="col-md-3">
                                     <div class="single_people">
                                         <div class="single_people_image">
-                                            {% if advisor.img %}
-                                            <img src="{{advisor.img.url}}" alt="photo">
+                                            {% if advisor.people.img %}
+                                            <img src="{{advisor.people.img.url}}" alt="photo">
                                             {% endif %}
                                             
                                         </div>
                                         <div class="single_people_bio">
                                             <div class="name">
-                                                <a href="{% url 'peopleDetailsView' advisor.slug %}">
-                                                    <h3>{{advisor.FullName}}</h3>
+                                                <a href="{% url 'peopleDetailsView' advisor.people.slug %}">
+                                                    <h3>{{advisor.people.FullName}}</h3>
                                                 </a>
                                             </div>
                                             <div class="designation">
-                                                <p><em>{{advisor.designation}}</em></p>
+                                                <p><em>{{advisor.people.designation}}</em></p>
                                             </div>
                                             <div class="uni">
-                                                <p>{{advisor.university}}</p>
+                                                <p>{{advisor.people.university}}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -124,22 +124,22 @@
                                 <div class="col-md-3">
                                     <div class="single_people">
                                         <div class="single_people_image">
-                                            {% if coordinator.img %}
-                                            <img src="{{coordinator.img.url}}" alt="photo">
+                                            {% if coordinator.people.img %}
+                                            <img src="{{coordinator.people.img.url}}" alt="photo">
                                             {% endif %}
                                             
                                         </div>
                                         <div class="single_people_bio">
                                             <div class="name">
-                                                <a href="{% url 'peopleDetailsView' coordinator.slug %}">
-                                                    <h3>{{coordinator.FullName}}</h3>
+                                                <a href="{% url 'peopleDetailsView' coordinator.people.slug %}">
+                                                    <h3>{{coordinator.people.FullName}}</h3>
                                                 </a>
                                             </div>
                                             <div class="designation">
-                                                <p><em>{{coordinator.designation}}</em></p>
+                                                <p><em>{{coordinator.people.designation}}</em></p>
                                             </div>
                                             <div class="uni">
-                                                <p>{{coordinator.university}}</p>
+                                                <p>{{coordinator.people.university}}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -161,19 +161,19 @@
                                 <div class="col-md-3">
                                     <div class="single_people">
                                         <div class="single_people_image">
-                                            <img src="{{assistant.img.url}}" alt="photo">
+                                            <img src="{{assistant.people.img.url}}" alt="photo">
                                         </div>
                                         <div class="single_people_bio">
                                             <div class="name">
-                                                <a href="{% url 'peopleDetailsView' assistant.slug %}">
-                                                    <h3>{{assistant.FullName}}</h3>
+                                                <a href="{% url 'peopleDetailsView' assistant.people.slug %}">
+                                                    <h3>{{assistant.people.FullName}}</h3>
                                                 </a>
                                             </div>
                                             <div class="designation">
-                                                <p><em>{{assistant.designation}}</em></p>
+                                                <p><em>{{assistant.people.designation}}</em></p>
                                             </div>
                                             <div class="uni">
-                                                <p>{{assistant.university}}</p>
+                                                <p>{{assistant.people.university}}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -190,23 +190,23 @@
                         </div>
                         <div class="people_list">
                             <div class="row">
-                                {% for student in research_students %}
+                                {% for student in research_interns %}
                                 <div class="col-md-3">
                                     <div class="single_people">
                                         <div class="single_people_image">
-                                            <img src="{{student.img.url}}" alt="photo">
+                                            <img src="{{student.people.img.url}}" alt="photo">
                                         </div>
                                         <div class="single_people_bio">
                                             <div class="name">
-                                                <a href="{% url 'peopleDetailsView' student.slug %}">
-                                                    <h3>{{student.FullName}}</h3>
+                                                <a href="{% url 'peopleDetailsView' student.people.slug %}">
+                                                    <h3>{{student.people.FullName}}</h3>
                                                 </a>
                                             </div>
                                             <div class="designation">
-                                                <p><em>{{student.designation}}</em></p>
+                                                <p><em>{{student.people.designation}}</em></p>
                                             </div>
                                             <div class="uni">
-                                                <p>{{student.university}}</p>
+                                                <p>{{student.people.university}}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -215,43 +215,11 @@
                             </div>
                         </div>
 
-                        <div class="rf_title" id="team7">
-                            <div class="message_title">
-                                <div class="committee_title">
-                                    <h3>Alum<span>ni </span></h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="people_list">
-                            <div class="row">
-                                {% for alumni in alumnis %}
-                                <div class="col-md-3">
-                                    <div class="single_people">
-                                        <div class="single_people_image">
-                                            <img src="{{alumni.img.url}}" alt="photo">
-                                        </div>
-                                        <div class="single_people_bio">
-                                            <div class="name">
-                                                <a href="{% url 'peopleDetailsView' alumni.slug %}">
-                                                    <h3>{{alumni.FullName}}</h3>
-                                                </a>
-                                            </div>
-                                            <div class="designation">
-                                                <p><em>{{alumni.designation}}</em></p>
-                                            </div>
-                                            <div class="uni">
-                                                <p>{{alumni.university}}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                {% endfor %}
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    {% endblock %}
+{% endblock %}

@@ -4,6 +4,9 @@ from django.conf import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns, static
 from . import views
 from rest_framework import routers
+from django.urls import path,include,re_path
+from django.views.static import serve
+
 
 from website import restApiViews
 router = routers.DefaultRouter()
@@ -33,6 +36,8 @@ urlpatterns = [
     # path('CV', views.re_cv, name='re_cv'),
     # path('RL', views.re_others, name='re_others'),
     path('peopleDetailsView/<slug>/', views.peopleDetailsView, name='peopleDetailsView'),
+    re_path(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),
+    re_path(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 
 ]
 
 
