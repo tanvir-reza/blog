@@ -1,5 +1,4 @@
 
-
 from pathlib import Path
 import os
 
@@ -16,7 +15,7 @@ MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 SECRET_KEY = 'django-insecure-)ic-w0@^#sfqt$o7o-va2dvebz(ty#%q70=sen5%=w*c!h*e6k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -34,6 +33,7 @@ INSTALLED_APPS = [
     'ckeditor',
     "users",
     "website"
+    
 ]
 
 MIDDLEWARE = [
@@ -131,3 +131,14 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'amirl.org'
+EMAIL_PORT = 465  # Use port 465 for SSL
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True  # Set to True for SSL
+EMAIL_HOST_USER = 'test@amirl.org'
+EMAIL_HOST_PASSWORD = '@Amirl123'
+#for mail
+#CRISPY_TEMPLATE_PACK = 'bootstrap4'

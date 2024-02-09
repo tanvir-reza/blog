@@ -1,56 +1,164 @@
 {% extends 'basic.html' %}
 
 {% block title %}
-AMIRL | Open Positions
+AMIR Lab | Open Positions
 {% endblock title %}
 
 {% load static %}
 {% block body %}
-    <section class="mbr-section mbr-section--relative mbr-section--fixed-size mbr-parallax-background mbr-after-navbar"
-        id="content5-94" data-rv-view="79"
-        style="background-image: url({% static '/images/4.jpg' %});">
-        <div class="mbr-section__container container mbr-section__container--isolated">
-            <div class="mbr-header mbr-header--wysiwyg row">
-                <div class="col-sm-8 col-sm-offset-2">
-                    <h3 class="mbr-header__text">OPEN POSITIONS</h3>
+    <!-- Your existing code for the parallax background and "Open Positions" heading -->
+    <section id="page-content" class="page-wrapper">
+        <section class="mbr-section mbr-section--relative mbr-section--fixed-size mbr-parallax-background mbr-after-navbar"
+            id="content5-94" data-rv-view="79"
+            style="background-image: url({% static '/images/4.jpg' %})">
+            <div class="mbr-section__container container mbr-section__container--isolated">
+                <div class="mbr-header mbr-header--wysiwyg row">
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <h3 class="mbr-header__text">OPEN POSITIONS</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- Your existing code for messages and open positions -->
+        <div class="c_message_wrapper">
+            {% if messages %}
+                <div class="container mt-5">
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }} alert-dismissible" role="alert" style="
+                        margin-top: 10px;">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <div class="c_message_area ptb-50">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="chairman_message_area">
+                                <div class="message_title">
+                                    <div class="committee_title">
+                                        <h3>Open <span>Positions:</span></h3>
+                                        <img src="{% static 'images/MIR-Icon.png' %}" alt="BUBT Logo">
+                                    </div>
+                                </div>
+                                <div class="message_body">
+                                    {% for s in data2 %}{{s}}{% endfor %}
+                                </div>
+                                <hr style="height: 1%; width: 100%">
+                                {% for d in data %}
+                                    <h3 class="pt-4" id="modeling-of-the-hiv-gp160-complex">
+                                        {{d.category}} :
+                                    </h3>
+                                    <hr style="height: 1%; width: 100%">
+                                    <h4 style="font-style: italic">
+                                        {{d.title}} 
+                                    </h4>
+                                    <p>
+                                        {{d.description | safe}}
+                                    </p>
+                                    <div class="form_button" style="text-align: end;padding-bottom: 20px;">
+                                        <button type="submit" data-toggle="modal" data-target="#applicantModal">Apply Now</button>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
-
-    <div class="container pb-5">
-        <div>
-            <div class="d-flex pt-5 justify-content-between">
-                <h2>Open Positions</h2>
+<!-- Applicant Modal -->
+<div class="modal fade" id="applicantModal" tabindex="-1" role="dialog" aria-labelledby="applicantModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="applicantModalLabel">Applicant Form</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-            <hr style="height: 1%; width: 100%">
-            <div class="py-4 row">
-                <div class="post-content">
-                    <h3 class="pb-0" id="design-of-multivalent-antibodies">
-                        Research Areas -
-                        <span style="font-size: 1.3rem">{% for s in data2 %}{{s}},{% endfor %}</span>
-                    </h3>
-                    <hr style="height: 1%; width: 100%">
-                    {% for d in data %}
-                    <h3 class="pt-4" id="modeling-of-the-hiv-gp160-complex">
-                        {{d.category}}
-                    </h3>
-                    <hr style="height: 1%; width: 100%">
-                    <h4 style="font-style: italic">
-                        {{d.title}}
-                    </h4>
+        
+            <div class="modal-body">
+                <form method="post" enctype="multipart/form-data" class="well form-horizontal">
+                
+                    {% csrf_token %}
 
-                    <p>
-                        {{d.description | safe}}
-                    </p>
-                    {% endfor %}
-                </div>
+                    <!-- Display form errors if any -->
+                    {% if form.errors %}
+                        <div class="alert alert-danger">
+                            <strong>Error!</strong> Please correct the following errors:
+                            <ul>
+                                {% for error in form.errors %}
+                                    <li>{{ error }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+
+                    <!-- Applicant Form Fields -->
+                    <!-- <div class="form-group">
+                        <label for="{{ form.name.id_for_label }}">Name</label>
+                        {{ form.name }}
+                    </div> -->
+                    <div class="form-group">
+                        <label class="control-label">Name</label>
+                        {{ form.name }}
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Current Affiliations</label>
+                        {{ form.CurrentAffiliations }}
+                    </div>
+                    <!-- <div class="form-group">
+                        <label for="{{ form.email.id_for_label }}">Email</label>
+                        {{ form.email }}
+                    </div> -->
+                    <div class="form-group">
+                        <label class="control-label">E-Mail</label> 
+                              {{ form.email }}
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Phone</label>
+                            {{form.Phone}}
+                    </div>
+                    <div class="form-group"> 
+                        <label class="control-label">Interested Research Team</label>
+                              {{form.InterestedResearchTeam}}
+                        
+                    </div>
+                    <div class="form-group"> 
+                        <label class="control-label">Apply Position</label>
+                              {{form.Position}}
+                        
+                    </div>
+                       
+                    <div class="form-group">
+                        <label class="control-label">Previous Experience</label>
+                            {{form.PreviousExperience}}
+                    </div>
+
+                    <div class="form-group">
+                        <label class=" control-label">Resume</label>
+                            {{form.resume}}
+                        
+                    </div>    
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-primary">Submit</button>
+               
+                </form>
             </div>
         </div>
     </div>
+</div>
 
-
-
-    {% endblock %}
+<!-- Add these links in the <head> section of your HTML file -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+{% endblock %}

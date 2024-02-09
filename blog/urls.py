@@ -33,6 +33,15 @@ urlpatterns = [
     path('DIOTR/', views.DIOTR, name='DIOTR'),
     path('DAISH/', views.DAISH, name='DAISH'),
     path('DDSFL/', views.DDSFL, name='DDSFL'),
+    path('Vision/', views.Vision, name='Vision'),
+    path('Mison/', views.Mison, name='Mison'),
+    path('Achivement/', views.Achivement, name='Achivement'),
+    path('WhyAMIRL/', views.WhyAMIRL, name='WhyAMIRL'),
+    path('founderMsg/', views.founderMsg, name='founderMsg'),
+    path('ApprovalCommittee/', views.ApprovalCommittee, name='ApprovalCommittee'),
+    path('AdministUnit/', views.AdministUnit, name='AdministUnit'),
+    
+
     # path('CV', views.re_cv, name='re_cv'),
     # path('RL', views.re_others, name='re_others'),
     path('peopleDetailsView/<slug>/', views.peopleDetailsView, name='peopleDetailsView'),

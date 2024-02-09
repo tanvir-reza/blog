@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+{%for p in post %}
+    <h4> {{p.title}}</h4>
+    <div class="fac_content">
+        {% if p.photo %}
+        <img src="{{ p.photo.url }}" alt="Photo">
+        
+        {% endif %}
+    </div>
+{% endfor%}
+{% endblock %}

@@ -14,7 +14,7 @@
         <div class="mbr-section__container container mbr-section__container--isolated">
             <div class="mbr-header mbr-header--wysiwyg row">
                 <div class="col-sm-8 col-sm-offset-2">
-                    <h3 class="mbr-header__text">{{d}} ({{s}})</h3>
+                    <h3 class="mbr-header__text">{{d}}</h3>
 
                 </div>
             </div>
@@ -25,7 +25,7 @@
         <div class="container">
              <div class="message_title">
                             <div class="committee_title">
-                                <h3>{{d}} <span> ({{s}}) </span></h3>
+                                <h3>{{d}}</h3>
                             </div>
                             <div><p style="color:black !important; text-align: justify;">{{topic.short_bio}}</p></div>
             </div> 
@@ -37,16 +37,17 @@
                             <div class="message_title">
                                 <div class="committee_title">
                                     <h3>Head of the <span> Department </span></h3>
-                                    <!-- <img src="{% static 'images/icons/bubt.png' %}" alt=""> -->
+                                    <!-- <img src="{% static 'images/MIR-Icon.png' %}" alt="BUBT Logo"> -->
                                 </div>
                             </div>
                         </div>
                         
                         <div class="people_list">
                             <div class="row">
+                                <div class="col-md-4"></div>
                                 {% for advisor in heads %}
-                                <div class="col-md-3">
-                                    <div class="single_people">
+                                <div class="col-md-4">
+                                    <div class="single_people"style="margin: 0px 47px 20px 47px;">
                                         <div class="single_people_image">
                                             {% if advisor.people.img %}
                                             <img src="{{advisor.people.img.url}}" alt="photo">
@@ -68,6 +69,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-md-4"></div>
                                 {% endfor %}
                             </div>
                         </div>
@@ -75,7 +77,7 @@
                             <div class="message_title">
                                 <div class="committee_title">
                                     <h3>Lead <span> Researcher </span></h3>
-                                    <!-- <img src="{% static 'images/icons/bubt.png' %}" alt=""> -->
+                                    <!-- <img src="{% static 'images/MIR-Icon.png' %}" alt="BUBT Logo"> -->
                                 </div>
                             </div>
                         </div>
@@ -112,8 +114,8 @@
                         <div class="rf_title" id="team4">
                             <div class="message_title">
                                 <div class="committee_title">
-                                    <h3>Research<span>s</span></h3>
-                                    <!-- <img src="{% static 'images/icons/bubt.png' %}" alt=""> -->
+                                    <h3>RESEARCHERS</h3>
+                                    <!-- <img src="{% static 'images/MIR-Icon.png' %}" alt="BUBT Logo"> -->
                                 </div>
                             </div>
                         </div>
@@ -151,7 +153,7 @@
                             <div class="message_title">
                                 <div class="committee_title">
                                     <h3>Research <span>Assistants</span></h3>
-                                    <!-- <img src="{% static 'images/icons/bubt.png' %}" alt=""> -->
+                                    <!-- <img src="{% static 'images/MIR-Icon.png' %}" alt="BUBT Logo"> -->
                                 </div>
                             </div>
                         </div>

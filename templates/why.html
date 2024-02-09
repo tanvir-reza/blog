@@ -1,0 +1,55 @@
+
+{% extends 'basic.html' %}
+
+{% block title %}
+AMIR Lab | WHY
+{% endblock title %} 
+
+{% load static %}
+{% block body %}
+
+<section id="page-content" class="page-wrapper">
+    <section class="mbr-section mbr-section--relative mbr-section--fixed-size mbr-parallax-background mbr-after-navbar"
+    id="content5-94" data-rv-view="79"
+    style="background-image: url({% static '/images/4.jpg' %});">
+    <div class="mbr-section__container container mbr-section__container--isolated">
+        <div class="mbr-header mbr-header--wysiwyg row">
+            <div class="col-sm-8 col-sm-offset-2">
+                <h3 class="mbr-header__text">WHY AT AMIR Lab</h3>
+
+            </div>
+        </div>
+    </div>
+</section>
+    <div class="why_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 ptb-50 why_responsiv">
+                    <div class="message_title">
+                        <div class="committee_title">
+                            <h3>Why <span>At AMIR Lab?</span></h3>
+                            <img src="{% static 'images/MIR-Icon.png' %}" alt=" Logo">
+                        </div>
+                    </div>
+                    <div class="message_body mission_vission why_res">
+                    {% for p in Why %}
+                        <p>
+                        {{p.text | safe}}
+                        </p>
+                        {% endfor %}
+                        
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="vision_area">
+                        <div class="vision_photo vision_photo_why">
+                            <img src="{% static 'images/bg/v.jpg' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

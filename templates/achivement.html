@@ -1,0 +1,77 @@
+
+{% extends 'basic.html' %}
+
+{% block title %}
+AMIR Lab | Vision
+{% endblock title %} 
+
+{% load static %}
+{% block body %}
+
+<section id="page-content" class="page-wrapper">
+    <section class="mbr-section mbr-section--relative mbr-section--fixed-size mbr-parallax-background mbr-after-navbar"
+    id="content5-94" data-rv-view="79"
+    style="background-image: url({% static '/images/4.jpg' %});">
+    <div class="mbr-section__container container mbr-section__container--isolated">
+        <div class="mbr-header mbr-header--wysiwyg row">
+            <div class="col-sm-8 col-sm-offset-2">
+                <h3 class="mbr-header__text">Achievement</h3>
+
+            </div>
+        </div>
+    </div>
+</section>
+    <div class="iap_area ptb-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <div class="notice_sidebar">
+                        <div class="message_title">
+                            <div class="committee_title">
+                                <h3>GLORY of <span>The AMIR Lab</span></h3>
+                                <img src="{% static 'images/icons/bubt.png' %}" alt="">
+                            </div>
+                        </div>
+                        <div class="notice_body notice_body_all">
+                            
+                            {% for post in achivement %}
+                            <div class="single_notice single_newsitem">
+                                <div class="row">
+                                    <div class="col-lg-9 col-md-8 col-sm-7">
+                                        <div class="ndate_heading">
+                                            <!-- <div class="sn_cart sn_cart_all">
+                                                <h3 class="n_date">{{post.created_on|date:"d"}}</h3>
+                                                <h5 class="n_month">{{post.created_on|date:"M"}}</h5>
+                                            </div> -->
+                                            <div class="sn_body sn_body_all">
+                                                <div class="sn_title">
+                                                    <h2><a href="{% url 'achivementdetails' post.pk %}">{{post.title}}</a></h2>
+                                                </div>
+                                                <div class="sn_date">
+                                                    <i class="fa fa-calendar"></i>
+                                                    <p><em>{{post.created_on|date:"D d M Y"}}</em></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-4 col-sm-5">
+                                        <div class="sn_img">
+                                            {% if post.photo %}
+                                            <img src="{{ post.photo.url }}" alt="">
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

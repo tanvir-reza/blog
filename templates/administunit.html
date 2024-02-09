@@ -1,0 +1,248 @@
+{% extends 'basic.html' %}
+
+{% block title %}
+AMIR Lab | Team
+{% endblock title %}
+
+
+{% load static %}
+{% block body %}
+
+    <section class="mbr-section mbr-section--relative mbr-section--fixed-size mbr-parallax-background mbr-after-navbar"
+        id="content5-94" data-rv-view="79"
+        style="background-image: url({% static '/images/4.jpg' %})">
+        <div class="mbr-section__container container mbr-section__container--isolated">
+            <div class="mbr-header mbr-header--wysiwyg row">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <h3 class="mbr-header__text">Research Facility Administrative Units</h3>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="people_area ptb-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="rf_outerwrap">
+                        <div class="rf_title" id="team1">
+                            <div class="message_title">
+                                <div class="committee_title">
+                                    <h3>Chief <span>Executive </span></h3>
+                                    <img src="{% static 'images/MIR-Icon.png' %}" alt="BUBT Logo">
+                                    <!-- <img src="{% static 'images/icons/bubt.png' %}" alt=""> -->
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="people_list">
+                            <div class="row">
+                                <div class="col-md-4"></div>
+                                {% for founder in CE %}
+                                <div class="col-md-4">
+                                    <div class="single_people" style="margin: 0px 47px 20px 47px;">
+                                        <div class="single_people_image">
+                                            {% if founder.MemberName.img %}
+                                            <img src="{{founder.MemberName.img.url}}" alt="photo">
+                                            {% endif %}
+                                            
+                                        </div>
+                                        <div class="single_people_bio">
+                                            <div class="name">
+                                                <a href="{% url 'peopleDetailsView' founder.MemberName.slug %}">
+                                                    <h3>{{founder.MemberName.FullName}}</h3>
+                                                </a>
+                                            </div>
+                                            <div class="designation">
+                                                <h4 style="font-weight: 800;"><em>{{founder.Role}}</em></h4>
+                                            </div>
+                                            <div class="designation">
+                                                <p><em>{{founder.MemberName.designation}}</em></p>
+                                            </div>
+                                            <div class="uni">
+                                                <p>{{founder.MemberName.university}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                                
+                                <div class="col-md-4"></div>
+                            </div>
+                        </div>
+                        <div class="rf_title" id="team2">
+                            <div class="message_title">
+                                <div class="committee_title">
+                                    <h3>Web <span>Administration </span></h3>
+                                    <img src="{% static 'images/MIR-Icon.png' %}" alt="BUBT Logo">
+                                    <!-- <img src="{% static 'images/icons/bubt.png' %}" alt=""> -->
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="people_list">
+                            <div class="row">
+                                {% for founder in Web %}
+                                <div class="col-md-3">
+                                    <div class="single_people">
+                                        <div class="single_people_image">
+                                            {% if founder.MemberName.img %}
+                                            <img src="{{founder.MemberName.img.url}}" alt="photo">
+                                            {% endif %}
+                                            
+                                        </div>
+                                        <div class="single_people_bio">
+                                            <div class="name">
+                                                <a href="{% url 'peopleDetailsView' founder.MemberName.slug %}">
+                                                    <h3>{{founder.MemberName.FullName}}</h3>
+                                                </a>
+                                            </div>
+                                            <div class="designation">
+                                                <h4 style="font-weight: 800;"><em>{{founder.Role}}</em></h4>
+                                            </div>
+                                            <div class="designation">
+                                                <p><em>{{founder.MemberName.designation}}</em></p>
+                                            </div>
+                                            <div class="uni">
+                                                <p>{{founder.MemberName.university}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="rf_title" id="team3">
+                            <div class="message_title">
+                                <div class="committee_title">
+                                    <h3>Design and <span>Content Creation </span></h3>
+                                    <img src="{% static 'images/MIR-Icon.png' %}" alt="BUBT Logo">
+                                    <!-- <img src="{% static 'images/icons/bubt.png' %}" alt=""> -->
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="people_list">
+                            <div class="row">
+                                {% for founder in Design %}
+                                <div class="col-md-3">
+                                    <div class="single_people">
+                                        <div class="single_people_image">
+                                            {% if founder.MemberName.img %}
+                                            <img src="{{founder.MemberName.img.url}}" alt="photo">
+                                            {% endif %}
+                                            
+                                        </div>
+                                        <div class="single_people_bio">
+                                            <div class="name">
+                                                <a href="{% url 'peopleDetailsView' founder.MemberName.slug %}">
+                                                    <h3>{{founder.MemberName.FullName}}</h3>
+                                                </a>
+                                            </div>
+                                            <div class="designation">
+                                                <h4 style="font-weight: 800;"><em>{{founder.Role}}</em></h4>
+                                            </div>
+                                            <div class="designation">
+                                                <p><em>{{founder.MemberName.designation}}</em></p>
+                                            </div>
+                                            <div class="uni">
+                                                <p>{{founder.MemberName.university}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="rf_title" id="team4">
+                            <div class="message_title">
+                                <div class="committee_title">
+                                    <h3>Social Media <span>Administration</span></h3>
+                                    <img src="{% static 'images/MIR-Icon.png' %}" alt="BUBT Logo">
+                                    <!-- <img src="{% static 'images/icons/bubt.png' %}" alt=""> -->
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="people_list">
+                            <div class="row">
+                                {% for founder in Social %}
+                                <div class="col-md-3">
+                                    <div class="single_people">
+                                        <div class="single_people_image">
+                                            {% if founder.MemberName.img %}
+                                            <img src="{{founder.MemberName.img.url}}" alt="photo">
+                                            {% endif %}
+                                            
+                                        </div>
+                                        <div class="single_people_bio">
+                                            <div class="name">
+                                                <a href="{% url 'peopleDetailsView' founder.MemberName.slug %}">
+                                                    <h3>{{founder.MemberName.FullName}}</h3>
+                                                </a>
+                                            </div>
+                                            <div class="designation">
+                                                <h4 style="font-weight: 800;"><em>{{founder.Role}}</em></h4>
+                                            </div>
+                                            <div class="designation">
+                                                <p><em>{{founder.MemberName.designation}}</em></p>
+                                            </div>
+                                            <div class="uni">
+                                                <p>{{founder.MemberName.university}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="rf_title" id="team5"> 
+                            <div class="message_title">
+                                <div class="committee_title">
+                                    <h3>International <span>Relations and HR</span></h3>
+                                    <img src="{% static 'images/MIR-Icon.png' %}" alt="BUBT Logo">
+                                    <!-- <img src="{% static 'images/icons/bubt.png' %}" alt=""> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="people_list">
+                            <div class="row">
+                                {% for founder in HR %}
+                                <div class="col-md-3">
+                                    <div class="single_people">
+                                        <div class="single_people_image">
+                                            {% if founder.MemberName.img %}
+                                            <img src="{{founder.MemberName.img.url}}" alt="photo">
+                                            {% endif %}
+                                            
+                                        </div>
+                                        <div class="single_people_bio">
+                                            <div class="name">
+                                                <a href="{% url 'peopleDetailsView' founder.MemberName.slug %}">
+                                                    <h3>{{founder.MemberName.FullName}}</h3>
+                                                </a>
+                                            </div>
+                                            <div class="designation">
+                                                <h4 style="font-weight: 800;"><em>{{founder.Role}}</em></h4>
+                                            </div>
+                                            <div class="designation">
+                                                <p><em>{{founder.MemberName.designation}}</em></p>
+                                            </div>
+                                            <div class="uni">
+                                                <p>{{founder.MemberName.university}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}

@@ -1,7 +1,7 @@
 {% extends 'basic.html' %}
 
 {% block title %}
-AMIRL | Team
+AMIR Lab | Team
 {% endblock title %}
 
 
@@ -10,11 +10,11 @@ AMIRL | Team
 
     <section class="mbr-section mbr-section--relative mbr-section--fixed-size mbr-parallax-background mbr-after-navbar"
         id="content5-94" data-rv-view="79"
-        style="background-image: url({% static '/images/4.jpg' %});">
+        style="background-image: url({% static '/images/4.jpg' %})">
         <div class="mbr-section__container container mbr-section__container--isolated">
             <div class="mbr-header mbr-header--wysiwyg row">
                 <div class="col-sm-8 col-sm-offset-2">
-                    <h3 class="mbr-header__text">TEAM</h3>
+                    <h3 class="mbr-header__text">TEAMS</h3>
 
                 </div>
             </div>
@@ -30,6 +30,7 @@ AMIRL | Team
                             <div class="message_title">
                                 <div class="committee_title">
                                     <h3>Founder  <span>& Research Director </span></h3>
+                                    <img src="{% static 'images/MIR-Icon.png' %}" alt="BUBT Logo">
                                     <!-- <img src="{% static 'images/icons/bubt.png' %}" alt=""> -->
                                 </div>
                             </div>
@@ -37,9 +38,10 @@ AMIRL | Team
                         
                         <div class="people_list">
                             <div class="row">
+                                <div class="col-md-4"></div>
                                 {% for founder in founders %}
-                                <div class="col-md-3">
-                                    <div class="single_people">
+                                <div class="col-md-4">
+                                    <div class="single_people" style="margin: 0px 47px 20px 47px;">
                                         <div class="single_people_image">
                                             {% if founder.img %}
                                             <img src="{{founder.img.url}}" alt="photo">
@@ -62,12 +64,15 @@ AMIRL | Team
                                     </div>
                                 </div>
                                 {% endfor %}
+                                
+                                <div class="col-md-4"></div>
                             </div>
                         </div>
                         <div class="rf_title" id="team2">
                             <div class="message_title">
                                 <div class="committee_title">
                                     <h3>All <span>Advisors </span></h3>
+                                    <img src="{% static 'images/MIR-Icon.png' %}" alt="BUBT Logo">
                                     <!-- <img src="{% static 'images/icons/bubt.png' %}" alt=""> -->
                                 </div>
                             </div>
@@ -105,7 +110,8 @@ AMIRL | Team
                         <div class="rf_title" id="team3">
                             <div class="message_title">
                                 <div class="committee_title">
-                                    <h3>Head of the <span>Department </span></h3>
+                                    <h3>Head of the <span>Departments </span></h3>
+                                    <img src="{% static 'images/MIR-Icon.png' %}" alt="BUBT Logo">
                                     <!-- <img src="{% static 'images/icons/bubt.png' %}" alt=""> -->
                                 </div>
                             </div>
@@ -143,7 +149,8 @@ AMIRL | Team
                         <div class="rf_title" id="team4">
                             <div class="message_title">
                                 <div class="committee_title">
-                                    <h3>Lead <span>Researcher</span></h3>
+                                    <h3>Lead <span>Researchers</span></h3>
+                                    <img src="{% static 'images/MIR-Icon.png' %}" alt="BUBT Logo">
                                     <!-- <img src="{% static 'images/icons/bubt.png' %}" alt=""> -->
                                 </div>
                             </div>
@@ -181,7 +188,8 @@ AMIRL | Team
                         <div class="rf_title" id="team5"> 
                             <div class="message_title">
                                 <div class="committee_title">
-                                    <h3>Researche <span>r</span></h3>
+                                    <h3>RESEARCHERS</h3>
+                                    <img src="{% static 'images/MIR-Icon.png' %}" alt="BUBT Logo">
                                     <!-- <img src="{% static 'images/icons/bubt.png' %}" alt=""> -->
                                 </div>
                             </div>
@@ -192,7 +200,9 @@ AMIRL | Team
                                 <div class="col-md-3">
                                     <div class="single_people">
                                         <div class="single_people_image">
+											{% if assistant.img %}
                                             <img src="{{assistant.img.url}}" alt="photo">
+											{% endif %}
                                         </div>
                                         <div class="single_people_bio">
                                             <div class="name">
@@ -215,7 +225,8 @@ AMIRL | Team
                         <div class="rf_title" id="team6"> 
                             <div class="message_title">
                                 <div class="committee_title">
-                                    <h3>Research <span>Assistant</span></h3>
+                                    <h3>Research <span>Assistants</span></h3>
+                                    <img src="{% static 'images/MIR-Icon.png' %}" alt="BUBT Logo">
                                     <!-- <img src="{% static 'images/icons/bubt.png' %}" alt=""> -->
                                 </div>
                             </div>
@@ -226,7 +237,9 @@ AMIRL | Team
                                 <div class="col-md-3">
                                     <div class="single_people">
                                         <div class="single_people_image">
+											{% if assistant.img %}
                                             <img src="{{assistant.img.url}}" alt="photo">
+											{% endif %}
                                         </div>
                                         <div class="single_people_bio">
                                             <div class="name">
@@ -250,6 +263,7 @@ AMIRL | Team
                             <div class="message_title">
                                 <div class="committee_title">
                                     <h3>RESEARCH INTERN <span>STUDENTS </span></h3>
+                                    <img src="{% static 'images/MIR-Icon.png' %}" alt="BUBT Logo">
                                 </div>
                             </div>
                         </div>
@@ -259,7 +273,9 @@ AMIRL | Team
                                 <div class="col-md-3">
                                     <div class="single_people">
                                         <div class="single_people_image">
+											{% if student.img %}
                                             <img src="{{student.img.url}}" alt="photo">
+											{% endif %}
                                         </div>
                                         <div class="single_people_bio">
                                             <div class="name">
@@ -283,7 +299,7 @@ AMIRL | Team
                         <div class="rf_title" id="team8">
                             <div class="message_title">
                                 <div class="committee_title">
-                                    <h3>Alum<span>ni </span></h3>
+                                    <h3>Lab <span>Alumni </span></h3>
                                 </div>
                             </div>
                         </div>
@@ -293,7 +309,9 @@ AMIRL | Team
                                 <div class="col-md-3">
                                     <div class="single_people">
                                         <div class="single_people_image">
+											{% if alumni.img %}
                                             <img src="{{alumni.img.url}}" alt="photo">
+											{% endif %}
                                         </div>
                                         <div class="single_people_bio">
                                             <div class="name">

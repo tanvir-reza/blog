@@ -1,11 +1,18 @@
 {% extends 'basic.html' %}
 
 {% block title %}
-AMIRL | Publications
-{% endblock title %}
+AMIR Lab | Publications
+{% endblock title %} 
 
 {% load static %}
 {% block body %}
+<style>
+    .tab-pane {
+  display: none;
+  padding: 15px;
+  border: 1px solid #ccc;
+}
+</style>
 
     <section class="mbr-section mbr-section--relative mbr-section--fixed-size mbr-parallax-background mbr-after-navbar"
         id="content5-94" data-rv-view="79"
@@ -22,96 +29,101 @@ AMIRL | Publications
 
     <div class="single-services">
         <div class="container">
-            <div class="row" id="tabs">
-                <div class="col-md-4">
-                    <ul>
-                        <li ><a id="authored" href='publications.html#tabs-1'>Authored Books<i class="fa fa-angle-right"></i></a></li>
-                        {% comment %} <li><a href='publications.html#tabs-2'>Edited Volumes<i class="fa fa-angle-right"></i></a></li> {% endcomment %}
-                        <li><a id="journal" href='publications.html#tabs-2'>Journal Papers<i class="fa fa-angle-right"></i></a></li>
-                        <li><a id="book" href='publications.html#tabs-3'>Book Chapters<i class="fa fa-angle-right"></i></a></li>
-                        <li><a id="procesdings" href='publications.html#tabs-4'>Conference Proceedings<i class="fa fa-angle-right"></i></a></li>
-                        <li><a id="conference" href='publications.html#tabs-5'>Conference Papers<i class="fa fa-angle-right"></i></a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-8">
-                    <section class='tabs-content'>
-                        <article id='tabs-1' class=" d-none r">
+            <div class="col-md-12">
+                    <div class="iot_cc_rf">
+                        <div class="message_title">
+                            <div class="committee_title">
+                                <h3>Published <span>Articles</span></h3>
+                                <img src="{% static 'images/MIR-Icon.png' %}" alt="BUBT Logo">
+                            </div>
+                        </div>
+                        <!-- publications.html -->
 
-                            <blockquote>
-                                Authored Books
-                            </blockquote>
-                            <img src="assets/images/authoredbooks.png" alt="">
-                            <p>
-                                {% for book in Authored_books %}
-                                    {{book.details|safe}}
-                                {% endfor %}
-                            </p>
-                        </article>
-                        <article id='tabs-2' >
+                        <div class="list_of_re">
+                            {% for year, categories in publications_dict.items %}
+                                <button class="accordion">{{ year }}</button>
+                                <div class="panel for_bgborder">
+                                    <div class="academic_block">
+                                        <div class="faculty_body">
+                                            <!-- <nav>
+                                              <div class="nav nav-tabs custom_event" id="nav-tab" role="tablist">
+                                                {% for category_name, publications in categories.items %}
+                                                  <button class="nav-link custom_event_btn" id="nav-{{ category_name|lower }}-tab" data-bs-toggle="tab" data-bs-target="#nav-{{ category_name|lower }}" type="button" role="tab" aria-controls="nav-{{ category_name|lower }}" aria-selected="false">{{ category_name }}</button>
+                                                {% endfor %}
+                                              </div>
+                                            </nav>
+                                            <div class="tab-content" id="nav-tabContent">
+                                              {% for category_name, publications in categories.items %}
+                                                <div class="tab-pane fade" id="nav-{{ category_name|lower }}" role="tabpanel" aria-labelledby="nav-{{ category_name|lower }}-tab">
+                                                  {% if publications %}
+                                                    <div class="{{ category_name|lower }} table-responsive">
+                                                      {% for publication in publications %}
+                                                        {{ publication.details|safe }}
+                                                      {% endfor %}
+                                                    </div>
+                                                  {% else %}
+                                                    <p>No publications in this category.</p>
+                                                  {% endif %}
+                                                </div>
+                                              {% endfor %}
+                                            </div> -->
+                                            
+                                            
+                                                  {% for category_name, publications in categories.items %}
+                                                  <button class="nav-link custom_event_btn" id="nav-{{ category_name|lower }}-tab" data-bs-toggle="tab" data-bs-target="#nav-{{ category_name|lower }}" type="button" role="tab" aria-controls="nav-{{ category_name|lower }}" aria-selected="false">{{ category_name }}</button>
+                                                    {% if publications %}
+                                                      <div class="{{ category_name|lower }} table-responsive">
+                                                        {% for publication in publications %}
+                                                          {{ publication.details|safe }}
+                                                        {% endfor %}
+                                                      </div>
+                                                    {% else %}
+                                                      <p>No publications in this category.</p>
+                                                    {% endif %}
+                                                  
+                                                {% endfor %}
 
-                            <blockquote>
-                                Journal Papers
-                            </blockquote>
-                            <img src="assets/images/Journals.jpeg" alt="">
-                            <p>
-                                {% for book in Journal_Papers %}
-                                
-                                    {{book.details|safe}}
-                                
-                                {% endfor %}
-                            </p>
-                        </article>
+                                          </div>
+                                          
+                                    </div>
+                                </div>
+                            {% endfor %}
+                            
+                        </div>
 
-
-
-
-                        <article id='tabs-3' class=" d-none ">
-
-                            <blockquote>
-                                Book Chapters
-                            </blockquote>
-                            <img src="assets/images/BookChapter.jpg" alt="">
-                            <p >
-                               {% for book in Book_Chapters %}
-                                    {{book.details|safe}}
-                                {% endfor %}
-                            </p>
-                        </article>
-
-
-
-
-                        <article id='tabs-4' class="d-none">
-
-                            <blockquote>
-                                Conference Proceedings
-                            </blockquote>
-                            <img src="assets/images/confproc.jpeg" alt="">
-                            <p>
-                               {% for book in Conference_Proceedings %}
-                                 {{book.details|safe}}
-                               {% endfor %}
-                            </p>
-                        </article>
-
-                        <article id='tabs-5' class="d-none">
-                            <blockquote>
-                                Conference Papers
-                            </blockquote>
-                            <img src="assets/images/conf.jpeg" alt="">
-                            <p>
-                                {% for book in Conference_Papers %}
-                                    {{book.details|safe}}
-                                {% endfor %}
-                            </p>
-                        </article>
-                    </section>
-                </div>
+                    </div>
             </div>
+
         </div>
     </div>
 
     <br><br>
 
-    {% endblock %}
+    <!-- Add Bootstrap 4 JS -->
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjN+6koA6B/K94UgMWbpkR0YqjQbF5J" crossorigin="anonymous"></script> -->
+
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+        
+        for (i = 0; i < acc.length; i++) {
+          acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+              panel.style.maxHeight = null;
+            } else {
+              panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+          });
+        }
+     
+document.addEventListener('DOMContentLoaded', function() {
+    $('.nav-link.custom_event_btn').click(function() {
+    var targetPanel = $(this).attr('data-bs-target');
+    $(targetPanel).addClass('active show');
+  });
+});
+    </script>
+
+{% endblock %}

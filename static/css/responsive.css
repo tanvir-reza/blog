@@ -6,6 +6,10 @@
 	.navbar-dropdown .navbar-nav > li > a:hover{
 		letter-spacing: 2px !important;
 	}
+	#dropdown-menu-2btn-93 .navbar, #dropdown-menu-2btn-93 .dropdown-menu {
+		padding-left: 25px !important;
+		padding-right: 25px !important;
+	}
 
 
 }

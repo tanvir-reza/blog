@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section id="page-content" class="page-wrapper">
+    <div class="page_head_bg">
+        <div class="page_head">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="page_head_section ptb-70">
+                            <div class="ph_title">
+                                <h2>News of CSE</h2>
+                            </div>
+                            <div class="ph_menu">
+                                <h5><a href="{% url 'index' %}">Home</a></h5>
+                                <h5>/</h5>
+                                <h5><a href="{% url 'news' %}">News</a></h5>
+                                <h5>/</h5>
+                                <h5>All News</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="allnotice-wrapper">
+        <div class="allnews_area ptb-80">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div class="notice_sidebar">
+                            <div class="message_title">
+                                <div class="committee_title">
+                                    <h3>CSE <span>All News</span></h3>
+                                    <img src="{% static 'images/icons/bubt.png' %}" alt="">
+                                </div>
+                            </div>
+                            <div class="notice_body notice_body_all">
+                                {% for post in posts %}
+                                 
+                                <div class="single_notice single_newsitem">
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <div class="ndate_heading">
+                                                <div class="sn_cart sn_cart_all">
+                                                    <h3 class="n_date">{{post.created_on|date:"d"}}</h3>
+                                                    <h5 class="n_month">{{post.created_on|date:"M"}}</h5>
+                                                </div>
+                                                <div class="sn_body sn_body_all">
+                                                    <div class="sn_title">
+                                                        <h2><a href="{% url 'singledetails' post.pk %}">{{post.title}}</a></h2>
+                                                    </div>
+                                                    <div class="sn_date">
+                                                        <i class="fa fa-calendar"></i>
+                                                        <p><em>{{post.created_on|date:"d M Y"}}</em></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="sn_img">
+                                                {% if post.photo %}
+                                                <img src="{{ post.photo.url }}" alt="">
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

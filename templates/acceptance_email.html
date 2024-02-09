@@ -1,0 +1,48 @@
+<!-- acceptance_email.html -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,900&display=swap" rel="stylesheet">
+      </head>
+      
+        <body style = " text-align: center;
+            padding: 40px 0;
+            background: #EBF0F5;">
+          <div class="card">
+          <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
+            <i class="checkmark" style="color: #9ABC66;
+            font-size: 100px;
+            line-height: 200px;
+            margin-left:-15px;">✓</i>
+          </div>
+          <p>Dear {{ applicant.name }},</p>
+            <h1 style =" color: #88B04B;
+              font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+              font-weight: 900;
+              font-size: 40px;
+              margin-bottom: 10px;">Congratulations!!!</h1> 
+            <p>Congratulations! You've been selected for the [{{ applicant.name }}] in our lab. Your skills and expertise impressed us. We look forward to welcoming you and working together to achieve great things. </p>
+          </div>
+          
+          
+        <table style="border: 0; padding-left: 350px; width: 100%; max-width: 600px">
+          <tr>
+            <td align="center" valign="top" style="padding: 36px 24px">
+              <a href="https://www.facebook.com/amirlabbd" target="_blank" style="display: inline-block">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg" alt="Logo" border="0" width="48" style="display: block; width: 48px; max-width: 48px; min-width: 48px" />
+              </a>
+            </td>
+            <td align="center" valign="top" style="padding: 36px 24px">
+              <a href="https://www.linkedin.com/company/advanced-machine-intelligence-research-lab-amirl/" target="_blank" style="display: inline-block">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="Logo" border="0" width="48" style="display: block; width: 48px; max-width: 48px; min-width: 48px" />
+              </a>
+            </td>
+            <td align="center" valign="top" style="padding: 36px 24px">
+              <a href="https://twitter.com/amirlabbd" target="_blank" style="display: inline-block">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_of_Twitter.svg" alt="Logo" border="0" width="48" style="display: block; width: 48px; max-width: 48px; min-width: 48px" />
+              </a>
+            </td>
+          </tr>
+        </table>
+        </body>
+</html>

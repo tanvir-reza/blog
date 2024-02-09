@@ -1,0 +1,55 @@
+
+{% extends 'basic.html' %}
+
+{% block title %}
+AMIR Lab | MISSION
+{% endblock title %} 
+
+{% load static %}
+{% block body %}
+
+<section id="page-content" class="page-wrapper">
+    <section class="mbr-section mbr-section--relative mbr-section--fixed-size mbr-parallax-background mbr-after-navbar"
+    id="content5-94" data-rv-view="79"
+    style="background-image: url({% static '/images/4.jpg' %});">
+    <div class="mbr-section__container container mbr-section__container--isolated">
+        <div class="mbr-header mbr-header--wysiwyg row">
+            <div class="col-sm-8 col-sm-offset-2">
+                <h3 class="mbr-header__text">MISSION OF AMIR Lab</h3>
+
+            </div>
+        </div>
+    </div>
+</section>
+    <div class="vission_section_area ">
+        <div class="vission_content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 ptb-80 sptb">
+                        <div class="message_title">
+                            <div class="committee_title mission">
+                                <h3>Mission of <span>AMIR Lab:</span></h3>
+                                <img src="{% static 'images/MIR-Icon.png' %}" alt="BUBT Logo">
+                            </div>
+                        </div>
+                        <div class="message_body mission_vission mission">
+                            {% for p in posts  %}
+                                <P>{{p.text | safe}}</P>
+                            {%endfor%}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="vision_area">
+                            <div class="vision_photo">
+                                <img src="{% static 'images/bg/v.jpg' %}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</section>
+
+{% endblock %}

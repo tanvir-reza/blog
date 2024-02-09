@@ -7,20 +7,24 @@ from io import BytesIO
 import uuid
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.core.files import File
+from django.utils import timezone
+from django.core.validators import RegexValidator
+
+
 STATUS = (
     (0,"Draft"),
     (1,"Publish")
 )
-PEOPLE_CHOICES = (
-	('Founder & Research Director','Founder & Research Director'),
-    ('Advisor','Advisor'),
-    ('Head of the Department', 'Head of the Department'),
-    ('Lead Researcher', 'Lead Researcher'),
-    ('Researcher', 'Researcher'),
-	('Research Assistant','Research Assistant'),
-    ('Research Intern','Research Intern'),
-    ('Alumni','Alumni'),
-)
+# PEOPLE_CHOICES = (
+# 	('Founder & Research Director','Founder & Research Director'),
+#     ('Advisor','Advisor'),
+#     ('Head of the Department', 'Head of the Department'),
+#     ('Lead Researcher', 'Lead Researcher'),
+#     ('Researcher', 'Researcher'),
+# 	('Research Assistant','Research Assistant'),
+#     ('Research Intern','Research Intern'),
+#     ('Alumni','Alumni'),
+# )
 
 
 def compress(image):
@@ -55,9 +59,9 @@ class HomeSlider (models.Model):
         return self.title
  
  
-# class AdvisorMsg (models.Model):
-#     AdvisorName = models.CharField(max_length=200, blank = True)
-#     AdvisorDegi = models.CharField(max_length=200, blank = True)
+# class FounderMsg (models.Model):
+#     FounderName = models.CharField(max_length=200, blank = True)
+#     FounderDegi = models.CharField(max_length=200, blank = True)
 #     photo = models.ImageField(upload_to='ChairmanMsg/', blank = True)
 #     message = RichTextField(blank=True, null=True)
 #     updated_on = models.DateTimeField(auto_now = True)
@@ -169,9 +173,6 @@ class trainingProgram(models.Model):
     def __str__(self):
         return self.title
     
-
-
-
 class ResurachUnit_Designation(models.Model):
     title = models.CharField(max_length=250, unique=True, default="")
 
@@ -183,7 +184,7 @@ class ResurachUnit_Designation(models.Model):
         return self.title
     
 
-    
+  
 class ResearchTopic(models.Model):
     research_topic = models.CharField(max_length=100)
     slug = models.CharField(max_length=250)
@@ -212,8 +213,18 @@ class ResearchAreaPeople(models.Model):
 
     def __str__(self) -> str:
         return f"{self.people} - {self.research_topic} - {self.designation}"
-    
 
+class PeopleCategory(models.Model):
+    CategoryName = models.CharField(max_length= 250,blank = True , default="")
+    CatOrder = models.IntegerField(blank=False, default="", unique=True)
+    slug = models.CharField(max_length=20)
+    class Meta:
+        ordering = ["CatOrder"]
+        verbose_name = ("People Category")
+        verbose_name_plural = ("People Categorys")
+          
+    def __str__(self):
+        return f"{self.CategoryName}-{self.slug}"
 
 class People(models.Model):
 
@@ -222,7 +233,8 @@ class People(models.Model):
     designation = models.ForeignKey(Designation, on_delete= models.CASCADE, verbose_name ="Designation", blank = False , null=True)  
     LoginUser = models.ForeignKey(User, on_delete= models.CASCADE, verbose_name = ("Select your E-mail"),null=True )
     university = models.TextField(max_length=300,null=True,blank=True)
-    category = models.CharField(max_length=100,choices=PEOPLE_CHOICES,default="research_student")
+    #category = models.CharField(max_length=100,choices=PEOPLE_CHOICES,default="research_student")
+    category = models.ManyToManyField(PeopleCategory, blank=True)
     img = models.FileField(upload_to="people/",blank = True, verbose_name = ("Photo"))
     email= models.CharField(max_length=200, blank = True)
     research_Topic = models.ManyToManyField(ResearchTopic, blank=True)
@@ -281,11 +293,12 @@ class PublicationCategory(models.Model):
           
     def __str__(self):
         return self.PublicationType
-    
+     
 class Publications(models.Model):
     Publication_Title = models.CharField(max_length=200, blank = False, default="")
     details =  RichTextField(blank=True, null=True , default = "")
     category = models.ForeignKey(PublicationCategory, verbose_name=("PublicationCategory"), on_delete=models.CASCADE , default="")
+    publish_on = models.DateTimeField( blank = True,null=True)
     status = models.IntegerField(choices=STATUS, default = 1)
     total_views = models.IntegerField(default=0)
       
@@ -391,3 +404,110 @@ class openPositon(models.Model):
 #         return self.project_Title
 #     # def get_absolute_url(self):
 #     #     return reverse('CapstoneProject:capstoneProject_detail', args=[self.slug])
+
+
+   
+class VisionAMIRL (models.Model):
+    text = RichTextField()
+    updated_on = models.DateTimeField(auto_now = True)
+    created_on = models.DateTimeField(auto_now_add =True)
+    status = models.IntegerField(choices=STATUS, default = 1)
+    total_views=models.IntegerField(default=0)
+    class Meta:
+        ordering = []
+        verbose_name = 'Vision of AMIR Lab'
+        verbose_name_plural = 'Vision of AMIR Lab'
+
+class MissionAMIRL (models.Model):
+    text = RichTextField()
+    updated_on = models.DateTimeField(auto_now = True)
+    created_on = models.DateTimeField(auto_now_add =True)
+    status = models.IntegerField(choices=STATUS, default = 1)
+    total_views=models.IntegerField(default=0)
+    class Meta:
+        ordering = []
+        verbose_name = 'Mission of AMIR Lab'
+        verbose_name_plural = 'Mission of AMIR Lab'
+
+
+class WhyatAMIRL (models.Model):
+    text = RichTextField()
+    updated_on = models.DateTimeField(auto_now = True)
+    created_on = models.DateTimeField(auto_now_add =True)
+    status = models.IntegerField(choices=STATUS, default = 1)
+    total_views=models.IntegerField(default=0)
+    class Meta:
+        ordering = []
+        verbose_name = 'Why at AMIRL'
+        verbose_name_plural = 'Why at AMIRL'
+
+
+class Achivements (models.Model):
+    title = models.CharField(max_length=200, blank = True)
+    photo = models.ImageField(upload_to='Achivements/', blank = True, default='')
+    content = RichTextField(blank=True, null=True)
+    updated_on = models.DateTimeField(auto_now = True)
+    created_on = models.DateTimeField(blank = False, verbose_name ='On Date')
+    status = models.IntegerField(choices=STATUS, default = 1)
+    total_views=models.IntegerField(default=0)
+
+    #for compress images
+    if photo.blank == False :
+        def save(self, *args, **kwargs):
+
+            # call the compress function
+            new_image = compress(self.photo)
+            # set self.image to new_image
+            self.photo = new_image
+            # save
+            super().save(*args, **kwargs)
+
+    class Meta:
+        ordering = []
+        verbose_name = 'Achivement Publication'
+        verbose_name_plural = 'Achivement Publications'
+    def __str__(self):
+        return self.title 
+class AdminCommittee(models.Model):
+    title = models.CharField(max_length=250, unique=True, default="")
+    dsgOrder = models.CharField(max_length=3, blank=True, default="", unique=True)
+
+    class Meta:
+        verbose_name = 'Admin Committee'
+        verbose_name_plural = 'Admin Committees'
+
+    def __str__(self):
+        return self.title
+class AdminCommitteeDetails (models.Model):
+    MemberName=models.ForeignKey(People, on_delete= models.CASCADE, verbose_name ="Admin Committee Name", blank = False,  default="")
+    Role = models.CharField(max_length=200, blank = True)
+    Committee = models.ManyToManyField(AdminCommittee, blank = False,  default="", verbose_name ="Admin Committee Name")
+    updated_on = models.DateTimeField(auto_now = True)
+    created_on = models.DateTimeField(auto_now_add =True)
+    status = models.IntegerField(choices=STATUS, default = 1)
+    total_views=models.IntegerField(default=0)
+    
+    #for compress images
+  
+    def __str__(self):
+        return self.Role
+
+class Applicant(models.Model):
+    AFFILIATION_CHOICES = [
+        ('Student', 'Student'),
+        ('Work', 'Work'),
+        ('Others', 'Others'),
+    ]
+    name = models.CharField(max_length=100)
+    CurrentAffiliations=models.TextField(max_length=200, choices=AFFILIATION_CHOICES)
+    InterestedResearchTeam = models.ForeignKey(ResearchTopic, on_delete=models.CASCADE)
+    Position=models.ForeignKey(ResurachUnit_Designation,on_delete=models.CASCADE)
+    email = models.EmailField()
+    phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
+    Phone = models.CharField(validators=[phone_regex], max_length=17, blank=True) # Validators should be a list
+    PreviousExperience=models.TextField()
+    resume = models.FileField(upload_to='resumes/')
+    accepted = models.BooleanField(default=False)  # New field for acceptance status
+    confirmation_email_sent = models.BooleanField(default=False)
+    def __str__(self):
+        return self.name

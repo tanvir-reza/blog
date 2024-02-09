@@ -10,10 +10,10 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image:src" content="">
   <meta property="og:image" content="">
-  <meta name="twitter:title" content="@AMIR Labs">
+  <meta name="twitter:title" content="@AMIR Lab">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
   <link rel="shortcut icon" href="images/fab.png" type="image/x-icon">
-  <meta name="description" content="">
+  <meta name="description" content="Advanced Machine Intelligence Research Lab - AMIR Lab,AMIR,Lab,AMIRL,AMIR Lab,Advanced Machine Intelligence Research Lab">
 
 
   <title>{% block title %}{% endblock title %}</title>
@@ -30,9 +30,12 @@
   <link rel="stylesheet" href="{% static 'mobirise-icons/mobirise-icons.css' %}">
   <link rel="stylesheet" href="{% static 'mobirise-icons/mobirise-icons-bold.css' %}">
   <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+      <!-- Add Bootstrap 4 CSS -->
+      <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZwT" crossorigin="anonymous"> -->
+
   <!--   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> -->
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">
   <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+	  <link rel="stylesheet" href="{% static 'css/style.css' %}">
   <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
   <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
   <link rel="stylesheet" href="{% static 'css/owl.css' %}">
@@ -48,7 +51,7 @@
 
     <nav class="navbar navbar-dropdown navbar-fixed-top">
 
-      <div class="container">
+      <div class="container-fulid">
 
         <div class="navbar-brand">
           <a href="{% url 'index' %}" class="navbar-logo"><img src="{% static 'images/logo.png' %}" alt="Logo"></a>
@@ -63,6 +66,18 @@
           <li class="nav-item">
             <a class="nav-link link text-primary" href="{% url 'index' %}">HOME</a>
           </li>
+          <li class="nav-item drop">
+            <a class="nav-link link text-primary" href="#">ABOUT</a>
+            <ul class="dropdown">
+              <li><a href="{% url 'Vision' %}">Vision of AMIR <Label></Label></a></li>
+              <li><a href="{% url 'Mison' %}">Mission of AMIR Lab</a></li>
+              <li><a href="{% url 'founderMsg' %}">Messages from The Founder</a></li>
+              <li><a href="{% url 'ApprovalCommittee' %}">Research Ethics Approval Committee</a></li>
+              <li><a href="{% url 'AdministUnit' %}">Research Facility Administrative Units</a></li>
+              <li><a href="{% url 'Achivement' %}">Achievement</a></li>
+              <li><a href="{% url 'WhyAMIRL' %}">Why AMIR Lab?</a></li>
+          </ul>
+          </li>
           <li class="nav-item">
             <a class="nav-link link text-primary" href="{% url 'people' %}" aria-expanded="false">TEAM</a>
           </li>
@@ -74,7 +89,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link link text-primary" href="{% url 'ResearchUint' %}">RESEARCH UNITS</a>
+            <a class="nav-link link text-primary" href="{% url 'ResearchUint' %}">RESEARCH DEPARTMENTS</a>
           </li>
           <li class="nav-item">
             <a class="nav-link link text-primary" href="{% url 'OpenPositions' %}">OPEN POSITIONS</a>
@@ -163,14 +178,14 @@
                               </a>
                           </div>
                           <div class="footerTitle">
-                              <h3><strong>AMIRL</strong></h3>
+                              <h3><strong>AMIR Lab</strong></h3>
                               <h5><strong>Advanced Machine Intelligence Research Lab</strong></h5>
                           </div>
                           <ul class="footer_address">
                               <li>
                                   <p>
                                       <i class="fa fa-map-marker"></i>
-                                      House # 105, Road # 4, Block-B, Banani, Dhaka-1213
+                                      Dhaka,Bangladesh.
                                   </p>
                               </li>
                               <li>
@@ -182,7 +197,7 @@
                               <li>
                                   <a href="tel:+8801674791594">
                                       <i class="fa fa-phone"></i>
-                                      +8801674791594 
+                                      +8801674791594(Whatsapp) 
                                   </a>
                               </li>
                           </ul>
@@ -193,7 +208,7 @@
                   <div class="row">
                       <div class="copyright_inner">
                           <div class="copyright">
-                            <p>© 2023 <a href="/">AMIRL</a> All Right Reserved.&nbsp&nbsp<a href=""></a></p></div>
+                            <p>© 2023 <a href="/">AMIR Lab</a> All Right Reserved.&nbsp&nbsp<a href=""></a></p></div>
                           <div class="footer_social">
                               <ul class="footer_menu">
                                   <li><a href="" target="_blank"><i class="fa fa-facebook"></i></a></li>
